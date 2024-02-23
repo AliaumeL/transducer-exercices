@@ -1,58 +1,261 @@
 ---
 author: Aliaume LOPEZ
 title: Transducer Exercice Session
+subtitle: Mealy Machines
+lang: en-US
+session: 1
+date: 2024-02-26
+header-includes: |
+    <script>
+        const connect = () => {
+            const ws = new WebSocket("ws://localhost:8080");
+            ws.onopen = () => setTimeout(() => ws.send("keepalive"), 30000);
+            ws.onclose = () => setTimeout(connect, 1000);
+            ws.onmessage = () => location.reload();
+        };
+        connect();
+    </script>
 ---
 
-# Sequential Functions and Mealy Machines
+\newcommand{\Nat}{\mathbb{N}}
 
-## Exercice 1
+\newcommand{\mealy}[1]{\mathcal{#1}}
+\newcommand{\defined}{:=}
+\newcommand{\emptyword}{\varepsilon}
+\newcommand{\concat}{\mathrel{\cdot}}
+\newcommand{\set}[1]{\{ #1 \}}
+\newcommand{\setof}[2]{\{ #1 \mid #2 \}}
+\newcommand{\Parts}{\mathop{\mathcal{P}}}
+\newcommand{\preim}[2]{{#1}^{-1}\left(#2\right)}
+\newcommand{\count}[2][]{\left| #2 \right|_{#1}}
+\newcommand{\im}[2]{#1\left(#2\right)}
+\newcommand{\graph}{\mathsf{graph}}
+\newcommand{\topartial}{\rightharpoonup}
 
-- lowercase 
-- tabs vs spaces
-- dividing by 5 in unary, in binary (reverse binary)?
-- Adding two numbers in unary, binary, (reverse binary)?
-- $f_a \colon u \mapsto c^{|u|_a}$
-- $f_{ab} \colon u \mapsto c^{|u|_a + |u|_b}$
-- $f_{ab} \colon u \mapsto c^{\min(|u|_a,|u|_b)}$
-- $f : u \mapsto u u$.
+\newcommand{\lowercase}{\mathsf{lowercase}}
+\newcommand{\expandtabs}{\mathsf{expandtabs}}
+\newcommand{\sort}{\mathsf{sort}}
 
-## Exercice 2
+# Mealy Machines
 
-Prove that the image of a sequential function is a rational language.
-Similarly, prove that the image of a rational function is a regular language.
+## True or False? {.exercice}
 
-More generally, prove that a sequential function $f$ is continuous and open
-for the "regular topology".
+For each of the following functions, decide whether they can be realized by a
+Mealy Machine. In positive cases, provide the Mealy Machine, in negative cases,
+provide a proof that it cannot be realized.
 
-## Exercice 4
+- [ ] The function $\lowercase \colon \Sigma^* \to \Sigma^*$,
+      where $\Sigma$ is the latin alphabet,
+      that maps a word $w$ to its lowercase variant. 
+      For instance, $\lowercase(aAbcDA) = aabcda$.
 
-1. Write a sequential function that computes (n,4n) in binary
-2. Write a sequential function that computes $n+m$ in binary 3. Deduce a sequential function that computes $5n$ in binary by using the wreath product construction
+- [ ] The function $\expandtabs \colon \Sigma^* \to \Sigma^*$
+      that works on the alphabet $\Sigma$ of ASCII characters, 
+      and replaces the `tab` codepoint `\t` by four spaces codepoints.
 
-## Exercice 5
+- [ ] The function $w \mapsto c^{\count[a]{w}}$.
 
-1. Can we decide if two sequential functions are equal?
-2. Can we decide if a sequential function is surjective?
-3. Can we decide if a sequential function is injective? (show that the kernel is a rational language)
+- [ ] The function $\sort \colon \Sigma^* \to \Sigma^*$ that
+      sorts its input, where $\Sigma$ is a finite alphabet
+      equipped with a total ordering $\leq$.
+
+- [ ] The function $\Delta \colon \Sigma^* \to \Sigma^*$ that
+      maps $u$ to $uu$.
+
+
+## Arithmetic Circuits
+
+The goal of this exercise is to prove that operations on binary numbers are
+possible. To that end we have to provide an encoding of tuples numbers, which
+we do as follows: a tuple $(n_1, \dots, n_k) \in \Nat^k$ is represented on the
+alphabet $\set{0, 1}^k$ by writing the numbers in *binary*, and *padding them
+with zeros* so that the length matches. There are four variants of this
+encoding, obtained by deciding whether to pad on the left or the right, and
+whether to write numbers with the most significant bit on the left or the
+right.
+
+### Addition
+
+For each of the four possible encodings, decide whether the map $(+) \colon
+\Nat^2 \to \Nat$ can be represented using a Mealy Machine.
+
+### Division by 3
+
+For each of the four possible encodings, decide whether the map $(/3) \colon
+\Nat \to \Nat$ can be represented using a Mealy Machine.
+
+### Composition, and multiplication
+
+1. Write a Mealy Machine that computes $(n,4n)$ in binary.
+2. Deduce a Mealy Machine that computes $5n$ in binary by using the
+   wreath product construction and the construction of the addition.
+
+### Bonus: Presburger Arithmetic
+
+Prove that Presburger Arithmetic is decidable.
+
+## Regularity of Mealy Machines
+
+The goal of this exercise is to understand the relationship between Mealy
+Machines and regular languages. Let $f \colon \Sigma^* \to \Gamma^*$ 
+be a function computed by a Mealy Machine.
+
+1. Prove that the image of $\Sigma^*$ through $f$ is a regular language.
+2. Prove that the pre-image of $\Gamma^*$ through $f$ is a regular language.
+3. Let $L$ be a regular language, prove that $\im{f}{L}$ and $\preim{f}{L}$ are
+   regular languages, i.e., that $f$ is *open* and *continuous* for the
+   *regular topology*.
+4. Is every *open* and *continuous* map computable by a Mealy Machine?
+5. A function $f \colon \Sigma^* \to \Gamma^*$ is *Lipschitz* 
+   for the *prefix distance*. What is the value of the Lipschitz constant?
+6. The graph of a function $f \colon X \to Y$ is the subset $\graph(f)
+   \subseteq X \times Y$ defined by $\setof{ (x,y) \in X \times Y }{ f(x) = y
+   }$. Can you provide a necessary and sufficient condition on the graph of $f$
+   for it to be representable using a Mealy Machine?
+
+## Decidability Properties of Mealy Machines
+
+In this exercise, the goal is to understand what is decidable about Mealy
+Machines. For each of the following questions, prove (or disprove) that it is
+decidable, and in case of decidability, provide a precise complexity class.
+
+1. Can we decide if two Mealy Machines compute the same function?
+2. Can we decide if a Mealy Machine is surjective?
 4. Can we decide if $f(w) \sqsubseteq g(w)$ for all $w \in \Sigma^*$?
+3. Can we decide if a Mealy Machine is injective? (hint: show that the kernel
+   is a rational language)
 5. Can we decide if there exists $w \in \Sigma^*$ such that $f(w) = g(w)$?
-6. Can we decide if a Turing machine computes a sequential function?
+6. Can we decide if a Turing machine computes a function that can be computed
+   by a Mealy Machine?
 
-## Exercice 6
 
-Is the union of two sequential functions a sequential function? (union of disjoint domains)
 
-## Exercice 7
+# Homework
+
+
+
+## Efficient String Matching 
+
+The goal of this homework is to study the problem of string matching. That is,
+given a pattern $m \in \Sigma^*$ and a text $t \in \Sigma^*$, one wants to
+produce a text $m(t) \in (\Sigma \uplus \bar{\Sigma})^*$ where occurrences of
+$m$ are overlined. To avoid ambiguity, we will overline *non-overlapping*
+occurrences of the pattern, starting from the left of the text $t$.
+
+1. Is the function that underlines the *starts* of the matches computable by a
+   Mealy Machine? By a *sequential function*? By a Mealy Machine with
+   *lookaheads*?
+2. Same question with underlining the *ends* of the matches.
+3. Same question for the function $m$.
+4. Conclude by providing an efficient algorithm to perform string matching.
+   What is the (time/space() complexity in $\count{m}$? What is the
+   (time/space) complexity in $\count{t}$?
+
+## Stability properties of Sequential Functions
 
 Prove that the following propositions are equivalent for a function $f \colon \Sigma^* \to \Gamma^*$:
 
 1. $f$ is sequential.
-2. $f$ is continuous for the regular topology AND Lipschitz for the prefix distance.
+2. $f$ is continuous for the regular topology,
+    Lipschitz for the prefix distance,
+    and preserves prefixes.
+
+# Cheat Sheet {.cheat-sheet}
+
+## Machines
+
+### Mealy Machine {.def}
+
+Let $\Sigma$ and $\Gamma$ be two alphabets.
+A Mealy Machine $\mealy{M}$ is a tuple $(q_0, Q, \delta, \lambda)$ 
+such that
+
+1. $Q$ is a finite set of *states*.
+2. $q_0 \in Q$ is the *initial state*.
+3. $\delta \colon Q \times \Sigma \to Q$ is a
+   *transition function*.
+4. $\lambda \colon Q \times \Sigma \to \Gamma$ is an *output function*.
 
 
-# Rational Functions
+The semantics of a Mealy Machine is given by the following inductive
+equations:
 
-# Regular Functions
+$$
+    \mealy{M}(w) \defined \mealy{M}(q_0, w) 
+    \quad 
+    \mealy{M}(q,\emptyword) \defined \emptyword
+    \quad 
+    \mealy{M}(q,au) \defined \lambda(q,a) \concat \mealy{M}(\delta(q,a), u)
+$$
 
-# Polyregular Functions
+### Mealy Machine With Lookahead {.def}
+
+Let $\Sigma$ and $\Gamma$ be two alphabets.
+A Mealy Machine with Lookahead $\mealy{M}$ is a tuple $(q_0, Q, \delta, \lambda)$ 
+such that
+
+1. $Q$ is a finite set of *states*.
+2. $q_0 \in Q$ is the *initial state*.
+3. $\delta \subseteq Q \times \Sigma \times Q$ is a
+   *transition relation*.
+4. $\lambda \colon Q \times \Sigma \times Q \to \Gamma$ is an *output function*.
+
+The semantics of the Mealy Machine is given by considering potential *runs* of
+the machine. If all runs agree on the output, then it is defined, otherwise,
+the output is not defined. Therefore, these machines compute *partial
+functions*.
+
+### Sequential Functions {.def}
+
+Let $\Sigma$ and $\Gamma$ be two alphabets.
+A *sequential transducer* $A$ is a tuple $(q_0, Q, \delta, \lambda)$ 
+such that
+
+1. $Q$ is a finite set of *states*.
+2. $q_0 \in Q$ is the *initial state*.
+3. $\delta \colon Q \times \Sigma \topartial Q$ is a **partial**
+   *transition function*.
+4. $\lambda \colon Q \times \Sigma \to \Gamma^*$ is an *output function*.
+
+The semantics is defined as for Mealy Machines.
+
+**Warning:** this is sometimes called *pure sequential functions*.
+
+## Maths
+
+### Topology and Continuous functions
+
+Let $X$ be a set. A *topology* over $X$ is a subset $\tau$ of $\Parts(X)$
+closed under finite intersections and arbitrary unions. In a topological space
+$(X, \tau)$, the subsets in $\tau$ are called *open subsets*, and their
+complement are called *closed subsets*.
+
+A function $f \colon (X, \tau) \to (Y,\theta)$ is *continuous* whenever for all
+open subset $U \in \theta$, its pre-image $\preim{f}{U}$ is an open subset of
+$\tau$. Equivalently, it is continuous if the pre-image of closed subsets are
+closed subsets.
+
+### Lipschitz functions {.def}
+
+A function $f \colon (X,d_X) \to (Y, d_Y)$ is *Lipschitz* if there exists a
+constant $K \geq 0$ such that for all $x_1,x_2 \in X^2$, $d_Y(f(x_1), f(x_2))
+\leq K d_X(x_1, x_2)$.
+
+### Prefix Distance {.def}
+
+Let $\Sigma^*$ be a finite alphabet. The *prefix distance* between two words
+$u,v$ is $\count{u} + \count{v} - 2 \count{w}$ where $w$ is the longest common
+prefix of $u$ and $v$.
+
+
+### Regular Topology {.def}
+
+Let $\Sigma$ be a finite alphabet. We equip $\Sigma^*$ with a metric distance
+as follows: to a pair of words $u,w$, we associate the minimal size $s(u,w)$ of
+a deterministic automaton that *separates* $u$ from $w$. The *distance* between
+two words $u$ and $w$, is defined as $d(u,w) \defined 2^{-s(u,w)}$. The
+*regular topology* is the topology defined by this metric on $\Sigma^*$.
+
+Equivalently, the *regular topology* is the coarsest topology containing the
+regular languages as *closed subsets*.
 
