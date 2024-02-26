@@ -4,7 +4,7 @@
 	latexmk -pdf $<
 
 %.tex: %.md
-	pandoc -s -o $@ $<
+	pandoc --number-sections -s -o $@ $<
 
 %.html: %.md
 	pandoc --number-sections -s -o $@ $<

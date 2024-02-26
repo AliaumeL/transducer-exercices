@@ -27,12 +27,12 @@ header-includes: |
 \newcommand{\setof}[2]{\{ #1 \mid #2 \}}
 \newcommand{\Parts}{\mathop{\mathcal{P}}}
 \newcommand{\preim}[2]{{#1}^{-1}\left(#2\right)}
-\newcommand{\count}[2][]{\left| #2 \right|_{#1}}
+\newcommand{\vcount}[2][]{\left| #2 \right|_{#1}}
 \newcommand{\im}[2]{#1\left(#2\right)}
 \newcommand{\graph}{\mathsf{graph}}
 \newcommand{\topartial}{\rightharpoonup}
 
-\newcommand{\lowercase}{\mathsf{lowercase}}
+\newcommand{\lowercaseExample}{\mathsf{lowercase}}
 \newcommand{\expandtabs}{\mathsf{expandtabs}}
 \newcommand{\sort}{\mathsf{sort}}
 
@@ -44,16 +44,16 @@ For each of the following functions, decide whether they can be realized by a
 Mealy Machine. In positive cases, provide the Mealy Machine, in negative cases,
 provide a proof that it cannot be realized.
 
-- [ ] The function $\lowercase \colon \Sigma^* \to \Sigma^*$,
+- [ ] The function $\lowercaseExample \colon \Sigma^* \to \Sigma^*$,
       where $\Sigma$ is the latin alphabet,
       that maps a word $w$ to its lowercase variant. 
-      For instance, $\lowercase(aAbcDA) = aabcda$.
+      For instance, $\lowercaseExample(aAbcDA) = aabcda$.
 
 - [ ] The function $\expandtabs \colon \Sigma^* \to \Sigma^*$
       that works on the alphabet $\Sigma$ of ASCII characters, 
       and replaces the `tab` codepoint `\t` by four spaces codepoints.
 
-- [ ] The function $w \mapsto c^{\count[a]{w}}$.
+- [ ] The function $w \mapsto c^{\vcount[a]{w}}$.
 
 - [ ] The function $\sort \colon \Sigma^* \to \Sigma^*$ that
       sorts its input, where $\Sigma$ is a finite alphabet
@@ -148,8 +148,8 @@ occurrences of the pattern, starting from the left of the text $t$.
 2. Same question with underlining the *ends* of the matches.
 3. Same question for the function $m$.
 4. Conclude by providing an efficient algorithm to perform string matching.
-   What is the (time/space() complexity in $\count{m}$? What is the
-   (time/space) complexity in $\count{t}$?
+   What is the (time/space() complexity in $\vcount{m}$? What is the
+   (time/space) complexity in $\vcount{t}$?
 
 ## Stability properties of Sequential Functions
 
@@ -159,6 +159,8 @@ Prove that the following propositions are equivalent for a function $f \colon \S
 2. $f$ is continuous for the regular topology,
     Lipschitz for the prefix distance,
     and preserves prefixes.
+
+\clearpage
 
 # Cheat Sheet {.cheat-sheet}
 
@@ -179,7 +181,6 @@ such that
 
 The semantics of a Mealy Machine is given by the following inductive
 equations:
-
 $$
     \mealy{M}(w) \defined \mealy{M}(q_0, w) 
     \quad 
@@ -244,7 +245,7 @@ constant $K \geq 0$ such that for all $x_1,x_2 \in X^2$, $d_Y(f(x_1), f(x_2))
 ### Prefix Distance {.def}
 
 Let $\Sigma^*$ be a finite alphabet. The *prefix distance* between two words
-$u,v$ is $\count{u} + \count{v} - 2 \count{w}$ where $w$ is the longest common
+$u,v$ is $\vcount{u} + \vcount{v} - 2 \vcount{w}$ where $w$ is the longest common
 prefix of $u$ and $v$.
 
 
