@@ -24,7 +24,8 @@ header-includes: |
 \newcommand{\emptyword}{\varepsilon}
 \newcommand{\concat}{\mathrel{\cdot}}
 \newcommand{\set}[1]{\{ #1 \}}
-\newcommand{\setof}[2]{\{ #1 \mid #2 \}}
+\newcommand{\setof}[2]{\left\{#1 \mid #2\right\}}
+\newcommand{\seqof}[2]{\left(#1\right)_{#2}}
 \newcommand{\Parts}{\mathop{\mathcal{P}}}
 \newcommand{\preim}[2]{{#1}^{-1}\left(#2\right)}
 \newcommand{\vcount}[2][]{\left| #2 \right|_{#1}}
@@ -32,13 +33,20 @@ header-includes: |
 \newcommand{\graph}{\mathsf{graph}}
 \newcommand{\topartial}{\rightharpoonup}
 
+\newcommand{\prefleq}{\mathrel{\sqsubseteq_{\mathsf{prefix}}}}
+
+
+\newcommand{\Res}{\mathsf{Res}}
+\newcommand{\resi}[2]{{#2}^{-1}{#1}}
+
 \newcommand{\lowercaseExample}{\mathsf{lowercase}}
 \newcommand{\expandtabs}{\mathsf{expandtabs}}
 \newcommand{\sort}{\mathsf{sort}}
+\newcommand{\swap}{\mathsf{swap}}
 
 # Mealy Machines
 
-## True or False? {.exercice}
+## True or False? {.exercise}
 
 For each of the following functions, decide whether they can be realized by a
 Mealy Machine. In positive cases, provide the Mealy Machine, in negative cases,
@@ -62,8 +70,11 @@ provide a proof that it cannot be realized.
 - [ ] The function $\Delta \colon \Sigma^* \to \Sigma^*$ that
       maps $u$ to $uu$.
 
+- [ ] The function $\swap \colon \Sigma^* \to \Sigma^*$ that maps $au$ to $ua$
+  and $\emptyword$ to $\emptyword$.
 
-## Arithmetic Circuits
+
+## Arithmetic Circuits {.exercise}
 
 The goal of this exercise is to prove that operations on binary numbers are
 possible. To that end we have to provide an encoding of tuples numbers, which
@@ -74,27 +85,33 @@ encoding, obtained by deciding whether to pad on the left or the right, and
 whether to write numbers with the most significant bit on the left or the
 right.
 
-### Addition
+1. For each of the four possible encodings, decide whether the map $(+) \colon
+   \Nat^2 \to \Nat$ can be represented using a Mealy Machine.
+2. For each of the four possible encodings, decide whether the map $(/3) \colon
+   \Nat \to \Nat$ can be represented using a Mealy Machine.
+3. Write a Mealy Machine that computes $(n,4n)$ in binary.
+4. Deduce a Mealy Machine that computes $5n$ in binary by using the wreath
+   product construction and the construction of the addition.
 
-For each of the four possible encodings, decide whether the map $(+) \colon
-\Nat^2 \to \Nat$ can be represented using a Mealy Machine.
-
-### Division by 3
-
-For each of the four possible encodings, decide whether the map $(/3) \colon
-\Nat \to \Nat$ can be represented using a Mealy Machine.
-
-### Composition, and multiplication
-
-1. Write a Mealy Machine that computes $(n,4n)$ in binary.
-2. Deduce a Mealy Machine that computes $5n$ in binary by using the
-   wreath product construction and the construction of the addition.
-
-### Bonus: Presburger Arithmetic
+## Bonus: Presburger Arithmetic {.exercise}
 
 Prove that Presburger Arithmetic is decidable.
 
-## Regularity of Mealy Machines
+### Encoding of numbers and formulas {.hint}
+
+Encode a formula $\varphi(\vec{x})$ as a **regular** language of $\Nat^X$,
+where numbers are encoded in binary with the most significant bit is on the
+left, and the padding is on the right.
+
+### Presburger Operators {.hint}
+
+Start by proving that each of these operations are computed by Mealy Machines.
+
+1. The equality operator $(=) \colon \Nat^3 \to \set{0,1}$.
+2. The addition operator $(+) \colon \Nat^2 \to \Nat$.
+3. The existential quantifier $(\exists x) \colon \Nat^{x \vec{y}} \to \Nat^{\vec{y}}$.
+
+## Regularity of Mealy Machines {.exercise} 
 
 The goal of this exercise is to understand the relationship between Mealy
 Machines and regular languages. Let $f \colon \Sigma^* \to \Gamma^*$ 
@@ -113,7 +130,7 @@ be a function computed by a Mealy Machine.
    }$. Can you provide a necessary and sufficient condition on the graph of $f$
    for it to be representable using a Mealy Machine?
 
-## Decidability Properties of Mealy Machines
+## Decidability Properties of Mealy Machines {.exercise}
 
 In this exercise, the goal is to understand what is decidable about Mealy
 Machines. For each of the following questions, prove (or disprove) that it is
@@ -122,19 +139,51 @@ decidable, and in case of decidability, provide a precise complexity class.
 1. Can we decide if two Mealy Machines compute the same function?
 2. Can we decide if a Mealy Machine is surjective?
 4. Can we decide if $f(w) \sqsubseteq g(w)$ for all $w \in \Sigma^*$?
-3. Can we decide if a Mealy Machine is injective? (hint: show that the kernel
-   is a rational language)
+3. Can we decide if a Mealy Machine is injective?
 5. Can we decide if there exists $w \in \Sigma^*$ such that $f(w) = g(w)$?
 6. Can we decide if a Turing machine computes a function that can be computed
    by a Mealy Machine?
 
+### Deciding Injectivity {.hint}
 
+Consider the set $\setof{ (u,v) \in \Sigma^* \times \Sigma^* }{ f(u) = f(v) }$,
+and show that it is a regular language.
+
+## Residuals {.exercise}
+
+The residual of a function $f \colon \Sigma^* \to \Gamma^*$ with respect to
+a word $u \in \Sigma^*$ is the function $\resi{f}{u} \colon \Sigma^* \to
+\Gamma^*$ defined by $\resi{f}{u}(w) \defined f(uw)$. The collection $\Res(f)
+\defined \setof{\resi{f}{u}}{u \in \Sigma^*}$ is the set of *residuals* of $f$.
+We say that $f \prefleq g$ if and only if $f(w) \prefleq g(w)$ for all $w \in
+\Sigma^*$.
+
+1. Prove that if $f$ is a computed by a Mealy Machine, then so does
+   $\resi{f}{u}$, for all $u \in \Sigma^*$.
+2. Provide a counter example to the converse statement.
+3. Let $f$ be computed by a Mealy Machine. Is it true that $(\Res(f),
+   \prefleq)$ is a well-quasi-ordering?
+4. Let $f$ be such that $(\Res(f), \prefleq)$ is a well-quasi-ordering. Is it
+   true that $f$ is computed by a Mealy Machine? 
 
 # Homework
 
+## Variations on Mealy Machines {.exercise}
 
+Describe the relationship between the expressiveness of the following variations
+of Mealy Machines:
 
-## Efficient String Matching 
+1. Mealy Machines
+2. Mealy Machines with lookaheads.
+3. Sequential functions.
+4. Mealy Machines with lookaheads with an ambiguous transition relation, but
+   such that every run produces the same output.
+5. Mealy Machines with lookaheads with an ambiguous transition relation, where
+   the semantic is undefined if there are multiple runs producing different
+   outputs.
+6. Mealy Machines with transitions labelled by regular expressions.
+
+## Efficient String Matching  {.exercise}
 
 The goal of this homework is to study the problem of string matching. That is,
 given a pattern $m \in \Sigma^*$ and a text $t \in \Sigma^*$, one wants to
@@ -148,10 +197,30 @@ occurrences of the pattern, starting from the left of the text $t$.
 2. Same question with underlining the *ends* of the matches.
 3. Same question for the function $m$.
 4. Conclude by providing an efficient algorithm to perform string matching.
-   What is the (time/space() complexity in $\vcount{m}$? What is the
+   What is the (time/space) complexity in $\vcount{m}$? What is the
    (time/space) complexity in $\vcount{t}$?
 
-## Stability properties of Sequential Functions
+
+## Continuous Functions {.exercise}
+
+Prove that there exists uncountably many continuous functions from $\Sigma^*$
+to $\Gamma^*$ for the regular topology.
+
+### The alphabet does not matter {.hint}
+
+Consider the set of all functions from $\Nat$ to $\Nat$.
+
+
+### Sufficient conditions for continuity {.hint}
+
+Show that the following conditions are sufficient for a function $f \colon \Nat \to \Nat$ to be
+continuous:
+
+1. $\forall n \in \Nat, f(n)$ is a factorial,
+2. $\liminf_{n \to \infty} f(n) = \infty$.
+
+
+## Stability properties of Sequential Functions {.exercise}
 
 Prove that the following propositions are equivalent for a function $f \colon \Sigma^* \to \Gamma^*$:
 
@@ -159,6 +228,8 @@ Prove that the following propositions are equivalent for a function $f \colon \S
 2. $f$ is continuous for the regular topology,
     Lipschitz for the prefix distance,
     and preserves prefixes.
+
+
 
 \clearpage
 
@@ -178,7 +249,6 @@ such that
    *transition function*.
 4. $\lambda \colon Q \times \Sigma \to \Gamma$ is an *output function*.
 
-
 The semantics of a Mealy Machine is given by the following inductive
 equations:
 $$
@@ -188,6 +258,12 @@ $$
     \quad 
     \mealy{M}(q,au) \defined \lambda(q,a) \concat \mealy{M}(\delta(q,a), u)
 $$
+
+### Flip-Flop Machine {.def}
+
+A *flip-flop machine* is a Mealy Machine such that for all letters $a \in
+\Sigma$, either $\delta(\cdot,a)$ is the identity function, or it is a constant
+function. It is *binary* when $Q = \set{0,1}$.
 
 ### Mealy Machine With Lookahead {.def}
 
@@ -201,10 +277,13 @@ such that
    *transition relation*.
 4. $\lambda \colon Q \times \Sigma \times Q \to \Gamma$ is an *output function*.
 
+In addition to this syntactic definition, we furthermore assume that for each
+$w \in \Sigma^*$, there exists at most one path in the automaton $(q_0, Q,
+\delta)$ starting from $q_0$ and reading $w$.
+
 The semantics of the Mealy Machine is given by considering potential *runs* of
-the machine. If all runs agree on the output, then it is defined, otherwise,
-the output is not defined. Therefore, these machines compute *partial
-functions*.
+the machine. Because of the absence of ambiguity, it defines a partial map
+$\mealy{M} \colon \Sigma^* \topartial \Gamma^*$.
 
 ### Sequential Functions {.def}
 
@@ -224,7 +303,32 @@ The semantics is defined as for Mealy Machines.
 
 ## Maths
 
-### Topology and Continuous functions
+### Presburger Arithmetic {.def}
+
+Formulas of the Presburger Arithmetic are built from the following grammar:
+
+$$
+\begin{aligned}
+    \varphi &\defined \top \mid \bot \mid \varphi \land \varphi \mid \varphi \lor \varphi \mid \lnot \varphi \mid \exists x. \varphi \mid x = y + z
+\end{aligned}
+$$
+
+Given a valuation $\nu \colon \vec{x} \to \Nat$, we define the semantics of
+$\varphi$ inductively as follows:
+
+$$
+\begin{aligned}
+    \nu \models \top &\iff \text{true} \\
+    \nu \models \bot &\iff \text{false} \\
+    \nu \models \varphi \land \psi &\iff \nu \models \varphi \text{ and }  \nu \models \psi \\
+    \nu \models \varphi \lor \psi &\iff \nu \models \varphi \text{ or } \nu \models \psi \\
+    \nu \models \lnot \varphi &\iff \text{ not } (\nu \models \varphi) \\
+    \nu \models \exists x. \varphi &\iff \text{ there exists } n \in \Nat \text{ s.t. } \nu[x \mapsto n] \models \varphi \\
+    \nu \models x = y + z &\iff \nu(x) = \nu(y) + \nu(z)
+\end{aligned}
+$$
+
+### Topology and Continuous functions {.def}
 
 Let $X$ be a set. A *topology* over $X$ is a subset $\tau$ of $\Parts(X)$
 closed under finite intersections and arbitrary unions. In a topological space
@@ -260,3 +364,9 @@ two words $u$ and $w$, is defined as $d(u,w) \defined 2^{-s(u,w)}$. The
 Equivalently, the *regular topology* is the coarsest topology containing the
 regular languages as *closed subsets*.
 
+
+### Well-quasi-ordering {.def}
+
+A quasi-ordered set $(X, \leq)$ is a *well-quasi-ordering* if for every
+sequence $\seqof{x_i}{i \in \Nat}$ of elements in $X$, there exists an
+increasing pair of indices $i < j$ such that $x_i \leq x_j$.

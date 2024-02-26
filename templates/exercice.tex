@@ -1,0 +1,78 @@
+\documentclass[a4,10pt]{article}
+
+\usepackage[left=3cm, right=3cm, top=3cm, bottom=3cm]{geometry}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{hyperref}
+
+\usepackage[capitalize,nameinlink]{cleveref}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lhead{\today}
+\rhead{$title$}
+
+\usepackage{fontspec}
+\setmainfont{Dosis}
+
+
+
+\newtheorem{exercise}{Exercise}
+\newtheorem{hint}{Hint}
+\newtheorem{solution}{Solution}
+
+\newcommand{\tightlist}{}
+
+\title{{\bfseries \Huge{$title$}} \\ $subtitle$}
+\author{$author$}
+
+\begin{document}
+
+\maketitle
+
+$for(exercises)$
+\begin{exercise}[{$it.title$}]
+    \label{$it.id$}
+    ~\\
+    $it.body$
+\end{exercise}
+$for(it.hints)$
+$$\triangleright$$ \cref{$it.id$}
+$endfor$
+$if(it.solution)$
+\hfill
+\cref{$it.id$:solution} \qedsymbol
+$endif$
+$endfor$
+
+\clearpage 
+
+$body$
+
+\appendix
+
+\section{Hints}
+
+$for(hints)$
+\label{$it.id$:hints}
+\begin{hint}[{$it.title$}]
+    \label{$it.id$}
+    $it.content$
+\end{hint}
+$endfor$
+
+\clearpage
+\section{Solutions}
+
+$for(solutions)$
+\begin{solution}[Solution to \cref{$it.id$}]
+    \label{$it.id$:solution}
+    $it.content$
+\end{solution}
+$endfor$
+
+
+\end{document}
