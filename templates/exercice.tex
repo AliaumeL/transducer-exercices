@@ -23,6 +23,7 @@
 \newtheorem{exercise}{Exercise}
 \newtheorem{hint}{Hint}
 \newtheorem{solution}{Solution}
+\newtheorem{definition}{Definition}
 
 \newcommand{\tightlist}{}
 
@@ -33,25 +34,9 @@
 
 \maketitle
 
-$for(exercises)$
-\begin{exercise}[{$it.title$}]
-    \label{$it.id$}
-    ~\\
-    $it.body$
-\end{exercise}
-$for(it.hints)$
-$$\triangleright$$ \cref{$it.id$}
-$endfor$
-$if(it.solution)$
-\hfill
-\cref{$it.id$:solution} \qedsymbol
-$endif$
-$endfor$
-
-\clearpage 
-
 $body$
 
+\clearpage
 \appendix
 
 \section{Hints}

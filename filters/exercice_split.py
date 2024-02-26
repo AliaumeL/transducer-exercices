@@ -41,7 +41,11 @@ def is_section_div(elem):
 # that we add to the metadata dictionnary
 def split_exercises(elem, doc):
     global current_exercise, current_header
-    if is_section_div(elem) and "exercise" in elem.classes:
+    if is_section_div(elem) and "def" in elem.classes:
+        title = [pf.RawInline("\\begin{definition}[{", format="latex"), *elem.content[0].content, pf.RawInline("}] \\label{"+ elem.identifier +"}", format="latex")]
+        end   = pf.RawBlock("\\end{definition}", format="latex")
+        return [pf.Plain(*title), *elem.content[1:], end]
+    elif is_section_div(elem) and "exercise" in elem.classes:
         # we set the current exercice to the current element
         current_exercise = elem
         # create a latex block with the content of the exercice
@@ -57,7 +61,7 @@ def split_exercises(elem, doc):
                                                 id=elem.identifier,
                                                 title=pf.stringify(elem.content[0]),
                                                 content=pf.MetaBlocks(*elem.content[1:])))
-        return []
+        return [pf.RawBlock("$\\triangleright$ \\cref{" + elem.identifier +  "}", format="latex")]
     elif current_exercise and is_section_div(elem) and "solution" in elem.classes:
         eid = current_exercise.identifier
         if "solutions" not in doc.metadata:

@@ -111,6 +111,12 @@ Start by proving that each of these operations are computed by Mealy Machines.
 2. The addition operator $(+) \colon \Nat^2 \to \Nat$.
 3. The existential quantifier $(\exists x) \colon \Nat^{x \vec{y}} \to \Nat^{\vec{y}}$.
 
+
+## Flip Flop Machines {.exercise}
+
+Prove that every flip-flop machine can be obtained by
+composing *binary* flip-flop machines.
+
 ## Regularity of Mealy Machines {.exercise} 
 
 The goal of this exercise is to understand the relationship between Mealy
