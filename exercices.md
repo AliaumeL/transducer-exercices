@@ -74,6 +74,9 @@ provide a proof that it cannot be realized.
   and $\emptyword$ to $\emptyword$.
 
 
+- [ ] The funciton $\swap_2 \colon \Sigma^* \to \Sigma^*$ that
+ maps $ua$ to $au$ and $\emptyword$ to $\emptyword$.
+
 ## Arithmetic Circuits {.exercise}
 
 The goal of this exercise is to prove that operations on binary numbers are
@@ -116,6 +119,21 @@ Start by proving that each of these operations are computed by Mealy Machines.
 
 Prove that every flip-flop machine can be obtained by
 composing *binary* flip-flop machines.
+What is the number of intermediate machines that are needed?
+
+### Encode states {.hint}
+
+Given a state $q \in Q$, compute using a binary flip-flop machine the sequence
+of approximated states $\set{q, \neg q}$.
+
+### For the upper bound {.hint}
+
+Use a binary encoding to obtain a logarithmic number of intermediate machines.
+
+### For the lower bound {.hint}
+
+Obtain an upper bound on the number of machines obtained by composing $k$
+binary flip-flop machines.
 
 ## Regularity of Mealy Machines {.exercise} 
 
@@ -155,24 +173,6 @@ decidable, and in case of decidability, provide a precise complexity class.
 Consider the set $\setof{ (u,v) \in \Sigma^* \times \Sigma^* }{ f(u) = f(v) }$,
 and show that it is a regular language.
 
-## Residuals {.exercise}
-
-The residual of a function $f \colon \Sigma^* \to \Gamma^*$ with respect to
-a word $u \in \Sigma^*$ is the function $\resi{f}{u} \colon \Sigma^* \to
-\Gamma^*$ defined by $\resi{f}{u}(w) \defined f(uw)$. The collection $\Res(f)
-\defined \setof{\resi{f}{u}}{u \in \Sigma^*}$ is the set of *residuals* of $f$.
-We say that $f \prefleq g$ if and only if $f(w) \prefleq g(w)$ for all $w \in
-\Sigma^*$.
-
-1. Prove that if $f$ is a computed by a Mealy Machine, then so does
-   $\resi{f}{u}$, for all $u \in \Sigma^*$.
-2. Provide a counter example to the converse statement.
-3. Let $f$ be computed by a Mealy Machine. Is it true that $(\Res(f),
-   \prefleq)$ is a well-quasi-ordering?
-4. Let $f$ be such that $(\Res(f), \prefleq)$ is a well-quasi-ordering. Is it
-   true that $f$ is computed by a Mealy Machine? 
-
-# Homework
 
 ## Variations on Mealy Machines {.exercise}
 
@@ -206,6 +206,7 @@ occurrences of the pattern, starting from the left of the text $t$.
    What is the (time/space) complexity in $\vcount{m}$? What is the
    (time/space) complexity in $\vcount{t}$?
 
+# Homework
 
 ## Continuous Functions {.exercise}
 

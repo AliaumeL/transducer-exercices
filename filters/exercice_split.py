@@ -1,4 +1,4 @@
-##
+#!/usr/bin/env python3
 #
 # Splits exercices (heading of level 2) into the body of the exercice
 # hints (heading of level 3)
