@@ -54,13 +54,20 @@ header-includes: |
 \knowledge{notion}
  | flip-flop machine
 \knowledge{notion}
+ | binary flip-flop machines
+ | binary flip-flop machine
+\knowledge{notion}
  | Mealy Machine with Lookahead
 \knowledge{notion}
+ | preserves prefixes
+\knowledge{notion}
  | sequential transducer
+ | sequential
 \knowledge{notion}
  | topology
 \knowledge{notion}
  | open subsets
+ | open
 \knowledge{notion}
  | closed subsets
 \knowledge{notion}
@@ -71,6 +78,8 @@ header-includes: |
  | prefix distance
 \knowledge{notion}
  | regular topology
+\knowledge{notion}
+ | Presburger Arithmetic
 ```
 
 # Mealy Machines
@@ -78,7 +87,7 @@ header-includes: |
 ## True or False? {.exercise}
 
 For each of the following functions, decide whether they can be realized by a
-Mealy Machine. In positive cases, provide the Mealy Machine, in negative cases,
+'Mealy Machine'. In positive cases, provide the Mealy Machine, in negative cases,
 provide a proof that it cannot be realized.
 
 - [ ] The function $\lowercaseExample \colon \Sigma^* \to \Sigma^*$,
@@ -102,9 +111,10 @@ provide a proof that it cannot be realized.
 - [ ] The function $\swap \colon \Sigma^* \to \Sigma^*$ that maps $au$ to $ua$
   and $\emptyword$ to $\emptyword$.
 
-- [ ] The funciton $\swap_2 \colon \Sigma^* \to \Sigma^*$ that
+- [ ] The function $\swap_2 \colon \Sigma^* \to \Sigma^*$ that
  maps $ua$ to $au$ and $\emptyword$ to $\emptyword$.
 
+What are the extensions of Mealy Machines for which the above functions are computable?
 
 ## Arithmetic Circuits {.exercise}
 
@@ -127,7 +137,7 @@ right.
 
 ## Bonus: Presburger Arithmetic {.exercise}
 
-Prove that Presburger Arithmetic is decidable.
+Prove that 'Presburger Arithmetic' is decidable.
 
 ### Encoding of numbers and formulas {.hint}
 
@@ -146,13 +156,13 @@ Start by proving that each of these operations are computed by Mealy Machines.
 
 ## Flip Flop Machines {.exercise}
 
-Prove that every flip-flop machine can be obtained by
-composing *binary* flip-flop machines.
-What is the number of intermediate machines that are needed?
+Prove that every 'flip-flop machine' can be obtained by composing 'binary
+flip-flop machines'. What is the number of intermediate machines that are
+needed?
 
 ### Encode states {.hint}
 
-Given a state $q \in Q$, compute using a `binary flip-flop machine` the sequence
+Given a state $q \in Q$, compute using a 'binary flip-flop machine' the sequence
 of approximated states $\set{q, \neg q}$.
 
 ### For the upper bound {.hint}
@@ -173,11 +183,11 @@ be a function computed by a Mealy Machine.
 1. Prove that the image of $\Sigma^*$ through $f$ is a regular language.
 2. Prove that the pre-image of $\Gamma^*$ through $f$ is a regular language.
 3. Let $L$ be a regular language, prove that $\im{f}{L}$ and $\preim{f}{L}$ are
-   regular languages, i.e., that $f$ is *open* and *continuous* for the
-   *regular topology*.
-4. Is every *open* and *continuous* map computable by a Mealy Machine?
-5. A function $f \colon \Sigma^* \to \Gamma^*$ is *Lipschitz* 
-   for the *prefix distance*. What is the value of the Lipschitz constant?
+   regular languages, i.e., that $f$ is 'open' and 'continuous' for the
+   'regular topology'.
+4. Is every 'open' and 'continuous' map computable by a Mealy Machine?
+5. A function $f \colon \Sigma^* \to \Gamma^*$ is 'Lipschitz'
+   for the 'prefix distance'. What is the value of the Lipschitz constant?
 6. The graph of a function $f \colon X \to Y$ is the subset $\graph(f)
    \subseteq X \times Y$ defined by $\setof{ (x,y) \in X \times Y }{ f(x) = y
    }$. Can you provide a necessary and sufficient condition on the graph of $f$
@@ -227,8 +237,8 @@ $m$ are overlined. To avoid ambiguity, we will overline *non-overlapping*
 occurrences of the pattern, starting from the left of the text $t$.
 
 1. Is the function that underlines the *starts* of the matches computable by a
-   Mealy Machine? By a *sequential function*? By a Mealy Machine with
-   *lookaheads*?
+   'Mealy Machine'? By a 'sequential function'? By a 'Mealy Machine with
+   lookaheads'?
 2. Same question with underlining the *ends* of the matches.
 3. Same question for the function $m$.
 4. Conclude by providing an efficient algorithm to perform string matching.
@@ -239,8 +249,9 @@ occurrences of the pattern, starting from the left of the text $t$.
 
 ## Continuous Functions {.exercise}
 
-Prove that there exists uncountably many continuous functions from $\Sigma^*$
-to $\Gamma^*$ for the regular topology.
+Prove that there exists uncountably many 'continuous' functions from $\Sigma^*$
+to $\Gamma^*$ for the 'regular topology'. It is true for 'continuous' and
+'prefix preserving functions'?
 
 ### The alphabet does not matter {.hint}
 
@@ -258,12 +269,13 @@ continuous:
 
 ## Stability properties of Sequential Functions {.exercise}
 
-Prove that the following propositions are equivalent for a function $f \colon \Sigma^* \to \Gamma^*$:
+We say that a function "preserves prefixes" if for all $u,v \in \Sigma^*$, $u
+\prefleq v$ implies $f(u) \prefleq f(v)$. Prove that the following propositions
+are equivalent for a function $f \colon \Sigma^* \to \Gamma^*$:
 
-1. $f$ is sequential.
-2. $f$ is continuous for the regular topology,
-    Lipschitz for the prefix distance,
-    and preserves prefixes.
+1. $f$ is 'sequential'.
+2. $f$ is 'continuous' for the 'regular topology', 'Lipschitz' for the 'prefix
+   distance', and 'preserves prefixes'.
 
 
 
@@ -341,7 +353,7 @@ The semantics is defined as for Mealy Machines.
 
 ### Presburger Arithmetic {.def}
 
-Formulas of the Presburger Arithmetic are built from the following grammar:
+Formulas of the "Presburger Arithmetic" are built from the following grammar:
 
 $$
 \begin{aligned}
