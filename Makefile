@@ -19,11 +19,15 @@ BUILD_ENV=templates/exercice.tex \
 %.pdf: %.tex
 	latexmk -pdf -xelatex $<
 
-%.html: %.md
-	pandoc --number-sections \
+%.html: %.md 
+	pandoc \
+		   --lua-filter filters/remove_exercices.lua \
+		   -F filters/exercice_split.py \
 		   -F filters/knowledge.py \
 		   --mathjax \
 		   --standalone \
+		   -t html5 \
+		   --number-sections \
 		   -c templates/pandoc.css \
 		   -o $@ $<
 

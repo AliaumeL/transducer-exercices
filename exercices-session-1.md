@@ -45,8 +45,6 @@ knowledges:
         - preserves prefixes
     - synonyms:
         - Presburger Arithmetic
-    - synonyms:
-        - Presburger Arithmetic
 header-includes: |
     <script>
         const connect = () => {
@@ -73,9 +71,7 @@ header-includes: |
 \newcommand{\im}[2]{#1\left(#2\right)}
 \newcommand{\graph}{\mathsf{graph}}
 \newcommand{\topartial}{\rightharpoonup}
-
 \newcommand{\prefleq}{\mathrel{\sqsubseteq_{\mathsf{prefix}}}}
-
 
 \newcommand{\Res}{\mathsf{Res}}
 \newcommand{\resi}[2]{{#2}^{-1}{#1}}
@@ -360,7 +356,6 @@ The semantics is defined as for Mealy Machines.
 ### Presburger Arithmetic {.def}
 
 Formulas of the "Presburger Arithmetic" are built from the following grammar:
-
 $$
 \begin{aligned}
     \varphi &\defined \top \mid \bot \mid \varphi \land \varphi \mid \varphi \lor \varphi \mid \lnot \varphi \mid \exists x. \varphi \mid x = y + z
@@ -417,3 +412,4 @@ two words $u$ and $w$, is defined as $d(u,w) \defined 2^{-s(u,w)}$. The
 
 Equivalently, the *regular topology* is the coarsest 'topology' containing the
 regular languages as 'closed subsets'.
+

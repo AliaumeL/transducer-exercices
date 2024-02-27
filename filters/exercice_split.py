@@ -9,6 +9,10 @@
 #
 # This can then be used by templates.
 
+
+# TODO: 
+# - add html output (hints and solutions in "expandable" elements)
+
 import panflute as pf
 
 from itertools import groupby
@@ -26,36 +30,58 @@ def enumerate_headings(elem):
         elif is_section_div(current):
             yield current
 
+def render_latex_block(elem, doc, kind):
+    title = [pf.RawInline("\\begin{" + kind + "}[{", format="latex"), *elem.content[0].content, pf.RawInline("}] \\label{"+ elem.identifier +"}", format="latex")]
+    end   = pf.RawBlock("\\end{" + kind + "}", format="latex")
+    return [pf.Plain(*title), *elem.content[1:], end]
+
+
 def split_exercises(elem, doc):
     if is_section_div(elem) and "def" in elem.classes:
-        title = [pf.RawInline("\\begin{definition}[{", format="latex"), *elem.content[0].content, pf.RawInline("}] \\label{"+ elem.identifier +"}", format="latex")]
-        end   = pf.RawBlock("\\end{definition}", format="latex")
-        return [pf.Plain(*title), *elem.content[1:], end]
+        if doc.format == "latex":
+            return render_latex_block(elem, doc, "definition")
+        else:
+            elem.classes = ["definition"]
+            return elem
     elif is_section_div(elem) and "exercise" in elem.classes:
-        title = [pf.RawInline("\\begin{exercise}[{", format="latex"), *elem.content[0].content, pf.RawInline("}] \\label{"+ elem.identifier +"}", format="latex")]
-        end   = pf.RawBlock("\\end{exercise}", format="latex")
-        return [pf.Plain(*title), *elem.content[1:], end]
+        if doc.format == "latex":
+            return render_latex_block(elem, doc, "exercise")
+        else:
+            elem.classes = ["exercise"]
+            return elem
     elif is_section_div(elem) and "hint" in elem.classes:
-        parents = list(enumerate_headings(elem))
-        eid = parents[0].identifier
-        if "hints" not in doc.metadata:
-            doc.metadata["hints"] = []
-        doc.metadata["hints"].append(pf.MetaMap(eid=eid, 
-                                                id=elem.identifier,
-                                                title=pf.stringify(elem.content[0]),
-                                                content=pf.MetaBlocks(*elem.content[1:])))
-        return pf.Plain(pf.RawInline("$\\triangleright$ \\cref{" + elem.identifier +  "}", format="latex"))
-    elif is_section_div(elem) and "solution" in elem.classes:
-        parents = list(enumerate_headings(elem))
-        raise ValueError(parents)
-        eid = parents[1].identifier
-        if "solutions" not in doc.metadata:
-            doc.metadata["solutions"] = []
-        doc.metadata["solutions"].append(pf.MetaMap(eid=eid,
+        if doc.format == "latex":
+            parents = list(enumerate_headings(elem))
+            eid = parents[0].identifier
+            if "hints" not in doc.metadata:
+                doc.metadata["hints"] = []
+            doc.metadata["hints"].append(pf.MetaMap(eid=eid, 
                                                     id=elem.identifier,
                                                     title=pf.stringify(elem.content[0]),
                                                     content=pf.MetaBlocks(*elem.content[1:])))
-        return pf.Plain(pf.RawInline("$\\triangleright$ \\cref{" + elem.identifier +  "}", format="latex"))
+            return pf.Plain(pf.RawInline("$\\triangleright$ \\cref{" + elem.identifier +  "}", format="latex"))
+        elif doc.format == "html5":
+            return [pf.RawBlock("<details>", format="html"),
+                    pf.RawBlock("<summary>Hint: " + pf.stringify(elem.content[0]) + "</summary>", format="html"),
+                    *elem.content[1:],
+                    pf.RawBlock("</details>", format="html")]
+    elif is_section_div(elem) and "solution" in elem.classes:
+        if doc.format == "latex":
+            parents = list(enumerate_headings(elem))
+            raise ValueError(parents)
+            eid = parents[1].identifier
+            if "solutions" not in doc.metadata:
+                doc.metadata["solutions"] = []
+            doc.metadata["solutions"].append(pf.MetaMap(eid=eid,
+                                                        id=elem.identifier,
+                                                        title=pf.stringify(elem.content[0]),
+                                                        content=pf.MetaBlocks(*elem.content[1:])))
+            return pf.Plain(pf.RawInline("$\\triangleright$ \\cref{" + elem.identifier +  "}", format="latex"))
+        elif doc.format == "html5":
+            return [pf.RawBlock("<details>", format="html"),
+                    pf.RawBlock("<summary>Solution: " + pf.stringify(elem.content[0]) + "</summary>", format="html"),
+                    *elem.content[1:],
+                    pf.RawBlock("</details>", format="html")]
 
 
 def main(doc=None):
