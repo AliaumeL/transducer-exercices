@@ -2,6 +2,8 @@
 author: Aliaume LOPEZ
 title: Transducer Exercice Session
 subtitle: Mealy Machines
+email: ad.lopez@uw.edu.pl
+website: https://www.irif.fr/~alopez/enseignement.html
 lang: en-US
 session: 1
 date: 2024-02-26
@@ -114,7 +116,10 @@ provide a proof that it cannot be realized.
 - [ ] The function $\swap_2 \colon \Sigma^* \to \Sigma^*$ that
  maps $ua$ to $au$ and $\emptyword$ to $\emptyword$.
 
-What are the extensions of Mealy Machines for which the above functions are computable?
+What are the extensions of Mealy Machines for which the above functions are
+computable? Among the above functions, which ones are 'continuous' for the
+'regular topology'?
+
 
 ## Arithmetic Circuits {.exercise}
 
