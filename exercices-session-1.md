@@ -60,8 +60,10 @@ header-includes: |
  | binary flip-flop machine
 \knowledge{notion}
  | Mealy Machine with Lookahead
+ | Mealy Machine with lookaheads
 \knowledge{notion}
  | preserves prefixes
+ | prefix preserving functions
 \knowledge{notion}
  | sequential transducer
  | sequential
@@ -82,6 +84,8 @@ header-includes: |
  | regular topology
 \knowledge{notion}
  | Presburger Arithmetic
+\knowledge{notion}
+ | sequential function
 ```
 
 # Mealy Machines
