@@ -67,6 +67,7 @@ header-includes: |
 \knowledge{notion}
  | sequential transducer
  | sequential
+ | sequential function
 \knowledge{notion}
  | topology
 \knowledge{notion}
@@ -84,8 +85,6 @@ header-includes: |
  | regular topology
 \knowledge{notion}
  | Presburger Arithmetic
-\knowledge{notion}
- | sequential function
 ```
 
 # Mealy Machines
@@ -320,7 +319,7 @@ $$
 
 A "flip-flop machine" is a Mealy Machine such that for all letters $a \in
 \Sigma$, either $\delta(\cdot,a)$ is the identity function, or it is a constant
-function. It is *binary* when $Q = \set{0,1}$.
+function. It is a "binary flip-flop machine" when $Q = \set{0,1}$.
 
 ### Mealy Machine With Lookahead {.def}
 
@@ -394,7 +393,7 @@ complement are called "closed subsets".
 
 A function $f \colon (X, \tau) \to (Y,\theta)$ is "continuous" whenever for all
 open subset $U \in \theta$, its pre-image $\preim{f}{U}$ is an open subset of
-$\tau$. Equivalently, it is continuous if the pre-image of closed subsets are
+$\tau$. Equivalently, it is continuous if the pre-image of 'closed subsets' are
 closed subsets.
 
 ### Lipschitz functions {.def}
@@ -418,12 +417,5 @@ a deterministic automaton that *separates* $u$ from $w$. The *distance* between
 two words $u$ and $w$, is defined as $d(u,w) \defined 2^{-s(u,w)}$. The
 "regular topology" is the topology defined by this metric on $\Sigma^*$.
 
-Equivalently, the *regular topology* is the coarsest topology containing the
-regular languages as *closed subsets*.
-
-
-### Well-quasi-ordering {.def}
-
-A quasi-ordered set $(X, \leq)$ is a "well-quasi-ordering" if for every
-sequence $\seqof{x_i}{i \in \Nat}$ of elements in $X$, there exists an
-increasing pair of indices $i < j$ such that $x_i \leq x_j$.
+Equivalently, the *regular topology* is the coarsest 'topology' containing the
+regular languages as 'closed subsets'.

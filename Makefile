@@ -1,6 +1,9 @@
 .PHONY: watch
 
-BUILD_ENV=templates/exercice.tex filters/exercice_split.py
+BUILD_ENV=templates/exercice.tex \
+		  filters/exercice_split.py \
+		  filters/knowledge.py \
+		  filters/remove_exercices.lua
 
 %.tex: %.md $(BUILD_ENV)
 	pandoc \
@@ -22,7 +25,7 @@ BUILD_ENV=templates/exercice.tex filters/exercice_split.py
 		-s -o $@ $<
 
 watch:
-	ls exercices.md | entr -s "make exercices.html && echo reload" | websocat -s 8080
+	ls *.md | entr -s "make *.html && echo reload" | websocat -s 8080
 
 clean:
-	latexmk -C exercices.pdf
+	latexmk -C *.pdf
