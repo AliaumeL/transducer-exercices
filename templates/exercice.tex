@@ -32,6 +32,17 @@
 \title{{\bfseries \Huge{$title$}} \\ $subtitle$}
 \author{$author$ \\ \href{mailto:$email$}{$email$} \\ \url{$website$}}
 
+%%-- START knowledges %%
+
+$for(knowledges)$
+\knowledge{notion}
+$for(knowledges.synonyms)$
+ | $it$
+$endfor$
+$endfor$
+
+%%-- END   knowledges %%
+
 \begin{document}
 
 \maketitle
@@ -59,6 +70,16 @@ $for(solutions)$
     $it.content$
 \end{solution}
 $endfor$
+
+$if(knowledge-undefined)$
+\clearpage
+\section{Undefined Notions}
+\begin{enumerate}
+$for(knowledge-undefined)$
+\item \texttt{$it.name$} ($it.count$ usages)
+$endfor$
+\end{enumerate}
+$endif$
 
 
 \end{document}

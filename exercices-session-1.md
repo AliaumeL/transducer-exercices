@@ -7,6 +7,46 @@ website: https://www.irif.fr/~alopez/enseignement.html
 lang: en-US
 session: 1
 date: 2024-02-26
+knowledges:
+    - synonyms:
+        - sequential transducer
+        - sequential
+        - sequential function
+    - synonyms:
+        - Mealy Machine
+        - Mealy Machines
+    - synonyms:
+        - flip-flop machine
+    - synonyms:
+        - binary flip-flop machines
+        - binary flip-flop machine
+    - synonyms:
+        - Mealy Machine with Lookahead
+        - Mealy Machine with lookaheads
+    - synonyms:
+        - regular topology
+    - synonyms:
+        - topology
+    - synonyms:
+        - open subset
+        - open subsets
+        - open
+    - synonyms:
+        - closed subset
+        - closed subsets
+    - synonyms:
+        - continuous
+    - synonyms:
+        - Lipschitz
+    - synonyms:
+        - prefix distance
+    - synonyms:
+        - prefix preserving functions
+        - preserves prefixes
+    - synonyms:
+        - Presburger Arithmetic
+    - synonyms:
+        - Presburger Arithmetic
 header-includes: |
     <script>
         const connect = () => {
@@ -44,48 +84,6 @@ header-includes: |
 \newcommand{\expandtabs}{\mathsf{expandtabs}}
 \newcommand{\sort}{\mathsf{sort}}
 \newcommand{\swap}{\mathsf{swap}}
-
-```{=tex}
-\knowledge{notion}
- | wqo
- | well-quasi-order
- | well-quasi-ordering 
- 
-\knowledge{notion}
- | Mealy Machine
-\knowledge{notion}
- | flip-flop machine
-\knowledge{notion}
- | binary flip-flop machines
- | binary flip-flop machine
-\knowledge{notion}
- | Mealy Machine with Lookahead
- | Mealy Machine with lookaheads
-\knowledge{notion}
- | preserves prefixes
- | prefix preserving functions
-\knowledge{notion}
- | sequential transducer
- | sequential
- | sequential function
-\knowledge{notion}
- | topology
-\knowledge{notion}
- | open subsets
- | open
-\knowledge{notion}
- | closed subsets
-\knowledge{notion}
- | continuous
-\knowledge{notion}
- | Lipschitz
-\knowledge{notion}
- | prefix distance
-\knowledge{notion}
- | regular topology
-\knowledge{notion}
- | Presburger Arithmetic
-```
 
 # Mealy Machines
 
