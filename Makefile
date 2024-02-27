@@ -6,6 +6,7 @@ BUILD_ENV=templates/exercice.tex filters/exercice_split.py
 	pandoc \
 		   --lua-filter filters/remove_exercices.lua \
 		   -F filters/exercice_split.py \
+		   -F filters/knowledge.py \
 		   --number-sections \
 		   --template=templates/exercice.tex \
 		   -t latex \
@@ -16,6 +17,7 @@ BUILD_ENV=templates/exercice.tex filters/exercice_split.py
 
 %.html: %.md
 	pandoc --number-sections \
+		   -F filters/knowledge.py \
 		   --mathjax \
 		-s -o $@ $<
 

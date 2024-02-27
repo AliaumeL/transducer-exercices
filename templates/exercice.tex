@@ -8,7 +8,9 @@
 \usepackage{amsthm}
 \usepackage{hyperref}
 
-\usepackage[capitalize,nameinlink]{cleveref}
+\usepackage[capitalise,noabbrev,nameinlink]{cleveref}
+\usepackage[electronic,hyperref,xcolor,cleveref]{knowledge}
+\knowledgeconfigure{notion}
 
 \usepackage{fancyhdr}
 \pagestyle{fancy}
@@ -42,8 +44,7 @@ $body$
 \section{Hints}
 
 $for(hints)$
-\label{$it.id$:hints}
-\begin{hint}[{$it.title$}]
+\begin{hint}[{\cref{$it.eid$} $it.title$}]
     \label{$it.id$}
     $it.content$
 \end{hint}

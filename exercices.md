@@ -18,7 +18,6 @@ header-includes: |
 ---
 
 \newcommand{\Nat}{\mathbb{N}}
-
 \newcommand{\mealy}[1]{\mathcal{#1}}
 \newcommand{\defined}{:=}
 \newcommand{\emptyword}{\varepsilon}
@@ -43,6 +42,36 @@ header-includes: |
 \newcommand{\expandtabs}{\mathsf{expandtabs}}
 \newcommand{\sort}{\mathsf{sort}}
 \newcommand{\swap}{\mathsf{swap}}
+
+```{=tex}
+\knowledge{notion}
+ | wqo
+ | well-quasi-order
+ | well-quasi-ordering 
+ 
+\knowledge{notion}
+ | Mealy Machine
+\knowledge{notion}
+ | flip-flop machine
+\knowledge{notion}
+ | Mealy Machine with Lookahead
+\knowledge{notion}
+ | sequential transducer
+\knowledge{notion}
+ | topology
+\knowledge{notion}
+ | open subsets
+\knowledge{notion}
+ | closed subsets
+\knowledge{notion}
+ | continuous
+\knowledge{notion}
+ | Lipschitz
+\knowledge{notion}
+ | prefix distance
+\knowledge{notion}
+ | regular topology
+```
 
 # Mealy Machines
 
@@ -73,9 +102,9 @@ provide a proof that it cannot be realized.
 - [ ] The function $\swap \colon \Sigma^* \to \Sigma^*$ that maps $au$ to $ua$
   and $\emptyword$ to $\emptyword$.
 
-
 - [ ] The funciton $\swap_2 \colon \Sigma^* \to \Sigma^*$ that
  maps $ua$ to $au$ and $\emptyword$ to $\emptyword$.
+
 
 ## Arithmetic Circuits {.exercise}
 
@@ -123,7 +152,7 @@ What is the number of intermediate machines that are needed?
 
 ### Encode states {.hint}
 
-Given a state $q \in Q$, compute using a binary flip-flop machine the sequence
+Given a state $q \in Q$, compute using a `binary flip-flop machine` the sequence
 of approximated states $\set{q, \neg q}$.
 
 ### For the upper bound {.hint}
@@ -247,7 +276,7 @@ Prove that the following propositions are equivalent for a function $f \colon \S
 ### Mealy Machine {.def}
 
 Let $\Sigma$ and $\Gamma$ be two alphabets.
-A Mealy Machine $\mealy{M}$ is a tuple $(q_0, Q, \delta, \lambda)$ 
+A "Mealy Machine" $\mealy{M}$ is a tuple $(q_0, Q, \delta, \lambda)$ 
 such that
 
 1. $Q$ is a finite set of *states*.
@@ -268,14 +297,14 @@ $$
 
 ### Flip-Flop Machine {.def}
 
-A *flip-flop machine* is a Mealy Machine such that for all letters $a \in
+A "flip-flop machine" is a Mealy Machine such that for all letters $a \in
 \Sigma$, either $\delta(\cdot,a)$ is the identity function, or it is a constant
 function. It is *binary* when $Q = \set{0,1}$.
 
 ### Mealy Machine With Lookahead {.def}
 
 Let $\Sigma$ and $\Gamma$ be two alphabets.
-A Mealy Machine with Lookahead $\mealy{M}$ is a tuple $(q_0, Q, \delta, \lambda)$ 
+A "Mealy Machine with Lookahead" $\mealy{M}$ is a tuple $(q_0, Q, \delta, \lambda)$ 
 such that
 
 1. $Q$ is a finite set of *states*.
@@ -295,7 +324,7 @@ $\mealy{M} \colon \Sigma^* \topartial \Gamma^*$.
 ### Sequential Functions {.def}
 
 Let $\Sigma$ and $\Gamma$ be two alphabets.
-A *sequential transducer* $A$ is a tuple $(q_0, Q, \delta, \lambda)$ 
+A "sequential transducer" $A$ is a tuple $(q_0, Q, \delta, \lambda)$ 
 such that
 
 1. $Q$ is a finite set of *states*.
@@ -337,25 +366,25 @@ $$
 
 ### Topology and Continuous functions {.def}
 
-Let $X$ be a set. A *topology* over $X$ is a subset $\tau$ of $\Parts(X)$
+Let $X$ be a set. A "topology" over $X$ is a subset $\tau$ of $\Parts(X)$
 closed under finite intersections and arbitrary unions. In a topological space
-$(X, \tau)$, the subsets in $\tau$ are called *open subsets*, and their
-complement are called *closed subsets*.
+$(X, \tau)$, the subsets in $\tau$ are called "open subsets", and their
+complement are called "closed subsets".
 
-A function $f \colon (X, \tau) \to (Y,\theta)$ is *continuous* whenever for all
+A function $f \colon (X, \tau) \to (Y,\theta)$ is "continuous" whenever for all
 open subset $U \in \theta$, its pre-image $\preim{f}{U}$ is an open subset of
 $\tau$. Equivalently, it is continuous if the pre-image of closed subsets are
 closed subsets.
 
 ### Lipschitz functions {.def}
 
-A function $f \colon (X,d_X) \to (Y, d_Y)$ is *Lipschitz* if there exists a
+A function $f \colon (X,d_X) \to (Y, d_Y)$ is "Lipschitz" if there exists a
 constant $K \geq 0$ such that for all $x_1,x_2 \in X^2$, $d_Y(f(x_1), f(x_2))
 \leq K d_X(x_1, x_2)$.
 
 ### Prefix Distance {.def}
 
-Let $\Sigma^*$ be a finite alphabet. The *prefix distance* between two words
+Let $\Sigma^*$ be a finite alphabet. The "prefix distance" between two words
 $u,v$ is $\vcount{u} + \vcount{v} - 2 \vcount{w}$ where $w$ is the longest common
 prefix of $u$ and $v$.
 
@@ -366,7 +395,7 @@ Let $\Sigma$ be a finite alphabet. We equip $\Sigma^*$ with a metric distance
 as follows: to a pair of words $u,w$, we associate the minimal size $s(u,w)$ of
 a deterministic automaton that *separates* $u$ from $w$. The *distance* between
 two words $u$ and $w$, is defined as $d(u,w) \defined 2^{-s(u,w)}$. The
-*regular topology* is the topology defined by this metric on $\Sigma^*$.
+"regular topology" is the topology defined by this metric on $\Sigma^*$.
 
 Equivalently, the *regular topology* is the coarsest topology containing the
 regular languages as *closed subsets*.
@@ -374,6 +403,6 @@ regular languages as *closed subsets*.
 
 ### Well-quasi-ordering {.def}
 
-A quasi-ordered set $(X, \leq)$ is a *well-quasi-ordering* if for every
+A quasi-ordered set $(X, \leq)$ is a "well-quasi-ordering" if for every
 sequence $\seqof{x_i}{i \in \Nat}$ of elements in $X$, there exists an
 increasing pair of indices $i < j$ such that $x_i \leq x_j$.
