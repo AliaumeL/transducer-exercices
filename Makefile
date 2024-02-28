@@ -1,4 +1,4 @@
-.PHONY: watch website
+.PHONY: watch website clean
 
 BUILD_ENV=templates/exercice.tex \
 		  filters/exercice_split.py \
