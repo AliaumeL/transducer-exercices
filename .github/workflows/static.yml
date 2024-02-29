@@ -31,7 +31,9 @@ jobs:
     container: pandoc/latex:latest-ubuntu
     steps:
       - name: Setup dev environment (without caching)
-        run: apt install python3 inkscape -y
+        run: |
+          apt update
+          apt install python3 inkscape -y
       - name: Install panflute
         run: pip3 install panflute
       - name: Checkout
