@@ -50,9 +50,9 @@ na Uniwersytecie Warszawskim w 2024 roku.
 
 # Upcoming {#a-venir}
 
-- [Rational Transductions]{data-lang-en}
-  [Transductions rationnelles]{data-lang-fr}
-  [Transdukcje wymierne]{data-lang-pl}
+- [Rational Transductions]{data-lang-en="Rational Transductions"
+                           data-lang-fr="Transductions rationnelles"
+                           data-lang-pl="Transdukcje wymierne"}
 
 # Welcome to the transducer course
 
