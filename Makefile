@@ -1,23 +1,29 @@
 .PHONY: watch website clean
 
 BUILD_ENV=templates/exercice.tex \
+		  templates/website.html \
 		  filters/exercice_split.py \
 		  filters/knowledge.py \
-		  filters/pandoc.css \
-		  filters/remove_exercices.lua
+		  filters/remove_exercices.lua \
+		  static/css/styles.css \
+		  static/css/styles-index.css 
 
-site/index.html: index.md metadata.yaml
+site/%.html: %.md metadata.yaml $(BUILD_ENV)
 	mkdir -p site
-	pandoc --standalone \
+	pandoc \
+		   --lua-filter filters/remove_exercices.lua \
+		   -F filters/exercice_split.py \
+		   -F filters/knowledge.py \
 		   --mathjax \
-		   --metadata-file=metadata.yaml \
-		   --number-sections \
-		   --template=templates/website.html \
-		   --section-divs \
+		   --standalone \
 		   -t html5 \
+		   --number-sections \
+		   --section-divs \
+		   --template=templates/website.html \
+		   --metadata-file=metadata.yaml \
 		   -o $@ $<
 
-website: site/index.html
+website: $(patsubst %.md,site/%.html,$(wildcard *.md))
 	mkdir -p site/static
 	cp -r static/* site/static/
 
@@ -36,17 +42,6 @@ website: site/index.html
 %.pdf: %.tex
 	latexmk -pdf -xelatex $<
 
-%.html: %.md 
-	pandoc \
-		   --lua-filter filters/remove_exercices.lua \
-		   -F filters/exercice_split.py \
-		   -F filters/knowledge.py \
-		   --mathjax \
-		   --standalone \
-		   -t html5 \
-		   --number-sections \
-		   -c templates/pandoc.css \
-		   -o $@ $<
 
 watch:
 	ls *.md | entr -s "make *.html && echo reload" | websocat -s 8080
