@@ -28,11 +28,12 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
+    container: pandoc/latex
     steps:
       - name: Setup dev environment (with caching)
         uses: awalsh128/cache-apt-pkgs-action@latest
         with:
-          packages: pandoc pandoc-citeproc python3 inkscape 
+          packages: python3 inkscape 
           version: 1.0
       - name: Install panflute
         run: pip3 install panflute
