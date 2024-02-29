@@ -48,18 +48,29 @@ na Uniwersytecie Warszawskim w 2024 roku.
 
 ![Transducer Course Logo](./static/logo/logo.svg){width=100%}
 
-# A venir
+# ... {#a-venir}
 
-- [ ] Ajouter les liens vers les exercices et les devoirs
+- [Rational Transductions]{data-lang-en=true}
+  [Transductions rationnelles]{data-lang-fr=true}
+  [Transdukcje wymierne]{data-lang-pl=true}
 
 # Welcome to the transducer course
 
-todo.
+Here are some of the notions that will be developed during the course
+
+- Mealy Machines
+- Unambiguous nondeterministic automata with output
+- Mealy machines with regular lookahead
+- Two-way automata with output
+- The Krohn-Rhodes theorem and its variations
+- Streaming stream transducers
+- MSO transductions
+- List manipulating functions
+- Polyregular functions
 
 # Exercise Sessions
 
-- [Mealy Machines](./exercices-session-1.html)
-- [Rational Functions](./exercices-session-2.html)
+- [Mealy Machines](./session-1.html)
 
 # Homeworks
 
