@@ -45,16 +45,6 @@ knowledges:
         - preserves prefixes
     - synonyms:
         - Presburger Arithmetic
-header-includes: |
-    <script>
-        const connect = () => {
-            const ws = new WebSocket("ws://localhost:8080");
-            ws.onopen = () => setTimeout(() => ws.send("keepalive"), 30000);
-            ws.onclose = () => setTimeout(connect, 1000);
-            ws.onmessage = () => location.reload();
-        };
-        connect();
-    </script>
 ---
 
 \newcommand{\Nat}{\mathbb{N}}

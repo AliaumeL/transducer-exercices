@@ -24,7 +24,7 @@
 	display:none;
 }
 /* Mise en page */
-article {
+article#main-page {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: auto auto auto auto;

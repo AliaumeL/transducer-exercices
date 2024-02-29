@@ -30,6 +30,23 @@
 
     <link rel="stylesheet" href="static/css/styles.css">
     <link rel="stylesheet" href="static/css/styles-index.css">
+
+   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+
+    $if(live-reload)$
+    <script>
+        const connect = () => {
+            const ws = new WebSocket("ws://localhost:8080");
+            ws.onopen = () => setTimeout(() => ws.send("keepalive"), 30000);
+            ws.onclose = () => setTimeout(connect, 1000);
+            ws.onmessage = () => location.reload();
+        };
+        connect();
+    </script>
+    $endif$
     </head>
     <body>
     <!-- SVG symbol definitions -->
@@ -68,7 +85,7 @@
     </svg>
     <header>
         <nav>
-            <a href="/">$website$</a>
+            <a href="/">$website$$if(subtitle)$ — $subtitle$$endif$</a>
         </nav>
         <button class="color-mode__btn light--hidden" aria-label="Toggle light mode">
             <svg aria-hidden="true">
@@ -89,7 +106,12 @@
             <button title="English" data-flag="en" class="lang-flag">EN</button>
         </div>
     </header>
+    <article
+            $if(main-page)$
+            id="main-page"
+            $endif$>
     $body$
+    </article>
     <footer data-lang-fr="$licence$ $author$ $year$" 
             data-lang-en="$licence$ $author$ $year$">
         $licence$ $author$ $year$

@@ -32,7 +32,7 @@ jobs:
       - name: Setup dev environment (with caching)
         uses: awalsh128/cache-apt-pkgs-action@latest
         with:
-          packages: pandoc pandoc-citeproc python3
+          packages: pandoc pandoc-citeproc python3 inkscape 
           version: 1.0
       - name: Install panflute
         run: pip3 install panflute
