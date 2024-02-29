@@ -21,13 +21,6 @@ a.kl-ref[href^="#undefined"] {
     text-decoration: underline;
 }
 
-section.definition {
-    border-radius: 5mm;
-    border: 1px solid black;
-    margin: 2em;
-    padding: 1em;
-}
-
 details[open] {
     border-bottom: 1px solid black;
     margin-bottom: 1em;
