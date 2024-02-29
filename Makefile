@@ -69,7 +69,6 @@ site/%.html: content/%.md metadata.yaml $(BUILD_ENV)
 	mkdir -p site
 	pandoc $(PANDOC_HTML_OPTS) \
 		   --number-sections \
-		   --shift-heading-level-by=1 \
 		   -o $@ $<
 
 site/index.html: index.md metadata.yaml $(BUILD_ENV)

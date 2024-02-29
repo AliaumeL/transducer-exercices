@@ -46,6 +46,7 @@ knowledges:
         - Presburger Arithmetic
 ---
 
+
 <!-- These are the latex command used in this document --->
 \newcommand{\Nat}{\mathbb{N}}
 \newcommand{\mealy}[1]{\mathcal{#1}}
@@ -70,6 +71,7 @@ knowledges:
 \newcommand{\expandtabs}{\mathsf{expandtabs}}
 \newcommand{\sort}{\mathsf{sort}}
 \newcommand{\swap}{\mathsf{swap}}
+<!-- end of the custom commands -->
 
 # Mealy Machines
 
