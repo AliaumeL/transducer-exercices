@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="512"
+   height="512"
+   viewBox="0 0 512 512"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.3.2 (091e20ef0f, 2023-11-25, custom)"
+   sodipodi:docname="logo.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="px"
+     inkscape:zoom="3.0366613"
+     inkscape:cx="234.30338"
+     inkscape:cy="235.94993"
+     inkscape:window-width="4088"
+     inkscape:window-height="2217"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1">
+    <inkscape:path-effect
+       effect="bspline"
+       id="path-effect4"
+       is_visible="true"
+       lpeversion="1.3"
+       weight="33.333333"
+       steps="2"
+       helper_size="0"
+       apply_no_weight="true"
+       apply_with_weight="true"
+       only_selected="false"
+       uniform="false" />
+  </defs>
+  <g
+     inkscape:label="Calque 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       style="fill:none;fill-opacity:1;stroke:#111111;stroke-width:3.78;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 403.82223,123.64515 c 37.59567,34.16024 61.92972,84.95089 56.58693,136.36179 -7.01618,72.46773 -59.54293,135.1037 -124.31174,165.19044 -48.67335,23.21932 -109.16556,24.91001 -156.0003,-3.78912 -14.27391,-8.45209 -27.16333,-19.14564 -38.48191,-31.25071"
+       id="path6" />
+    <path
+       style="fill:none;fill-opacity:1;stroke:#111111;stroke-width:3.78;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 128.42498,382.71558 C 90.829306,348.55534 66.495261,297.76469 71.838047,246.35379 78.854228,173.88606 131.38098,111.25009 196.14979,81.163357 244.82314,57.944031 305.31535,56.253348 352.15009,84.952471 366.424,93.404564 379.31342,104.09811 390.632,116.20318"
+       id="path3" />
+    <circle
+       style="fill:#eee8d5;fill-opacity:1;stroke-width:3.77953;stroke-dasharray:3.77953, 3.77953"
+       id="circle6"
+       cx="130.51125"
+       cy="383.1568"
+       r="74.068558" />
+    <circle
+       style="fill:#a00000;fill-opacity:1;stroke-width:3.77953;stroke-dasharray:3.77953, 3.77953"
+       id="path1"
+       cx="390.94412"
+       cy="116.51621"
+       r="84.131607" />
+    <path
+       id="circle1"
+       style="fill:#111111;fill-opacity:1;stroke-width:3.77953;stroke-dasharray:3.77953, 3.77953"
+       d="M 130.51172 299.02539 A 84.131607 84.131607 0 0 0 46.378906 383.15625 A 84.131607 84.131607 0 0 0 130.51172 467.28906 A 84.131607 84.131607 0 0 0 214.64258 383.15625 A 84.131607 84.131607 0 0 0 130.51172 299.02539 z M 130.51172 315.61719 A 67.540169 67.540169 0 0 1 198.05078 383.15625 A 67.540169 67.540169 0 0 1 130.51172 450.69727 A 67.540169 67.540169 0 0 1 62.970703 383.15625 A 67.540169 67.540169 0 0 1 130.51172 315.61719 z " />
+    <circle
+       style="fill:#111111;fill-opacity:1;stroke-width:3.77953;stroke-dasharray:3.77953, 3.77953"
+       id="circle3"
+       cx="130.51125"
+       cy="383.1568"
+       r="53.678802" />
+    <text
+       xml:space="preserve"
+       style="font-size:116.593px;font-family:Andika;-inkscape-font-specification:Andika;text-align:center;text-anchor:middle;fill:#fdf6e3;fill-opacity:1;stroke:none;stroke-width:3.78001;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       x="388.80923"
+       y="153.37851"
+       id="text6"><tspan
+         sodipodi:role="line"
+         id="tspan6"
+         x="388.80923"
+         y="153.37851"
+         style="fill:#fdf6e3;stroke-width:3.78001">Q</tspan></text>
+  </g>
+</svg>

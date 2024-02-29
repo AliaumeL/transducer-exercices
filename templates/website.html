@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="fr" color-mode="light"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="$author$">
+    <meta name="keywords" content="$for(keyword)$$it$$sep$, $endfor$">
+    <title>$website$ - $title$</title>
+    <meta name="description" content="$description$">
+    <meta name="citation_title" content="$website$ - $title$">
+    <meta name="citation_publisher" content="$url$">
+    <meta name="citation_author" content="$author$">
+    <meta name="citation_author_orcid" content="https://orcid.org/$orcid$">
+    <meta name="citation_abstract" content="$site-abstract$">
+    <meta property="og:title" content="$website$ - $title$">
+    <meta property="og:url" content="$url$">
+    <meta property="og:description" content="Transducer Exercise Sessions Website">
+    <meta property="og:site_name" content="$site_name$">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="static/logo/logo.png">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="static/logo/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="static/logo/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="static/logo/favicon-16x16.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="preload" href="static/fonts/EBGaramond-Regular.woff2" as="font" type="font/woff2" crossorigin="">
+    <link rel="preload" href="static/fonts/EBGaramond-Bold.woff2" as="font" type="font/woff2" crossorigin="">
+    <link rel="preload" href="static/fonts/EBGaramond-Italic.woff2" as="font" type="font/woff2" crossorigin="">
+    <link rel="preload" href="static/fonts/Inconsolata-Regular.ttf" as="font" type="font/ttf" crossorigin="">
+
+    <link rel="stylesheet" href="static/css/styles.css">
+    <link rel="stylesheet" href="static/css/styles-index.css">
+    </head>
+    <body>
+    <!-- SVG symbol definitions -->
+    <svg style="display: none;">
+        <symbol viewBox="-3 -3 30 30" id="lune">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </symbol>
+        <symbol viewBox="-3 -3 30 30" id="soleil">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </symbol>
+        <symbol viewBox="0 0 10.583333 10.583333" id="toc-open">
+            <g aria-label="2" transform="matrix(0.34395833,0,0,0.34395833,-2.4222282,2.1812939)" id="text111-8">
+            <path d="m 9.8299688,19.252143 q 0.9280002,-0.896 1.6480002,-1.584 0.72,-0.704 1.248,-1.264 0.544,-0.576 0.896,-1.072 0.368,-0.496 0.544,-0.96 0.176,-0.48 0.176,-1.008 0,-0.352 -0.096,-0.608 -0.08,-0.256 -0.272,-0.416 -0.176,-0.176 -0.448,-0.256 -0.256,-0.096 -0.592,-0.096 -0.336,0 -0.64,0.08 -0.288,0.08 -0.56,0.24 -0.256,0.16 -0.48,0.432 -0.144,0.208 -0.192,0.336 -0.032,0.112 -0.016,0.24 l -0.096,0.112 -0.112,-0.08 -1.2480002,-0.96 q 0.3679999,-0.624 0.8800002,-1.04 0.528,-0.416 1.152,-0.64 0.64,-0.224 1.328,-0.224 0.864,0 1.568,0.352 0.704,0.352 1.12,1.008 0.416,0.64 0.416,1.52 0,0.624 -0.192,1.184 -0.176,0.544 -0.512,1.072 -0.32,0.512 -0.8,1.056 -0.48,0.544 -1.072,1.152 -0.592,0.592 -1.28,1.296 h 3.152 q 0.272,0 0.384,-0.032 0.112,-0.032 0.208,-0.128 h 0.144 v 0.16 1.472 H 9.8299688 Z" id="path731"></path>
+            </g>
+            <g aria-label="1" transform="matrix(0.34395833,0,0,0.34395833,-2.5937334,-2.5300714)" id="text111-8-3">
+            <path d="m 12.81239,20.596143 v -8 l -1.808,0.64 -0.384,-1.2 2.656,-1.408 h 1.344 v 9.968 z" id="path728"></path>
+            </g>
+            <rect id="rect493" width="5.3375149" height="0.62199998" x="4.2764564" y="4.9413385" ry="0" rx="0"></rect>
+            <rect id="rect493-8" width="5.3375149" height="0.62199998" x="4.2764564" y="7.8663387" ry="0" rx="0"></rect>
+            <rect id="rect493-8-2" width="5.3375149" height="0.62199998" x="4.2764564" y="2.0163386" ry="0" rx="0"></rect>
+        </symbol>
+        <symbol width="40" height="40" viewBox="0 0 10.583333 10.583333" id="toc-close">
+            <g id="g707" transform="translate(0.04652049,0.09612891)">
+                <rect id="rect493" width="8" height="0.62199998" x="-3.9649217" y="7.0716786" ry="0" rx="0" transform="rotate(-45)"></rect>
+                <rect id="rect493-8" width="8" height="0.62199998" x="3.3826785" y="-0.34607843" ry="0" rx="0" transform="rotate(45)"></rect>
+            </g>
+        </symbol>
+    </svg>
+    <header>
+        <nav>
+            <a href="/">$website$</a>
+        </nav>
+        <button class="color-mode__btn light--hidden" aria-label="Toggle light mode">
+            <svg aria-hidden="true">
+                <title data-lang-fr="Mode clair"
+                       data-lang-en="Light mode">Mode clair</title>
+                <use href="#soleil"></use>
+            </svg>
+        </button>
+        <button class="color-mode__btn dark--hidden" aria-label="Toggle light mode">
+            <svg aria-hidden="true">
+                <title data-lang-fr="Mode sombre"
+                       data-lang-en="Dark mode">Mode sombre</title>
+                <use href="#lune"></use>
+            </svg>
+        </button>
+        <div class="lang-box">
+            <button title="Français" data-flag="fr" class="lang-flag lang-flag--active">FR</button>
+            <button title="English" data-flag="en" class="lang-flag">EN</button>
+        </div>
+    </header>
+    $body$
+    <footer data-lang-fr="$licence$ $author$ $year$" 
+            data-lang-en="$licence$ $author$ $year$">
+        $licence$ $author$ $year$
+    </footer>
+    <script>
+        const toggleColorMode = e => {
+            if (e.currentTarget.classList.contains("light--hidden")) {
+                document.documentElement.setAttribute("color-mode", "light");
+                localStorage.setItem("color-mode", "light");
+                return;
+            }
+            document.documentElement.setAttribute("color-mode", "dark");
+            localStorage.setItem("color-mode", "dark");
+        };
+        const toggleColorButtons = document.querySelectorAll(".color-mode__btn");
+        toggleColorButtons.forEach(btn => {
+            btn.addEventListener("click", toggleColorMode);
+        });
+        if (
+            localStorage.getItem("color-mode") === "dark" ||
+            (window.matchMedia("(prefers-color-scheme: dark)").matches &&
+                !localStorage.getItem("color-mode"))
+        ) {
+            document.documentElement.setAttribute("color-mode", "dark")
+        }
+    </script>
+    <script>
+    /* translate.js par Guillaume Brioudes https://myllaume.fr/ */
+    (function() {
+      const flags = document.querySelectorAll('[data-flag]')
+      
+      
+      let boxs = []
+      
+      flags.forEach(flag => {
+        boxs.push('div[data-lang-' + flag.dataset.flag + ']')
+        boxs.push('section[data-lang-' + flag.dataset.flag + ']')
+      })
+      
+      boxs = document.querySelectorAll(boxs.join(','))
+      
+      let actualLang = 'fr';
+      
+      function translateAll() {
+        boxs.forEach(box => {
+          box.style.display = 'none';
+        })
+
+        document.querySelectorAll('[data-lang-' + actualLang + ']')
+          .forEach(elt => {
+            if (elt.tagName !== 'DIV' && elt.tagName !== 'SECTION') {
+              eval('elt.innerHTML = elt.dataset.lang'
+                   + actualLang.charAt(0).toUpperCase()
+                   + actualLang.slice(1)); }
+
+            else {
+              elt.style.display = 'block'
+              console.log(elt)
+            }
+
+        });
+        
+      
+      }
+      
+      flags.forEach(flag => {
+
+      flag.addEventListener('click', (e) => {
+        var flagCliked = e.target;
+
+        if (flagCliked.dataset.flag == actualLang) {
+          // si le bouton flag cliqué active la langue déjà active
+          return;
+        }
+
+        // désactiver la surbrillance du flag de la précédante langue
+        document.querySelector('[data-flag="' + actualLang + '"]')
+          .classList.remove('lang-flag--active');
+
+        // activer la surbrillance du flag de l'actuelle langue
+        flagCliked.classList.add('lang-flag--active');
+
+        actualLang = flagCliked.dataset.flag;
+
+        translateAll();
+
+      });
+    });
+      
+    })()
+    </script>
+    </body>
+</html>

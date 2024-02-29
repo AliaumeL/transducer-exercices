@@ -6,17 +6,20 @@ BUILD_ENV=templates/exercice.tex \
 		  filters/pandoc.css \
 		  filters/remove_exercices.lua
 
-site/index.html: index.md
+site/index.html: index.md metadata.yaml
 	mkdir -p site
 	pandoc --standalone \
 		   --mathjax \
+		   --metadata-file=metadata.yaml \
 		   --number-sections \
+		   --template=templates/website.html \
 		   --section-divs \
 		   -t html5 \
 		   -o $@ $<
 
 website: site/index.html
-	mkdir -p site
+	mkdir -p site/static
+	cp -r static/* site/static/
 
 
 
