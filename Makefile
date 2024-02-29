@@ -1,6 +1,5 @@
 .PHONY: watch website clean
 
-
 LOGOS= static/logo/apple-touch-icon.png \
 	   static/logo/favicon-16x16.png \
 	   static/logo/favicon-32x32.png \
@@ -30,6 +29,7 @@ PANDOC_TEX_OPTS= --lua-filter filters/remove_exercices.lua \
 		         -F filters/knowledge.py \
 		         --number-sections \
 		         --template=templates/exercice.tex \
+				 --metadata-file=metadata.yaml \
 		         -t latex
 
 static/logo/apple-touch-icon.png: static/logo/logo.svg
@@ -69,23 +69,28 @@ site/%.html: content/%.md metadata.yaml $(BUILD_ENV)
 
 site/index.html: index.md metadata.yaml $(BUILD_ENV)
 	mkdir -p site
-	pandoc $(PANDOC_HTML_OPTS) -o $@ $<
+	pandoc $(PANDOC_HTML_OPTS) \
+		   --number-sections \
+		   --metadata=main-page:true \
+		   -o $@ $<
 
-website: $(LOGOS) $(patsubst content/%.md,site/%.html,$(wildcard *.md)) site/index.html
+website: $(LOGOS) $(patsubst content/%.md,site/%.html,$(wildcard content/*.md)) site/index.html
 	mkdir -p site/static
 	cp -r static/* site/static/
+
+pdfs: $(patsubst content/%.md,latex/%.pdf,$(wildcard content/**.md))
+	mv *.pdf latex/
 
 latex/%.tex: content/%.md $(BUILD_ENV)
 	mkdir -p latex
 	pandoc $(PANDOC_TEX_OPTS) -s -o $@ $<
 
-%.pdf: %.tex
+latex/%.pdf: latex/%.tex
 	latexmk -pdf -xelatex $<
-
 
 watch: export PANDOC_LIVE_RELOAD=1
 watch:
-	ls *.md | entr -s "make website && echo reload" | websocat -s 8080
+	ls **/*.md | entr -s "make website && echo reload" | websocat -s 8080
 
 clean:
 	latexmk -C *.pdf

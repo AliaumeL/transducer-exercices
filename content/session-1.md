@@ -1,10 +1,9 @@
 ---
 author: Aliaume LOPEZ
-title: Transducer Exercice Session
+title: Transducers
 subtitle: Mealy Machines
 email: ad.lopez@uw.edu.pl
-website: https://www.irif.fr/~alopez/enseignement.html
-lang: en-US
+lang: en-GB
 session: 1
 date: 2024-02-26
 knowledges:
@@ -47,6 +46,7 @@ knowledges:
         - Presburger Arithmetic
 ---
 
+<!-- These are the latex command used in this document --->
 \newcommand{\Nat}{\mathbb{N}}
 \newcommand{\mealy}[1]{\mathcal{#1}}
 \newcommand{\defined}{:=}

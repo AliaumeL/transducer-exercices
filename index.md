@@ -2,6 +2,7 @@
 title: Home
 author: Aliaume LOPEZ
 date: 2024-02-29
+lang: en-GB
 ---
 
 # Bio
@@ -24,11 +25,12 @@ transducers at the University of Warsaw in 2024.
 
 # Welcome to the transducer course
 
-- [Introduction](./introduction.md)
+todo.
 
 # Exercise Sessions
 
 - [Mealy Machines](./exercices-session-1.html)
+- [Rational Functions](./exercices-session-2.html)
 
 # Homeworks
 

@@ -1,4 +1,5 @@
 author: Aliaume LOPEZ
+email: ad.lopez@uw.edu.pl
 licence: CC BY
 website: Transducers
 site_name: aliaumel.github.io/transducer-exercices
@@ -9,4 +10,5 @@ keywords:
   - string to string
   - functions
 url: https://aliaumel.github.io/transducer-exercices/
+course-website: https://www.mimuw.edu.pl/~bojan/2023-2024/przeksztalcenia-automatowe-transducers
 site-abstract: TODO.
