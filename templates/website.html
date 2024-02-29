@@ -91,20 +91,21 @@
             <svg aria-hidden="true">
                 <title data-lang-fr="Mode clair"
                        data-lang-pl="Tryb jasny"
-                       data-lang-en="Light mode">Mode clair</title>
+                       data-lang-en="Light mode">Light Mode</title>
                 <use href="#soleil"></use>
             </svg>
         </button>
         <button class="color-mode__btn dark--hidden" aria-label="Toggle light mode">
             <svg aria-hidden="true">
                 <title data-lang-fr="Mode sombre"
-                       data-lang-en="Dark mode">Mode sombre</title>
+                       data-lang-pl="Tryb ciemny"
+                       data-lang-en="Dark mode">Dark Mode</title>
                 <use href="#lune"></use>
             </svg>
         </button>
         <div class="lang-box">
-            <button title="Français" data-flag="fr" class="lang-flag lang-flag--active">FR</button>
-            <button title="English" data-flag="en" class="lang-flag">EN</button>
+            <button title="English" data-flag="en" class="lang-flag lang-flag--active">EN</button>
+            <button title="Français" data-flag="fr" class="lang-flag">FR</button>
             <button title="Polski" data-flag="pl" class="lang-flag">PL</button>
         </div>
     </header>
@@ -115,7 +116,8 @@
     $body$
     </article>
     <footer data-lang-fr="$licence$ $author$ $year$" 
-            data-lang-en="$licence$ $author$ $year$">
+            data-lang-en="$licence$ $author$ $year$"
+            data-lang-pl="$licence$ $author$ $year$">
         $licence$ $author$ $year$
     </footer>
     <script>
@@ -155,7 +157,7 @@
       
       boxs = document.querySelectorAll(boxs.join(','))
       
-      let actualLang = 'fr';
+      let actualLang = 'en';
       
       function translateAll() {
         boxs.forEach(box => {
@@ -202,6 +204,8 @@
 
       });
     });
+
+    translateAll();
       
     })()
     </script>

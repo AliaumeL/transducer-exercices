@@ -68,13 +68,13 @@ static/logo/logo.png: static/logo/logo.svg
 site/%.html: content/%.md metadata.yaml $(BUILD_ENV)
 	mkdir -p site
 	pandoc $(PANDOC_HTML_OPTS) \
+		   --number-sections \
 		   --shift-heading-level-by=1 \
 		   -o $@ $<
 
 site/index.html: index.md metadata.yaml $(BUILD_ENV)
 	mkdir -p site
 	pandoc $(PANDOC_HTML_OPTS) \
-		   --number-sections \
 		   --metadata=main-page:true \
 		   -o $@ $<
 
@@ -94,7 +94,7 @@ latex/%.pdf: latex/%.tex
 
 watch: export PANDOC_LIVE_RELOAD=1
 watch:
-	ls **/*.md | entr -s "make website && echo reload" | websocat -s 8080
+	find . -name "*.md" | entr -s "make website && echo reload" | websocat -s 8080
 
 clean:
 	latexmk -C *.pdf
