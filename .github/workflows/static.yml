@@ -28,7 +28,7 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
-    container: pandoc/latex
+    container: pandoc/latex:latest-ubuntu
     steps:
       - name: Setup dev environment (with caching)
         uses: awalsh128/cache-apt-pkgs-action@latest

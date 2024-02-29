@@ -18,6 +18,8 @@ PANDOC_HTML_OPTS= --lua-filter filters/remove_exercices.lua \
 				  -F filters/knowledge.py \
 				  --mathjax \
 				  --standalone \
+				  --bibliography=static/bibtex/papers.bib \
+				  --citeproc \
 				  -t html5 \
 				  --metadata=live-reload:$(PANDOC_LIVE_RELOAD) \
 				  --section-divs \
@@ -27,6 +29,8 @@ PANDOC_HTML_OPTS= --lua-filter filters/remove_exercices.lua \
 PANDOC_TEX_OPTS= --lua-filter filters/remove_exercices.lua \
 		         -F filters/exercice_split.py \
 		         -F filters/knowledge.py \
+				 --bibliography=static/bibtex/papers.bib \
+				 --biblatex \
 		         --number-sections \
 		         --template=templates/exercice.tex \
 				 --metadata-file=metadata.yaml \
@@ -78,7 +82,7 @@ website: $(LOGOS) $(patsubst content/%.md,site/%.html,$(wildcard content/*.md)) 
 	mkdir -p site/static
 	cp -r static/* site/static/
 
-pdfs: $(patsubst content/%.md,latex/%.pdf,$(wildcard content/**.md))
+pdfs: $(patsubst content/%.md,latex/%.pdf,$(wildcard content/*.md))
 	mv *.pdf latex/
 
 latex/%.tex: content/%.md $(BUILD_ENV)
