@@ -1,10 +1,24 @@
-.PHONY: watch
+.PHONY: watch website
 
 BUILD_ENV=templates/exercice.tex \
 		  filters/exercice_split.py \
 		  filters/knowledge.py \
 		  filters/pandoc.css \
 		  filters/remove_exercices.lua
+
+site/index.html: index.md
+	mkdir -p site
+	pandoc --standalone \
+		   --mathjax \
+		   --number-sections \
+		   --section-divs \
+		   -t html5 \
+		   -o $@ $<
+
+website: site/index.html
+	mkdir -p site
+
+
 
 %.tex: %.md $(BUILD_ENV)
 	pandoc \
