@@ -7,10 +7,11 @@ def slugify(text):
     return text.lower().replace(" ", "-")
 
 def prepare(doc):
-    if "knowledges" not in doc.metadata:
-        return
     doc.metadata["knowledge-reverse"] = {}
     doc.metadata["knowledge-undefined"] = {}
+    if "knowledges" not in doc.metadata:
+        doc.metadata["knowledges"] = []
+        return
     for number, knowledge in enumerate(doc.metadata["knowledges"]):
         if "synonyms" not in knowledge:
             continue
