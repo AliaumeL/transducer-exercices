@@ -39,7 +39,7 @@ na Uniwersytecie Warszawskim w 2024 roku.
 
 - **Materiały do kursu**:
   <https://www.mimuw.edu.pl/~bojan/2023-2024/przeksztalcenia-automatowe-transducers>
-- **Prowadzący**: [Mikołaj Bojańczyk](https://www.mimuw.edu.pl/~bojan/)
+- **Nauczyciel**: [Mikołaj Bojańczyk](https://www.mimuw.edu.pl/~bojan/)
 - **Adjiunkt**: [Aliaume Lopez](https://www.irif.fr/~alopez/)
 
 :::

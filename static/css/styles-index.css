@@ -2,10 +2,10 @@
 /* PAGE D'ACCUEIL */
 /* Bouton langue */
 .lang-box {
-	font-family: Inconsolata, monospace;
+  font-family: Inconsolata, monospace;
   display: flex;
   justify-content: space-between;
-  width: 4rem;
+  width: 6rem;
 }
 .lang-flag {
 	cursor: pointer;
@@ -20,7 +20,10 @@
 	color: var(--bg-color);
 }
 /* Gestion de la langue */
-[data-lang-en=""] {
+[data-lang-pl=""] {
+	display:none;
+}
+[data-lang-fr=""] {
 	display:none;
 }
 /* Mise en page */
