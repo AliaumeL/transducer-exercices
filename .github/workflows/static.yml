@@ -32,14 +32,14 @@ jobs:
       - name: Setup dev environment (with caching)
         uses: awalsh128/cache-apt-pkgs-action@latest
         with:
-          packages: pandoc pandoc-citeproc python3
+          packages: pandoc pandoc-citeproc
           version: 1.0
       - name: Install python dependencies (with caching)
         uses: actions/setup-python@v2
         with:
           python-version: '3.9'
           cache: 'pip'
-      - run: pip install -r requirements.txt
+      - run: pip install panflute
       - name: Checkout
         uses: actions/checkout@v4
       - name: Build Pages
