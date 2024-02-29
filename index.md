@@ -48,11 +48,11 @@ na Uniwersytecie Warszawskim w 2024 roku.
 
 ![Transducer Course Logo](./static/logo/logo.svg){width=100%}
 
-# ... {#a-venir}
+# Upcoming {#a-venir}
 
-- [Rational Transductions]{data-lang-en=true}
-  [Transductions rationnelles]{data-lang-fr=true}
-  [Transdukcje wymierne]{data-lang-pl=true}
+- [Rational Transductions]{data-lang-en}
+  [Transductions rationnelles]{data-lang-fr}
+  [Transdukcje wymierne]{data-lang-pl}
 
 # Welcome to the transducer course
 
@@ -70,9 +70,9 @@ Here are some of the notions that will be developed during the course
 
 # Exercise Sessions
 
-- [Mealy Machines](./session-1.html)
+1. [Mealy Machines](./session-1.html)
 
 # Homeworks
 
-- [Homework 1](./homework-1.html)
+1. [Homework 1](./homework-1.html)
 
