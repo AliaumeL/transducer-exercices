@@ -1,0 +1,55 @@
+name: release-pdfs
+
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  build_release:
+    name: build_release
+    runs-on: ubuntu-latest
+    container: pandoc/latex:latest-ubuntu
+    steps:
+      - name: Setup dev environment (without caching)
+        run: |
+          apt update
+          apt install python3 python3-pip inkscape -y
+      - name: Install panflute
+        run: pip3 install panflute
+
+      - name: checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: build artifacts
+        run: make pdfs.tar.gz && make pdfs.zip
+      - name: release
+        uses: actions/create-release@v1
+        id: create_release
+        with:
+          draft: false
+          prerelease: false
+          release_name: ${{ github.event.release.tag_name }}
+          tag_name: ${{ github.ref }}
+          body_path: CHANGELOG.md
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+      - name: upload pdfs.tar.gz artifact
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: pdfs.tar.gz
+          asset_name: transducer-exercises.tar.gz
+          asset_content_type: application/gzip
+      - name: upload pdfs.zip artifact
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: pdfs.zip
+          asset_name: transducer-exercises.zip
+          asset_content_type: application/zip
