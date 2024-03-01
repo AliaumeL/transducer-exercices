@@ -8,19 +8,31 @@
 \usepackage{amsthm}
 \usepackage{hyperref}
 
+
+% use biblatex with good options
+\usepackage[backend=biber,style=alphabetic,sorting=ynt]{biblatex}
+
+% Cleveref with nice defaults
 \usepackage[capitalise,noabbrev,nameinlink]{cleveref}
+
+% And knowledge, of course
 \usepackage[electronic,hyperref,xcolor,cleveref]{knowledge}
 \knowledgeconfigure{notion}
 
+
+% Some page customization
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \lhead{\today}
 \rhead{$title$}
 
+
+% Font configuration
 \usepackage{fontspec}
 \setmainfont{Dosis}
 
 
+% Enviroments
 \newtheorem{exercise}{Exercise}
 \newtheorem{hint}{Hint}
 \newtheorem{solution}{Solution}
@@ -28,6 +40,7 @@
 
 \newcommand{\tightlist}{}
 
+% Page Title
 \title{{\bfseries \Huge{$title$}} \\ Session $session$: $subtitle$}
 \author{$author$ \\
         \href{mailto:$email$}{TA mail}\footnote{\url{$email$}}
@@ -53,6 +66,11 @@ $endfor$
 \maketitle
 
 $body$
+
+% print bibliography using biblatex
+\printbibliography
+
+% and now the appendices
 
 \clearpage
 \appendix

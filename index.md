@@ -37,7 +37,7 @@ le cours sur les transducteurs à l'Université de Varsovie en 2024.
 To jest strona zawierająca zadania i prace domowe do kursu na temat transducerów
 na Uniwersytecie Warszawskim w 2024 roku.
 
-- **Materiały do kursu**:
+- **Materiały do lekcji**:
   <https://www.mimuw.edu.pl/~bojan/2023-2024/przeksztalcenia-automatowe-transducers>
 - **Nauczyciel**: [Mikołaj Bojańczyk](https://www.mimuw.edu.pl/~bojan/)
 - **Adjiunkt**: [Aliaume Lopez](https://www.irif.fr/~alopez/)
@@ -71,8 +71,9 @@ Here are some of the notions that will be developed during the course
 # Exercise Sessions
 
 1. [Mealy Machines](./session-1.html)
+1. [Rational Functions](./session-2.html)
 
 # Homeworks
 
-1. [Homework 1](./homework-1.html)
 
+To be announced.

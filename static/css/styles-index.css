@@ -228,7 +228,7 @@ summary {
 		padding: 0
 	}
 	a {word-break: break-word;}
-	article {
+	article#main-page {
 		padding: 0;
 		max-width: 100%;
 		display: block;
@@ -316,3 +316,36 @@ summary {
 	}
 }
 
+
+
+/* Now, for the knowledges 
+ *
+ * There are two main possiblities
+ * 1. The knowledge is not defined in the document
+ *    but appears in the metadata
+ * 2. The knowledge is not in the metadata
+ *
+ * Maybe those two cases should be treated differently
+ *
+ * */
+span.kl-intro {
+    font-style: italic;
+}
+
+span.kl-ref, a.kl-ref {
+    color: var(--font-color);
+    text-decoration-line: underline;
+    text-decoration-style: dotted;
+}
+
+span.kl-ref:hover, a.kl-ref:hover {
+    text-decoration-style: solid;
+}
+
+span.kl-ref.kl-undefined {
+    color: var(--accent-color);
+}
+
+span.kl-def.kl-undefined {
+    color: var(--accent-color);
+}

@@ -1,22 +1,11 @@
 ---
 title: First Homework
 author: Aliaume LOPEZ
-subtitle: Mealy Machines
+subtitle: Mealy Machines, Sequential Functions, and Variations thereof
 email: ad.lopez@uw.edu.pl
-website: https://www.irif.fr/~alopez/enseignement.html
-lang: en-US
+lang: en-GB
 session: 1
 date: 2024-02-26
-header-includes: |
-    <script>
-        const connect = () => {
-            const ws = new WebSocket("ws://localhost:8080");
-            ws.onopen = () => setTimeout(() => ws.send("keepalive"), 30000);
-            ws.onclose = () => setTimeout(connect, 1000);
-            ws.onmessage = () => location.reload();
-        };
-        connect();
-    </script>
 ---
 
 \newcommand{\Nat}{\mathbb{N}}
@@ -46,6 +35,8 @@ header-includes: |
 \newcommand{\swap}{\mathsf{swap}}
 
 
+@bojanczykToolbox
+
 
 ```{=tex}
 % here put knowledges
@@ -61,3 +52,33 @@ flop' machines. What is the minimal number of intermediate machines needed?
 ## Decidable {.exercise}
 
 Show that it is decidable whether a 'sequential function' is injective.
+
+```{=html}
+::: {#refs}
+
+:::
+```
+
+## Semantically Size Preserving {.exercise}
+
+Let $f \colon \Sigma^* \to \Gamma^*$ be a 'rational function'. Show that $f$ the following
+are equivalent:
+
+1. $f$ is semantically size preserving.
+2. $f$ is computable by a 'letter-to-letter rational transducer'.
+
+
+### Intermediate Computational Model {.hint}
+
+Consider the following intermediate model of computation where it is
+furthermore assumed that there exists $K \in \Nat$ such that at anytime of the
+run of $f$, the difference of lengths between the input read so far and the
+output is at most $K$.
+
+Show that the intermediate model is equivalent to the syntactical model.
+
+### Finding the constant $K$ {.hint}
+
+Show that the following function is well-defined: $\delta(p,q)$ that associates
+to each pair of states $p$ and $q$ of the transducer the difference of length
+induced by **any** run from $p$ to $q$.

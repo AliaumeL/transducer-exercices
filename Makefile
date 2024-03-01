@@ -1,4 +1,4 @@
-.PHONY: watch website clean
+.PHONY: watch website clean pdfs
 
 LOGOS= static/logo/apple-touch-icon.png \
 	   static/logo/favicon-16x16.png \
@@ -90,6 +90,14 @@ latex/%.tex: content/%.md $(BUILD_ENV)
 
 latex/%.pdf: latex/%.tex
 	latexmk -pdf -xelatex $<
+
+pdfs.tar.gz: pdfs
+	cd latex && tar -czf $@ *.pdf
+	mv latex/$@ .
+
+pdfs.zip: pdfs
+	cd latex && zip -r $@ *.pdf
+	mv latex/$@ .
 
 watch: export PANDOC_LIVE_RELOAD=1
 watch:
