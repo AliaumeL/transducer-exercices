@@ -2,9 +2,12 @@
 
 Exercices for transducers classes of [MIMUW].
 The lecture notes are available on [the dedicated webpage][lecture-notes].
+A web version of the sessions is [deployed on github pages][ghpages].
 
 [MIMUW]: https://www.mimuw.edu.pl
 [lecture-notes]: https://www.mimuw.edu.pl/~bojan/2023-2024/przeksztalcenia-automatowe-transducers
+[ghpages]: https://aliaumel.github.io/transducer-exercices
+
 
 ## Usage 
 
