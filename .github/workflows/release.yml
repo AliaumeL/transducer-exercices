@@ -19,7 +19,7 @@ jobs:
       - name: Install panflute
         run: |
           python3 -m venv .venv
-          source .venv/bin/activate
+          . .venv/bin/activate
           pip3 install panflute
       - name: checkout
         uses: actions/checkout@v2
