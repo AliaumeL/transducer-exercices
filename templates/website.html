@@ -35,7 +35,6 @@
   <script
   src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
   type="text/javascript"></script>
-
     $if(live-reload)$
     <script>
         const connect = () => {
@@ -45,6 +44,17 @@
             ws.onmessage = () => location.reload();
         };
         connect();
+
+        // add scroll to last position on reload :)
+        window.onload = () => {
+            const scroll = localStorage.getItem("scroll");
+            if (scroll) {
+                window.scrollTo(0, scroll);
+                localStorage.removeItem("scroll");
+            }
+        };
+        // periodically save scroll position
+        window.onscroll = () => localStorage.setItem("scroll", window.scrollY);
     </script>
     $endif$
     </head>
@@ -85,7 +95,11 @@
     </svg>
     <header>
         <nav>
+            $if(live-reload)$
+            <a href="/">$website$$if(subtitle)$ — $subtitle$$endif$</a>
+            $else$
             <a href="$url$">$website$$if(subtitle)$ — $subtitle$$endif$</a>
+            $endif$
         </nav>
         <button class="color-mode__btn light--hidden" aria-label="Toggle light mode">
             <svg aria-hidden="true">
@@ -122,10 +136,10 @@
             data-lang-pl="Referencje">References</h2>
         $refs$
     $endif$
-    <footer data-lang-fr="$licence$ $author$ $year$" 
-            data-lang-en="$licence$ $author$ $year$"
-            data-lang-pl="$licence$ $author$ $year$">
-        $licence$ $author$ $year$
+    <footer data-lang-fr="$licence$ $author$ $year$ (template par Arthur Perret)" 
+            data-lang-en="$licence$ $author$ $year$ (template by Arthur Perret)"
+            data-lang-pl="$licence$ $author$ $year$ (szablon autorstwa Arthur Perret)">
+        $licence$ $author$ $year$ (template by Arthur Perret)
     </footer>
     <script>
         const toggleColorMode = e => {

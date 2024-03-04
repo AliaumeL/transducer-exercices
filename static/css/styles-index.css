@@ -1,3 +1,10 @@
+/**
+ * Arthur Perret
+ * https://www.arthurperret.fr/
+ * CC-BY-SA
+ *
+ * Modification par Aliaume LOPEZ
+ */
 @charset "UTF-8";
 /* PAGE D'ACCUEIL */
 /* Bouton langue */
@@ -317,7 +324,6 @@ summary {
 }
 
 
-
 /* Now, for the knowledges 
  *
  * There are two main possiblities
@@ -348,4 +354,55 @@ span.kl-ref.kl-undefined {
 
 span.kl-def.kl-undefined {
     color: var(--accent-color);
+}
+
+/*
+ * Exercises 
+ *
+ */
+h2.exercise.crucial::after {
+    content: '🔥';
+    display: inline-block;
+    padding-right: 0.3em;
+}
+
+h2.exercise.warmup::after {
+    content: '🏃';
+    display: inline-block;
+    padding-right: 0.3em;
+}
+
+h2.exercise.challenging::after {
+    content: '🏋️';
+    display: inline-block;
+    padding-right: 0.3em;
+}
+
+section.cheat-sheet {
+    border-top: 1px solid var(--accent-color);
+}
+
+/*
+ * Paragraph counters
+ *
+ */
+article {
+    counter-reset: paragraph;
+}
+
+/* Only select immediate children,
+ * otherwise we have some weild behaviour
+ */
+article section > p::before {
+    counter-increment: paragraph;
+    content: counter(paragraph);
+    position: absolute;
+    text-align: right;
+    width: 15px;
+    margin-left: -2em;
+    font-family: var(--mono);
+    font-weight: 400;
+    font-size: 0.6em;
+    line-height: 3em;
+    color: var(--muted-color);
 }
