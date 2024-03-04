@@ -10,13 +10,12 @@ jobs:
   build_release:
     name: build_release
     runs-on: ubuntu-latest
-    container: pandoc/latex:latest-ubuntu
+    container: dante-ev/latex-action@edge
     steps:
       - name: Setup dev environment (without caching)
         run: |
           apt update
-          apt install python3 python3-pip inkscape -y 
-          DEBIAN_FRONTEND=noninteractive TZ=Etc/UTC apt install texlive-full fonts-dosis latexmk -y
+          apt install fonts-dosis -y
       - name: Install panflute
         run: pip3 install panflute
       - name: checkout
