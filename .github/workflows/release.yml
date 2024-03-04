@@ -16,18 +16,15 @@ jobs:
         run: |
           apt update
           apt install fonts-dosis python3-venv -y
-      - name: Install panflute
-        run: |
-          python3 -m venv .venv
-          . .venv/bin/activate
-          pip3 install panflute
       - name: checkout
         uses: actions/checkout@v2
         with:
           fetch-depth: 0
       - name: build artifacts
         run: |
+          python3 -m venv .venv
           . .venv/bin/activate
+          pip3 install panflute
           make pdfs.tar.gz && make pdfs.zip
       - name: release
         uses: actions/create-release@v1
