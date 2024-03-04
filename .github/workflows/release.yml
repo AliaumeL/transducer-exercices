@@ -15,7 +15,7 @@ jobs:
       - name: Setup dev environment (without caching)
         run: |
           apt update
-          apt install python3 python3-pip inkscape latexmk -y
+          apt install python3 python3-pip inkscape texlive-most fonts-dosis latexmk -y
       - name: Install panflute
         run: pip3 install panflute
       - name: checkout
