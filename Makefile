@@ -82,7 +82,7 @@ website: $(LOGOS) $(patsubst content/%.md,site/%.html,$(wildcard content/*.md)) 
 	cp -r static/* site/static/
 
 pdfs: $(patsubst content/%.md,latex/%.pdf,$(wildcard content/*.md))
-	mv *.pdf latex/
+	cp *.pdf latex/
 
 latex/%.tex: content/%.md $(BUILD_ENV)
 	mkdir -p latex
