@@ -27,7 +27,7 @@ jobs:
           fetch-depth: 0
       - name: build artifacts
         run: |
-          source .venv/bin/activate
+          . .venv/bin/activate
           make pdfs.tar.gz && make pdfs.zip
       - name: release
         uses: actions/create-release@v1
