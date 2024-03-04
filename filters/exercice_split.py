@@ -68,7 +68,6 @@ def split_exercises(elem, doc):
     elif is_section_div(elem) and "solution" in elem.classes:
         if doc.format == "latex":
             parents = list(enumerate_headings(elem))
-            raise ValueError(parents)
             eid = parents[1].identifier
             if "solutions" not in doc.metadata:
                 doc.metadata["solutions"] = []
