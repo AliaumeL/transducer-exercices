@@ -329,9 +329,21 @@ part $P \subseteq M$. We want to prove that $\preim{f}{L}$ is a regular language
 
 To that end, let us define $N = (Q_T \to Q_T) \times (Q_T \to M)$, with the
 multiplication $(\delta, \lambda) \cdot (\delta', \lambda') \defined (\delta
-\circ \delta', q \mapsto \lambda(q) \cdot \lambda'(q)))$.
+\circ \delta', q \mapsto \lambda(q) \cdot \lambda'(q)))$. This is a finite
+monoid, where the pair $(\mathsf{id}, \mathsf{const}_1)$ is the identity
+element. Let us define $\varphi(a) \defined (\delta_T(a, \cdot), \lambda_T(a,
+\cdot))$ for all $a \in \Sigma$. It defines a morphism from $\Sigma^*$ to $N$.
+Now, let us consider $S \defined \setof{ (\delta, \lambda) \in N }{
+\lambda(\delta(q_0)) \in P }$. It is an easy check that $\varphi^{-1}(S)
+= \preim{f}{L}$, which proves that the latter is a regular language.
 
+Let us now prove that $f$ is 'Lipschitz' for the 'prefix distance'. Let us
+consider $K \defined \max \setof{ \vcount{\lambda_T(a,q)} }{ a \in \Sigma,
+q \in Q_T}$. It is an easy check that $f$ is 'Lipschitz' with constant $K$.
 
+Finally, let us prove that $f$ 'preserves prefixes'. Let $u,v \in \Sigma^*$ be
+such that $u \prefleq v$. Because $(Q_T, q_0^T, \delta_T)$ is a *deterministic*
+automaton, $f(v) = f(u) \cdot \lambda_T(\delta(q_0^T, u), u^{-1}v)$.
 
 
 ### Solution of the hard implication

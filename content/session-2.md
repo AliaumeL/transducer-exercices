@@ -7,9 +7,44 @@ lang: en-GB
 session: 2
 date: 2024-03-04
 knowledges:
+    - synonyms:
+        - graph
+    - synonyms:
+        - regular language
+    - synonyms:
+        - code
+    - synonyms:
+        - prefix code
+    - synonyms:
+        - code with bounded delay
     - synonyms: 
         - Mealy Machine
         - closed subsets
+    - synonyms:
+        - regular topologies
+        - regular topology
+    - synonyms:
+        - continuous
+    - synonyms:
+        - sequential transducer
+        - sequential
+        - sequential function
+    - synonyms:
+        - impure sequential function
+    - synonyms:
+        - rational function
+    - synonyms:
+        - code with bounded delay
+    - synonyms:
+        - topology
+    - synonyms:
+        - Lipschitz
+    - synonyms:
+        - prefix distance
+    - synonyms:
+        - prefix preserving functions
+        - preserves prefixes
+        - prefix preserving
 refs: |
    ::: {#refs}
    :::
@@ -17,6 +52,7 @@ refs: |
 
 <!-- These are the latex command used in this document --->
 \newcommand{\Nat}{\mathbb{N}}
+\newcommand{\Real}{\mathbb{R}}
 \newcommand{\mealy}[1]{\mathcal{#1}}
 \newcommand{\defined}{:=}
 \newcommand{\emptyword}{\varepsilon}
@@ -64,7 +100,7 @@ Let $f \colon \Sigma^* \to \Gamma^*$ be a function preserving lengths. Prove
 that the following are equivalent:
 
 1. The 'graph' of $f$ is a 'regular language',
-2. $f$ can be computed by a 'Mealy Machine' with 'lookahead'.
+2. $f$ can be computed by a 'Mealy Machine' with regular lookahead.
 
 # Sequential Functions {.exercise}
 
@@ -83,7 +119,7 @@ its triple $3n$ is not a 'sequential function'.
 
 ### Use the topological characterization {.hint}
 
-Recall that a 'sequential function' is 'continuous', and 'Lipshitz' for the
+Recall that a 'sequential function' is 'continuous', and 'Lipschitz' for the
 'prefix distance'.
 
 ## Is it a code? {.exercise}
@@ -137,7 +173,27 @@ for rules defined by regular expressions?
 
 # Cheat Sheet {.cheat-sheet}
 
+## Codes 
+
+### Codes with Bounded Delay {.def}
+
+Let us write $\Gamma \defined \set{x_1, \dots, x_n}
+= X$. By definition, $X$ is a "code" if the map $\beta \colon \Gamma^* \to
+\Sigma^*$ defined by $\beta(x_i) = x_i$ is injective.
+
+A set $X \subseteq \Sigma^*$ is a "prefix code" if no word of $X$ is a prefix
+of another word of $X$. 
+
+A "code with bounded delay" $d$ is a code $X$ such that for all $u \in
+\Gamma^{d+1}$, for all $v \in \Gamma^*$ if $\beta(u) \prefleq \beta(v)$ then
+$u_1 = v_1$.
+
 ## Machines
+
+### Regular Language {.def}
+
+A "regular language" is a language that is recognized by a deterministic finite
+automaton.
 
 ### Mealy Machine {.def}
 
@@ -218,6 +274,11 @@ For empty words, the bimachine outputs $u$.
    
 
 ## Maths
+
+### Graph of a Function {.def}
+
+Let $f \colon X \to Y$ be a function. The "graph" of $f$ is the set $\graph(f)
+\defined \setof{(x, f(x))}{x \in X}$.
 
 ### Topology and Continuous functions {.def}
 
