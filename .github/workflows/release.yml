@@ -15,7 +15,7 @@ jobs:
       - name: Setup dev environment (without caching)
         run: |
           apt update
-          apt install fonts-dosis python3.11-venv -y
+          apt install fonts-dosis python3-venv -y
       - name: Install panflute
         run: |
           python3 -m venv .venv
