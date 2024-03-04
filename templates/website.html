@@ -39,9 +39,15 @@
     <script>
         const connect = () => {
             const ws = new WebSocket("ws://localhost:8080");
+            let re = false;
             ws.onopen = () => setTimeout(() => ws.send("keepalive"), 30000);
             ws.onclose = () => setTimeout(connect, 1000);
-            ws.onmessage = () => location.reload();
+            ws.onmessage = () => { 
+                if (re) return;
+                re = true;
+                location.reload();
+                setTimeout(() => re = false, 5000);
+            }
         };
         connect();
 

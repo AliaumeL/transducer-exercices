@@ -102,6 +102,46 @@ that the following are equivalent:
 1. The 'graph' of $f$ is a 'regular language',
 2. $f$ can be computed by a 'Mealy Machine' with regular lookahead.
 
+### Simple conversions {.hint}
+
+Transform transitions of the form $p \to^{a/b} q$ into transitions of the form
+$p \to^{(a,b)} q$. I.e., use the fact that $Q \times (\Sigma \times \Gamma) \to
+Q \subseteq (Q \times \Sigma) \times (Q \times \Gamma)$.
+
+### Semantic and Syntaxic Unabmiguity {.hint}
+
+To convert a 'graph' into a 'Mealy Machine' with regular lookahead, start from
+a *deterministic* finite automaton that recognizes the graph.
+
+
+### Solution for the easy implication {.solution}
+
+Consider a 'Mealy Machine' with regular lookahead. It is defined as $T \defined
+(Q, q_0, \delta, \lambda)$. Let us write $A \defined (Q, q_0, \delta', Q)$
+where $\delta'(q, (a,b)) = \delta(q,a)$ if $\lambda(q,a) = b$, and is undefined
+otherwise. An easy induction on the size of the input shows that $A$ recognizes
+exactly the graph of $f$.
+
+### Solution for the hard implication {.solution}
+
+For simplicity, let us start with a *deterministic* and *co-deterministic*
+finite automaton $A \defined (Q, q_0, \delta, F)$ that recognizes the 'graph'
+of $f$. Define the following 'Mealy Machine' $T \defined (Q, q_0, \delta',
+\lambda')$, where $(q,a,q') \in \delta'$ if and only if there exists $b \in
+\Gamma$ such that $\delta(q,(a,b)) = q'$ in $A$, and $\lambda(q,a,q') = b$
+where $b$ is the unique letter in $\Gamma$ such that $\delta(q,(a,b)) = q'$
+(because the automaton is co-deterministic).
+
+It is an easy induction on the size of the input to prove that $T$ computes
+$f$, i.e., that accepting runs produce $f(w)$. Let us now prove that $T$ is
+unambiguous. Assume that two runs $\rho, \theta \in Q^*$ of $T$ are accepting
+on a given word $w$. To each of these runs, one can associate a word $u$ and
+$v$, both in $\Gamma^*$, and such that $\delta(\rho_i, w_{i+1}, u_{i+1})
+= \rho_{i+1})$ for $0 \leq i < |w|$ (and similarly for $\theta$). Because both
+runs are accepting, and since $T$ produces $f(w)$, we conclude that $u
+= v = f(w)$. In particular, we can now use the fact that $A$ is deterministic
+to conclude that $\rho = \theta$.
+
 # Sequential Functions {.exercise}
 
 ## Sequential Functions and Forward Images {.exercise}
