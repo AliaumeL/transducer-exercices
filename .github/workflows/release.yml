@@ -10,7 +10,7 @@ jobs:
   build_release:
     name: build_release
     runs-on: ubuntu-latest
-    container: dante-ev/latex-action@edge
+    container: danteev/texlive:latest
     steps:
       - name: Setup dev environment (without caching)
         run: |
