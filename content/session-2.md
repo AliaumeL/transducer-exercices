@@ -79,7 +79,7 @@ refs: |
 
 # Continuity. Again.
 
-## It is cake? {.exercise}
+## It is cake? {.exercise .warmup}
 
 Let $\Sigma$ and $\Gamma$ be two alphabets. Prove or disprove that the
 following functions are 'continuous' for the 'regular topologies'
@@ -146,13 +146,13 @@ to conclude that $\rho = \theta$.
 
 ## Sequential Functions and Forward Images {.exercise}
 
-Prove that the image of a rational language through a
-'sequential function' is a rational language.
+Prove that the image of a rational language through a 'sequential function' is
+a rational language. Is it true for rational functions?
 
 Is the function $f$ that maps to a binary encoded number $n$ its square $n^2$
 a 'sequential function'?
 
-## Sequential Functions and Topology {.exercise}
+## Sequential Functions and Topology {.exercise .warmup}
 
 Prove that the function $(\times 3)$ that maps a binary encoded number $n$ to
 its triple $3n$ is not a 'sequential function'.
@@ -162,7 +162,18 @@ its triple $3n$ is not a 'sequential function'.
 Recall that a 'sequential function' is 'continuous', and 'Lipschitz' for the
 'prefix distance'.
 
-## Is it a code? {.exercise}
+
+## Injectivity, fixedpoints {.exercise .challenging}
+
+For the following models, is injectivity decidable?
+Is the property of having a fixed point decidable?
+
+1. Mealy Machines
+2. Rational transductions
+3. Sequential Functions
+
+
+## Is it a code? {.exercise .warmup}
 
 Are the following functions sequential?
 
@@ -195,8 +206,6 @@ usual distance on $\Real$ to $\Sigma^*$ by defining $d(u,v) \defined |\bar{u}
 
 Can you provide sufficient conditions for $f$ to be 'continuous' in this new
 topology?
-
-
  
 # Homework
 

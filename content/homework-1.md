@@ -35,13 +35,6 @@ date: 2024-02-26
 \newcommand{\swap}{\mathsf{swap}}
 
 
-@bojanczykToolbox
-
-
-```{=tex}
-% here put knowledges
-```
-
 # Mealy Machines and Variations
 
 ## Flip-Flop {.exercise}
@@ -58,6 +51,14 @@ Show that it is decidable whether a 'sequential function' is injective.
 
 :::
 ```
+
+## Semantically Functional {.exercise}
+
+Prove that the two models are equivalent, and provide effective
+conversions.
+
+1. rational functions.
+2. functional relations computed by non deterministic Mealy Machines.
 
 ## Semantically Size Preserving {.exercise}
 
