@@ -19,9 +19,9 @@ jobs:
       - name: Install Nix
         uses: cachix/install-nix-action@v17
       - name: Build pdfs.tar.gz
-        run: nix develop --command make pdfs.tar.gz
+        run: nix-shell --run "make pdfs.tar.gz"
       - name: Build pdfs.zip
-        run: nix develop --command make pdfs.zip
+        run: nix-shell --run "make pdfs.zip"
       - name: Create the release with artifacts
         uses: softprops/action-gh-release@v1
         with:
