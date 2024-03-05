@@ -10,6 +10,7 @@ jobs:
   build_release:
     name: build_release
     runs-on: ubuntu-latest
+    permissions: write-all
     steps:
       - name: checkout
         uses: actions/checkout@v3

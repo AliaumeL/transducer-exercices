@@ -6,6 +6,7 @@
 ![Pandoc](https://img.shields.io/badge/pandoc-%231a1a1a.svg?style=for-the-badge&logo=pandoc&logoColor=white)
 ![Lua](https://img.shields.io/badge/lua-%232C2D72.svg?style=for-the-badge&logo=lua&logoColor=white)
 ![Markdown](https://img.shields.io/badge/markdown-%23000000.svg?style=for-the-badge&logo=markdown&logoColor=white)
+
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/AliaumeL/transducer-exercices)
 ![GitHub Release](https://img.shields.io/github/v/release/AliaumeL/transducer-exercices)
 ![GitHub deployments](https://img.shields.io/github/deployments/AliaumeL/transducer-exercices/github-pages)
