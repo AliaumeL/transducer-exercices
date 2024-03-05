@@ -37,6 +37,10 @@ date: 2024-02-26
 
 # Mealy Machines and Variations
 
+## Continuous {.exercise}
+
+Is the zip function continous?
+
 ## Flip-Flop {.exercise}
 
 Show that a 'flip-flop' machine can be obtained by composition of 'binary flip
@@ -44,13 +48,7 @@ flop' machines. What is the minimal number of intermediate machines needed?
 
 ## Decidable {.exercise}
 
-Show that it is decidable whether a 'sequential function' is injective.
-
-```{=html}
-::: {#refs}
-
-:::
-```
+Show that it is decidable whether a 'rational function' is injective.
 
 ## Semantically Functional {.exercise}
 
