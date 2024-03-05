@@ -17,5 +17,6 @@ in pkgs.mkShell {
     pkgs.websocat
     pkgs.gnutar
     pkgs.zip
+    pkgs.dosis
   ];
 }
