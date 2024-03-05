@@ -26,32 +26,10 @@ jobs:
           . .venv/bin/activate
           pip3 install panflute
           make pdfs.tar.gz && make pdfs.zip
-      - name: release
-        uses: actions/create-release@v1
-        id: create_release
+      - name: Release
+        uses: softprops/action-gh-release@v1
         with:
-          draft: false
-          prerelease: false
-          release_name: ${{ github.event.release.tag_name }}
-          tag_name: ${{ github.ref }}
+          files: |
+            pdfs.tar.gz 
+            pdfs.zip
           body_path: CHANGELOG.md
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
-      - name: upload pdfs.tar.gz artifact
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: pdfs.tar.gz
-          asset_name: transducer-exercises.tar.gz
-          asset_content_type: application/gzip
-      - name: upload pdfs.zip artifact
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: pdfs.zip
-          asset_name: transducer-exercises.zip
-          asset_content_type: application/zip
