@@ -22,6 +22,8 @@ PANDOC_HTML_OPTS= --lua-filter filters/remove_exercices.lua \
 				  --citeproc \
 				  -t html5 \
 				  --metadata=live-reload:$(PANDOC_LIVE_RELOAD) \
+				  --metadata=git-revision:$(shell git rev-parse HEAD) \
+				  --metadata=git-repository:$(shell git remote get-url origin) \
 				  --section-divs \
 				  --template=templates/website.html \
 				  --metadata-file=metadata.yaml 

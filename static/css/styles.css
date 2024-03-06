@@ -238,3 +238,12 @@ iframe {
 	margin-top: 1em;
 	border: none;
 }
+
+footer a svg {
+    width: 1em;
+    height: 1em;
+}
+
+footer a svg path {
+    fill: var(--muted-color);
+}
