@@ -2,9 +2,10 @@
 
 ## Community
 
-- [ ] allow to edit pages by linking to the github repository
-- [ ] allow to comment on pages by opening issues on the github repository
-- [ ] create an "rss" feed for the website
+- [x] allow to edit pages by linking to the github repository
+- [x] allow to comment on pages by opening issues on the github repository
+- [ ] create an "rss" feed for the website using <https://github.com/chambln/pandoc-rss>
+      or a variant thereof
 
 ## Tooling
 

@@ -137,6 +137,13 @@
             <button title="Français" data-flag="fr" class="lang-flag">FR</button>
             <button title="Polski" data-flag="pl" class="lang-flag">PL</button>
         </div>
+        <a href="$github-url$/issues/new?template=exercise.md"
+           data-lang-fr="Suggérer une modification"
+           data-lang-en="Suggest a modification"
+           data-lang-pl="Suggest a modification"
+            >
+            Suggest a modification
+        </a>
     </header>
     <article
             $if(main-page)$
@@ -159,9 +166,19 @@
         $licence$ $author$ $year$ (template by Arthur Perret)
         </span>
         <br/>
-        $git-revision$
+        <a data-lang-en="Edit this page on GitHub"
+           data-lang-fr="Éditer cette page sur GitHub"
+           data-lang-pl="Edit this page on GitHub"
+           href="$github-url$/blob/main/$sourcefile$"
+           >
+           Edit this page on GitHub
+        </a>
+        <br/>
+        <a href="$github-url$/tree/$git-revision$">
+            $git-revision$
+        </a>
         <!-- github icon and path to repository -->
-        <a href="$git-repository$">
+        <a href="$github-url$">
             <svg aria-hidden="true" >
                 <title data-lang-fr="Voir le code source sur GitHub"
                        data-lang-en="View source code on GitHub"
