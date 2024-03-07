@@ -183,7 +183,7 @@ Are the following functions sequential?
    \Sigma^*$ is defined by $\beta_2(x) = ab$, $\beta_2(y) = abb$, and
    $\beta_2(z) = baab$?
 
-## Coding and Decoding {.exrecise}
+## Coding and Decoding {.exercise}
 
 Let $\beta \colon \Gamma^* \to \Sigma^*$  be a morphism.
 Prove that the following are equivalent:
@@ -265,6 +265,7 @@ $$
     \quad 
     \mealy{M}(q,au) \defined \lambda(q,a) \concat \mealy{M}(\delta(q,a), u)
 $$
+
 ### Mealy Machine With Lookahead {.def}
 
 Let $\Sigma$ and $\Gamma$ be two alphabets.

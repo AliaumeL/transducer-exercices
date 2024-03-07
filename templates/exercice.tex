@@ -20,11 +20,21 @@
 \knowledgeconfigure{notion}
 
 
+\hypersetup{
+    pdftitle={$title$},
+    pdfauthor={$author$},
+    pdfsubject{$subtitle$}
+}
+
+
 % Some page customization
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \lhead{\today}
 \rhead{$title$}
+\rfoot{\thepage}
+\cfoot{}
+\lfoot{$git-revision$}
 
 
 % Font configuration
@@ -88,8 +98,8 @@ $endfor$
 \section{Solutions}
 
 $for(solutions)$
-\begin{solution}[Solution to \cref{$it.id$}]
-    \label{$it.id$:solution}
+\begin{solution}[Solution to \cref{$it.eid$}]
+    \label{$it.id$}
     $it.content$
 \end{solution}
 $endfor$

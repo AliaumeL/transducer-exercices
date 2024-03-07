@@ -34,6 +34,8 @@ PANDOC_TEX_OPTS= --lua-filter filters/remove_exercices.lua \
 				 --bibliography=static/bibtex/papers.bib \
 				 --biblatex \
 		         --number-sections \
+				  --metadata=git-revision:$(shell git rev-parse HEAD) \
+				  --metadata=git-repository:$(shell git remote get-url origin) \
 		         --template=templates/exercice.tex \
 				 --metadata-file=metadata.yaml \
 		         -t latex
