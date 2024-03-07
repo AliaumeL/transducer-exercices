@@ -9,6 +9,7 @@
 
 ## Tooling
 
+- [ ] precompute mathjax to speed up page rendering
 - [ ] create test suites for the pages (unused references, broken links, etc.)
 - [ ] allow to do *cross page references* seamlessly 
 - [ ] enable knowledge sharing between pages
