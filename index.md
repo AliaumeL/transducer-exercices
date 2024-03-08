@@ -54,7 +54,8 @@ na Uniwersytecie Warszawskim w 2024 roku.
 
 ![Transducer Course Logo](./static/logo/logo.svg){width=100%}
 
-# Upcoming {#a-venir}Two-way automata with output
+
+# Upcoming {#a-venir}
 
 - [Two-way automata with output]{data-lang-en="Two-way automata with output"
                                 data-lang-fr="Automates à deux sens avec sortie"
@@ -78,8 +79,8 @@ Here are some of the notions that will be developed during the course
 
 1. [Mealy Machines](./session-1.html)
 1. [Rational Functions](./session-2.html)
+1. [Two-way automata with output](./session-3.html)
 
-# Homeworks
+# Homework
 
-
-To be announced.
+1. [First Homework](./homework-1.html)

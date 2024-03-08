@@ -41,6 +41,9 @@ PANDOC_TEX_OPTS= --lua-filter filters/remove_exercices.lua \
 				 --metadata-file=metadata.yaml \
 		         -t latex
 
+PANDOC_ICAL_OPTS= --metadata=current-time-utc:$(shell date +"%Y%m%dT%H%M%ST") \
+				  --metadata-file=metadata.yaml
+
 static/logo/apple-touch-icon.png: static/logo/logo.svg
 	inkscape --export-background-opacity=0 \
              --export-width=180 \
