@@ -102,7 +102,7 @@ site/index.html: index.md metadata.yaml $(BUILD_ENV)
 		   --metadata=main-page:true \
 		   -o $@ $<
 
-website: $(LOGOS) $(patsubst content/%.md,site/%.html,$(wildcard content/*.md)) site/index.html
+website: $(LOGOS) $(patsubst content/%.md,site/%.html,$(wildcard content/*.md)) site/index.html site/rss.xml
 	mkdir -p site/static
 	cp -r static/* site/static/
 
