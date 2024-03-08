@@ -39,6 +39,10 @@ jobs:
         uses: DeterminateSystems/magic-nix-cache-action@v2
       - name: Build Pages
         run: nix-shell --run "make website"
+      - name: list files in the current folder
+        run: |
+          ls -la .
+          ls -la site/
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Upload artifact
