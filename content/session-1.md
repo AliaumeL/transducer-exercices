@@ -6,6 +6,7 @@ email: ad.lopez@uw.edu.pl
 lang: en-GB
 session: 1
 date: 2024-02-26
+course-url: https://mimuw.edu.pl/~bojan/slides/slajdomat/teaching/2024transducers/Mealy%20machines/?step=0
 knowledges:
     - synonyms:
         - sequential transducer

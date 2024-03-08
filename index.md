@@ -54,11 +54,11 @@ na Uniwersytecie Warszawskim w 2024 roku.
 
 ![Transducer Course Logo](./static/logo/logo.svg){width=100%}
 
-# Upcoming {#a-venir}
+# Upcoming {#a-venir}Two-way automata with output
 
-- [Rational Transductions]{data-lang-en="Rational Transductions"
-                           data-lang-fr="Transductions rationnelles"
-                           data-lang-pl="Transdukcje wymierne"}
+- [Two-way automata with output]{data-lang-en="Two-way automata with output"
+                                data-lang-fr="Automates à deux sens avec sortie"
+                                data-lang-pl="Automaty dwukierunkowe z wyjściem"}
 
 # Welcome to the transducer course
 

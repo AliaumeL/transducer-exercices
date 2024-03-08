@@ -1,9 +1,14 @@
 <title>$title$</title>
-<link>$url$/$outputfile$</link>
+<link>$url$/$filename$.html</link>
 <description>
 <![CDATA[
+    <h2>$subtitle$</h2>
+    $date$
     $description$
-    ($git-revision$ - $git-repository$)
+    <a href="$course-url$">See the course slides</a>
+    <p>
+        ($git-revision$ - $git-repository$)
+    </p>
 ]]>
 </description>
 <author>$author$</author>
@@ -11,5 +16,5 @@ $for(categories)$
 <category>$categories$</category>
 $endfor$
 <source url="$github-url$/blob/$sourcefile$">$sourcefile$</source>
-<guid isPermaLink="true">$url$/$outfile$</guid>
+<guid isPermaLink="true">$url$/$filename$.html</guid>
 <pubDate>$date$</pubDate>

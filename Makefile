@@ -75,6 +75,7 @@ site/rss/%.xml: content/%.md metadata.yaml $(BUILD_ENV)
 		   --metadata=git-revision:$(shell git rev-parse HEAD) \
 		   --metadata=git-repository:$(shell git remote get-url origin) \
 		   --metadata-file=metadata.yaml \
+		   --metadata=filename:"$(basename $(notdir $@))" \
 		   -t html \
 		   -f markdown \
 		   -o $@ $<

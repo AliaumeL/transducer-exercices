@@ -6,6 +6,7 @@ email: ad.lopez@uw.edu.pl
 lang: en-GB
 session: 2
 date: 2024-03-04
+course-url: https://mimuw.edu.pl/~bojan/slides/slajdomat/teaching/2024transducers/Rational_functions/?step=0
 knowledges:
     - synonyms:
         - graph
