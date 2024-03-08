@@ -7,6 +7,7 @@ LOGOS= static/logo/apple-touch-icon.png \
 
 BUILD_ENV=templates/exercice.tex \
 		  templates/website.html \
+		  templates/rss-template.xml \
 		  filters/exercice_split.py \
 		  filters/knowledge.py \
 		  filters/remove_exercices.lua \
@@ -68,6 +69,26 @@ static/logo/logo.png: static/logo/logo.svg
     		 --export-filename=$@ \
 			 $<
 
+site/rss/%.xml: content/%.md metadata.yaml $(BUILD_ENV)
+	mkdir -p site/rss
+	pandoc --template=templates/rss-item-template.xml \
+		   --metadata=git-revision:$(shell git rev-parse HEAD) \
+		   --metadata=git-repository:$(shell git remote get-url origin) \
+		   --metadata-file=metadata.yaml \
+		   -t html \
+		   -f markdown \
+		   -o $@ $<
+
+site/rss.xml: $(pathsubst content/%.md,site/rss/%.xml,$(wildcard content/*.md)) metadata.yaml rss.md $(BUILD_ENV)
+	mkdir -p site
+	pandoc --template=templates/rss-template.xml \
+		   --metadata=git-revision:$(shell git rev-parse HEAD) \
+		   --metadata=git-repository:$(shell git remote get-url origin) \
+		   --metadata=lastBuildDate:"$(shell date -R)" \
+		   --metadata-file=metadata.yaml \
+		   -F filters/rss_feed.py \
+		   -t html \
+		   -o $@ rss.md
 
 site/%.html: content/%.md metadata.yaml $(BUILD_ENV)
 	mkdir -p site

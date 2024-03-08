@@ -1,0 +1,14 @@
+<title>$title$</title>
+<link>$url$/$outfile$</link>
+<description>
+    $description$
+    ($git-revision$ - $git-repository$)
+</description>
+<author>$author$</author>
+$for(categories)$
+<category>$categories$</category>
+$endfor$
+<source url="$github-url$/blob/$sourcefile$">$sourcefile$</source>
+<guid isPermaLink="true">$url$/$outfile$</guid>
+<pubDate>$date$</pubDate>
+</description>

@@ -17,6 +17,8 @@ transducers at the University of Warsaw in 2024.
 - **Teacher**: [Mikołaj Bojańczyk](https://www.mimuw.edu.pl/~bojan/)
 - **Teaching Assistant**: [Aliaume Lopez](https://www.irif.fr/~alopez/)
 
+📡 Subscribe to the [RSS feed](./feed.xml) to get the latest updates.
+
 :::
 
 
@@ -30,6 +32,8 @@ le cours sur les transducteurs à l'Université de Varsovie en 2024.
 - **Enseignant**: [Mikołaj Bojańczyk](https://www.mimuw.edu.pl/~bojan/)
 - **Assistant d'enseignement**: [Aliaume Lopez](https://www.irif.fr/~alopez)
 
+📡 Abonnez vous au [flux RSS](./feed.xml) pour être notifié des dernières mises à jour.
+
 :::
 
 ::: {data-lang-pl=true}
@@ -41,6 +45,8 @@ na Uniwersytecie Warszawskim w 2024 roku.
   <https://www.mimuw.edu.pl/~bojan/2023-2024/przeksztalcenia-automatowe-transducers>
 - **Nauczyciel**: [Mikołaj Bojańczyk](https://www.mimuw.edu.pl/~bojan/)
 - **Adjiunkt**: [Aliaume Lopez](https://www.irif.fr/~alopez/)
+
+📡 Subskrybuj [kanał RSS](./feed.xml) aby otrzymywać najnowsze aktualizacje.
 
 :::
 

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+<channel>
+<title>$title$</title>
+<link>$url$/rss.xml</link>
+<description>
+$body$
+</description>
+
+<language>$language$</language>
+<copyright>$copyright$</copyright>
+<webMaster>$webMaster$</webMaster>
+<lastBuildDate>$lastBuildDate$</lastBuildDate>
+
+<generator>pandoc simple rss</generator>
+
+<image>
+    <url>$github-url$/static/logo/logo.png</url>
+    <title>Transducer Course</title>
+    <link>$github-url$</link>
+</image>
+
+$for(items)$
+<item>
+$items$
+</item>
+$endfor$
+
+</channel>
+</rss>
