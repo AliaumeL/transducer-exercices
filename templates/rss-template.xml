@@ -3,8 +3,9 @@
 <channel>
 <title>$title$</title>
 <link>$url$/rss.xml</link>
-<description>
+<description><![CDATA[
 $body$
+]]>
 </description>
 
 <language>$language$</language>
