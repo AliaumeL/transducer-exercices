@@ -1,4 +1,4 @@
-name: release-pdfs
+name: Produce Pdf Folder
 
 on:
   push:
