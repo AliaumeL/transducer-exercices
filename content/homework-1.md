@@ -34,20 +34,16 @@ date: 2024-02-26
 \newcommand{\sort}{\mathsf{sort}}
 \newcommand{\swap}{\mathsf{swap}}
 
-
 This homework is due for the 25th of March, 16:15 GMT+1. It should be sent to
 <ad.lopez@uw.edu.pl> or given in person at the exercise session of the lecture.
-The homework has a total of 20 points. An estimation repartition of the points
-is provided in the title of the exercises, *but it may be subject to future
-changes*. Exercises are independent, and can be skipped without penalty.
-Failure to deliver the howerwork in due time is penalized by $-1$ point per
-four hours of delay.
+Exercises are independent, and can be skipped without penalty. Failure to
+deliver the homework in due time is heavily penalized. 
 
 # Mealy Machines and Variations
 
 ## Continuous (5pt) {.exercise}
 
-Is the zip function continous?
+Is the zip function continuous?
 
 ## Flip-Flop (5pt) {.exercise}
 
@@ -58,6 +54,12 @@ flop' machines. What is the minimal number of intermediate machines needed?
 
 Show that it is decidable whether a 'rational function' is injective.
 
+### How was decidability of equivalence proven? {.hint}
+
+Recall that the decidability of equivalence between two rational functions was
+obtained in the lecture by constructing a language of *counterexamples to
+equivalence* and proving that this language was context-free.
+
 # Semantic properties
 
 ## Semantically Functional (2pt) {.exercise}
@@ -65,16 +67,18 @@ Show that it is decidable whether a 'rational function' is injective.
 Prove that the two models are equivalent, and provide effective
 conversions.
 
-1. rational functions.
-2. functional relations computed by non deterministic Mealy Machines.
+1. unambiguous NFA with output (i.e. rational functions)
+2. NFA with output which are functional (i.e., for every input, there is exactly one output, which might arise from different runs)
 
 ## Semantically Size Preserving (3pt) {.exercise}
 
-Let $f \colon \Sigma^* \to \Gamma^*$ be a 'rational function'. Show that $f$ the following
-are equivalent:
+Prove that the following two subclasses of rational functions are equivalent
+and provide effective conversions:
 
-1. $f$ is semantically size preserving.
-2. $f$ is computable by a 'letter-to-letter rational transducer'.
+1. unambiguous NFA with output where every transition is labelled by exactly
+   one output letter.
+2. unambiguous NFA with output where for every input word, the output has the
+   same length as the input. 
 
 
 ### Intermediate Computational Model {.hint}
