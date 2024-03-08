@@ -1,9 +1,6 @@
 let
   pkgs = import <nixpkgs> {};
 in pkgs.mkShell {
-  shellHook = ''
-    exec fish
-  '';
   packages = [
     (pkgs.python3.withPackages (python-pkgs: [
       python-pkgs.pandas
