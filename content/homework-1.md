@@ -6,6 +6,14 @@ email: ad.lopez@uw.edu.pl
 lang: en-GB
 session: 1
 date: 2024-02-26
+calendar-event:
+    - name: Homework 1 due date
+      date: 2024-03-25T16:15:00+01:00
+      description: |
+        Homework 1 for the course on Transducer Theory. Sent by mail to <ad.lopez@uw.edu.pl>
+        or given in person to the exercise session of the lecture.
+      url: https://aliaumel.github.io/transducer-exercices/homework-1.html
+      location: University of Warsaw
 ---
 
 \newcommand{\Nat}{\mathbb{N}}
@@ -39,20 +47,32 @@ This homework is due for the 25th of March, 16:15 GMT+1. It should be sent to
 Exercises are independent, and can be skipped without penalty. Failure to
 deliver the homework in due time is heavily penalized. 
 
+Exercises with the running emoji 🏃 are *mandatory* and should be attempted
+by everyone. Exercises with the powerlifting emoji 🏋️ are *optional* and will
+be rewarded by extra points.
+
 # Mealy Machines and Variations
 
-## Continuous (5pt) {.exercise}
+## Continuous {.exercise .warmup}
 
-Is the zip function continuous?
+Is the `zip` function continuous? Where `zip(w1 # w2)` is defined inductively as follows
 
-## Flip-Flop (5pt) {.exercise}
+```haskell
+zip (au # bv) = a b zip (u # v)
+zip (ε # v) = v
+zip (u # ε) = u
+zip (ε # ε) = ε
+```
 
-Show that a 'flip-flop' machine can be obtained by composition of 'binary flip
-flop' machines. What is the minimal number of intermediate machines needed?
+## Flip-Flop {.exercise .warmup}
 
-## Decidable (5pt) {.exercise}
+Show that a flip-flop machine can be obtained by composition of binary flip
+flop machines. What is the minimal number of intermediate machines needed?
 
-Show that it is decidable whether a 'rational function' is injective.
+## Decidable {.exercise .warmup}
+
+Show that it is decidable whether a rational function is injective.
+Can you provide an upper bound on the complexity of the decision problem?
 
 ### How was decidability of equivalence proven? {.hint}
 
@@ -60,9 +80,28 @@ Recall that the decidability of equivalence between two rational functions was
 obtained in the lecture by constructing a language of *counterexamples to
 equivalence* and proving that this language was context-free.
 
+## Windowed Transducers {.exercise .challenging}
+
+A Mealy machine is called *windowed* if there exists a constant $K \in \Nat$
+such that the output of the machine on a given input letter only depends on the
+letters at distance at most $K$ from the input letter.
+
+1. Provide an example of a Mealy Machine that is not windowed.
+2. Is it decidable whether a Mealy Machine is windowed?
+
+The definition of *windowed* generalizes naturally to unambiguous NFAs with
+output where every transition is labelled by a single output letter, called
+unambiguous NFAs  with letter-to-letter output.
+
+3. Is it decidable whether an unambiguous NFA with letter-to-letter output is
+   windowed?
+
+
+
+
 # Semantic properties
 
-## Semantically Functional (2pt) {.exercise}
+## Semantically Functional {.exercise .warmup}
 
 Prove that the two models are equivalent, and provide effective
 conversions.
@@ -70,7 +109,9 @@ conversions.
 1. unambiguous NFA with output (i.e. rational functions)
 2. NFA with output which are functional (i.e., for every input, there is exactly one output, which might arise from different runs)
 
-## Semantically Size Preserving (3pt) {.exercise}
+
+
+## Semantically Size Preserving {.exercise .challenging}
 
 Prove that the following two subclasses of rational functions are equivalent
 and provide effective conversions:
