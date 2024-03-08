@@ -18,8 +18,11 @@ def prepare(doc):
     items = doc.get_metadata('items')
     files = []
     for i in items:
-        with open(i, 'r') as file:
-            files.append(file.read())
+        try:
+            with open(i, 'r') as file:
+                files.append(file.read())
+        except FileNotFoundError:
+            continue
     doc.metadata['items'] =  [pf.RawBlock(f, format='html') for f in files]
 
 if __name__ == '__main__':

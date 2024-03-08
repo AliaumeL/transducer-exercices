@@ -79,7 +79,7 @@ site/rss/%.xml: content/%.md metadata.yaml $(BUILD_ENV)
 		   -f markdown \
 		   -o $@ $<
 
-site/rss.xml: $(pathsubst content/%.md,site/rss/%.xml,$(wildcard content/*.md)) metadata.yaml rss.md $(BUILD_ENV)
+site/rss.xml: $(patsubst content/%.md,site/rss/%.xml,$(wildcard content/*.md)) metadata.yaml rss.md $(BUILD_ENV)
 	mkdir -p site
 	pandoc --template=templates/rss-template.xml \
 		   --metadata=git-revision:$(shell git rev-parse HEAD) \
