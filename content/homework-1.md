@@ -35,22 +35,32 @@ date: 2024-02-26
 \newcommand{\swap}{\mathsf{swap}}
 
 
+This homework is due for the 25th of March, 16:15 GMT+1. It should be sent to
+<ad.lopez@uw.edu.pl> or given in person at the exercise session of the lecture.
+The homework has a total of 20 points. An estimation repartition of the points
+is provided in the title of the exercises, *but it may be subject to future
+changes*. Exercises are independent, and can be skipped without penalty.
+Failure to deliver the howerwork in due time is penalized by $-1$ point per
+four hours of delay.
+
 # Mealy Machines and Variations
 
-## Continuous {.exercise}
+## Continuous (5pt) {.exercise}
 
 Is the zip function continous?
 
-## Flip-Flop {.exercise}
+## Flip-Flop (5pt) {.exercise}
 
 Show that a 'flip-flop' machine can be obtained by composition of 'binary flip
 flop' machines. What is the minimal number of intermediate machines needed?
 
-## Decidable {.exercise}
+## Decidable (5pt) {.exercise}
 
 Show that it is decidable whether a 'rational function' is injective.
 
-## Semantically Functional {.exercise}
+# Semantic properties
+
+## Semantically Functional (2pt) {.exercise}
 
 Prove that the two models are equivalent, and provide effective
 conversions.
@@ -58,7 +68,7 @@ conversions.
 1. rational functions.
 2. functional relations computed by non deterministic Mealy Machines.
 
-## Semantically Size Preserving {.exercise}
+## Semantically Size Preserving (3pt) {.exercise}
 
 Let $f \colon \Sigma^* \to \Gamma^*$ be a 'rational function'. Show that $f$ the following
 are equivalent:
