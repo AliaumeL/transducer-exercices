@@ -7,6 +7,8 @@ in pkgs.mkShell {
       python-pkgs.requests
       python-pkgs.panflute
     ]))
+    pkgs.git
+    pkgs.nodePackages.mathjax
     pkgs.pandoc
     pkgs.gnumake
     pkgs.texliveFull
