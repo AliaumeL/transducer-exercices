@@ -106,7 +106,10 @@ site/index.html: index.md metadata.yaml $(BUILD_ENV)
 		   --metadata=main-page:true \
 		   -o $@ $<
 
-website: $(LOGOS) $(patsubst content/%.md,site/%.html,$(wildcard content/*.md)) site/index.html site/rss.xml
+site/full-index.st: indexer.toml 
+	stork build --input indexer.toml --output site/full-index.st
+
+website: $(LOGOS) $(patsubst content/%.md,site/%.html,$(wildcard content/*.md)) site/index.html site/rss.xml site/full-index.st
 	mkdir -p site/static
 	cp -r static/* site/static/
 

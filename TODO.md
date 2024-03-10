@@ -6,8 +6,27 @@
 - [x] allow to comment on pages by opening issues on the github repository
 - [x] create an "rss" feed for the website using
   <https://github.com/chambln/pandoc-rss> or a variant thereof
-- [ ] create a calendar feed for the website reading date events from the
-  `yaml` frontmatter of the markdown files.
+  
+
+## Calendar Research
+
+> I want to have a calendar (or several calendars)
+  on the static website.
+
+It is not a good idea to *automatically* generate events.
+-> it makes *large* and complicated yaml headers
+
+Calendar events are complicated. It can be VTODO, VEVENT, response, locations,
+chairman etc. These are complicated enough to be in a separate file.
+
+The idea: a markdown file is describing an event feed. This is probably the
+best thing because events are not self contained. This means desinging a
+specific pandoc writer.
+
+## Indexing
+
+Create a searchable index using stork. The main problem right now is to split
+on sections.
 
 ## Tooling
 
@@ -17,5 +36,4 @@
 - [ ] enable knowledge sharing between pages
 - [ ] allow to use knowledges in mathematical definitions
 - [ ] allow to share mathematical definitions between markdown files
-- [ ] create a searchable index
 - [ ] create a "book" output, merging exercise sessions and homeworks

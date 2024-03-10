@@ -6,14 +6,12 @@ email: ad.lopez@uw.edu.pl
 lang: en-GB
 session: 1
 date: 2024-02-26
-calendar-event:
-    - name: Homework 1 due date
-      date: 2024-03-25T16:15:00+01:00
-      description: |
-        Homework 1 for the course on Transducer Theory. Sent by mail to <ad.lopez@uw.edu.pl>
-        or given in person to the exercise session of the lecture.
-      url: https://aliaumel.github.io/transducer-exercices/homework-1.html
-      location: University of Warsaw
+date-start: 2024-03-11
+date-end: 2024-25-11
+location: University of Warsaw, MIMUW
+description: |
+    Homework 1 for the course on Transducer Theory. Sent by mail to <ad.lopez@uw.edu.pl>
+    or given in person to the exercise session of the lecture.
 ---
 
 \newcommand{\Nat}{\mathbb{N}}

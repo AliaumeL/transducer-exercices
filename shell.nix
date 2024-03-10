@@ -6,10 +6,10 @@ in pkgs.mkShell {
       python-pkgs.pandas
       python-pkgs.requests
       python-pkgs.panflute
+      python-pkgs.icalendar
     ]))
     pkgs.fish
     pkgs.git
-    pkgs.nodePackages.mathjax
     pkgs.pandoc
     pkgs.gnumake
     pkgs.texliveFull
