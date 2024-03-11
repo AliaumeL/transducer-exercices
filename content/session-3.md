@@ -111,6 +111,12 @@ Are languages definable in first-order logic closed under kleene star?
 
 Write a star-free expression that defines the language $(ab)^*$.
 
+## A single existential quantifier is enough
+
+Show that regular languages are definable by
+$\MSO$ formulas using a single existential monadic second order
+quantifier.
+
 ## Word representations
 
 Consider two ways of representing a finite word as a model: we either have the
@@ -169,3 +175,4 @@ recognised by a deterministic two-way transducer.
 
 Prove that given a function $f$ computed by a two-way deterministic transducer
 with outputs, it is decidable whether $f$ is rational.
+
