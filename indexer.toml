@@ -1,0 +1,7 @@
+[input]
+base_directory = "content"
+url_prefix = "https://aliaumel.github.io/transducer-exercises"
+files = [
+    {path = "session-1.md", url = "session-1.html", title = "Exercise Session 1: Mealy Machines"},
+    {path = "session-2.md", url = "session-2.html", title = "Exercise Session 2: Rational Transductions"},
+]

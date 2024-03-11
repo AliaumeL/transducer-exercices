@@ -22,5 +22,6 @@ in pkgs.mkShell {
     pkgs.gnutar
     pkgs.zip
     pkgs.dosis
+    pkgs.stork
   ];
 }

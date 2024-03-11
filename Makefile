@@ -108,6 +108,7 @@ site/index.html: index.md metadata.yaml $(BUILD_ENV)
 		   --metadata=main-page:true \
 		   -o $@ $<
 
+
 site/full-index.st: indexer.toml 
 	stork build --input indexer.toml --output site/full-index.st
 
