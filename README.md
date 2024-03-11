@@ -77,12 +77,13 @@ The following packages are required for the makefile to run smoothly:
 - pandoc
 - python3
 - panflute
+- dateparser (python package)
+- icalendar (python package)
 - a texlive installation
 - the dosis font
 - entr
 - zip
 - gnutar
-- mathjax (node package)
 
 # How to contribute
 

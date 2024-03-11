@@ -8,6 +8,10 @@
 # the hints are added in the metadata dictionnary of hints
 #
 # This can then be used by templates.
+#
+#
+# TODO: use classes with .warmup / .challenging
+# to distinguish exercises and automatically add "star" in the latex.
 
 
 import panflute as pf
