@@ -1,62 +1,33 @@
 #!/usr/bin/env python3
-#
-# Parses the metadata of the file to produce
-# calendar events 
-#
-# uses the metadata inside the
-# markdown file to build an event
-#
-# event : 
-#   type: todo | event
-# start : date
-# end   : date
-# due   : date
-# duration : date
-# description : string
-# summary : string
-# url : string
-# geo : string
-# location : string
-# organizer : string
-# contact : string
-# last-modified : string
 
 import icalendar  as ics
 import panflute   as pf
 import datetime   as dt
 import dateparser as dp
 
-def prepare(doc):
-    #event = doc.get_metadata("event")
-    #if not event:
-    #    return
+# TODO.
 
-    event = ics.Event()
+DATE_FIELDS = ["due", "start", "end", "duration"]
+CTN_FIELDS  = ["url", "organizer", "location"]
 
-    start = doc.get_metadata("start")
-    end   = doc.get_metadata("end")
-    dur   = doc.get_metadata("duration")
-    
-    # invalid event
-    if ((start is None) or (end is None)) and (dur is None):
-        return 
+def rewrite_ics(elem, doc):
+    if isinstance(elem, pf.Div) and "ics-todo" in elem.classes and doc.format == "latex":
+        return [pf.RawBlock("\\begin{quote}",format="latex"),
+                *elem.content[1:],
+                pf.RawBlock("\\end{quote}",format="latex")]
+    elif isinstance(elem, pf.Div) and "ics-todo" in elem.classes:
+        title = elem.content[0] # title of the event
+        data  = elem.content[1] # data fields
+        hz    = elem.content[2] # horizontal rule
+        desc  = elem.content[3:] # full description = rest of the text
 
-    if start:
-        event.add("start", dp.parse(start, settings={'TO_TIMEZONE': 'UTC'}))
-    if end:
-        event.add("end", dp.parse(end))
-    if dur:
-        event.add("duration", dp.parse(dur))
+        values = {}
+        raise ValueError(data)
 
-    skeys = ["summary", "description", "location", "url"]
-    for skey in skeys:
-        v = doc.get_metadata(skey)
-        if v and isinstance(v,str):
-            event.add(skey, v)
-        elif v:
-            event.add(skey, pf.stringify(v))
+        event = ics.Event()
+        event.add("summary", pf.stringify(title))
+        event.add("description", pf.stringify(desc))
 
-    doc.metadata["event"] = pf.Str(event.to_ical().decode("utf8"))
 
 if __name__ == "__main__":
-    pf.run_filter(lambda x,d: x, prepare=prepare)
+    pf.run_filter(rewrite_ics)

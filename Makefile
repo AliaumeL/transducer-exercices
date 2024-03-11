@@ -30,6 +30,7 @@ PANDOC_HTML_OPTS= --lua-filter filters/remove_exercices.lua \
 				  --metadata-file=metadata.yaml 
 
 PANDOC_TEX_OPTS= --lua-filter filters/remove_exercices.lua \
+				 -F filters/calendar_events.py \
 		         -F filters/exercice_split.py \
 		         -F filters/knowledge.py \
 				 --bibliography=static/bibtex/papers.bib \
@@ -43,6 +44,7 @@ PANDOC_TEX_OPTS= --lua-filter filters/remove_exercices.lua \
 
 PANDOC_ICAL_OPTS= --metadata=current-time-utc:$(shell date +"%Y%m%dT%H%M%ST") \
 				  --metadata-file=metadata.yaml
+
 
 static/logo/apple-touch-icon.png: static/logo/logo.svg
 	inkscape --export-background-opacity=0 \

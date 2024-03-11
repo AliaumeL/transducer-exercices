@@ -7,6 +7,7 @@ in pkgs.mkShell {
       python-pkgs.requests
       python-pkgs.panflute
       python-pkgs.icalendar
+      python-pkgs.dateparser
     ]))
     pkgs.fish
     pkgs.git

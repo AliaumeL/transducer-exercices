@@ -5,14 +5,9 @@ subtitle: Mealy Machines, Sequential Functions, and Variations thereof
 email: ad.lopez@uw.edu.pl
 lang: en-GB
 session: 1
-date: 2024-02-26
-date-start: 2024-03-11
-date-end: 2024-25-11
-location: University of Warsaw, MIMUW
-description: |
-    Homework 1 for the course on Transducer Theory. Sent by mail to <ad.lopez@uw.edu.pl>
-    or given in person to the exercise session of the lecture.
+date: 2024-03-11
 ---
+
 
 \newcommand{\Nat}{\mathbb{N}}
 \newcommand{\mealy}[1]{\mathcal{#1}}
@@ -27,10 +22,12 @@ description: |
 \newcommand{\vcount}[2][]{\left| #2 \right|_{#1}}
 \newcommand{\im}[2]{#1\left(#2\right)}
 \newcommand{\graph}{\mathsf{graph}}
+
 \newcommand{\topartial}{\rightharpoonup}
 
 \newcommand{\prefleq}{\mathrel{\sqsubseteq_{\mathsf{prefix}}}}
 
+\newcommand{\zip}{\mathsf{zip}}
 
 \newcommand{\Res}{\mathsf{Res}}
 \newcommand{\resi}[2]{{#2}^{-1}{#1}}
@@ -40,14 +37,26 @@ description: |
 \newcommand{\sort}{\mathsf{sort}}
 \newcommand{\swap}{\mathsf{swap}}
 
+::: ics-todo
+# Add to your calendar 
+
+- **Due:** 2024-03-25 16:15 CET
+- **Organizer:** <mailto:ad.lopez@uw.edu.pl>
+- **Summary:** MIMUW Transducer Course Homework 1
+- **Url:** <https://aliaumel.github.io/transducer-exercices/homework-1.pdf>
+
+--- 
+
 This homework is due for the 25th of March, 16:15 GMT+1. It should be sent to
 <ad.lopez@uw.edu.pl> or given in person at the exercise session of the lecture.
 Exercises are independent, and can be skipped without penalty. Failure to
 deliver the homework in due time is heavily penalized. 
 
-Exercises with the running emoji 🏃 are *mandatory* and should be attempted
-by everyone. Exercises with the powerlifting emoji 🏋️ are *optional* and will
-be rewarded by extra points.
+Exercises without a $\star$ symbol are *mandatory* and should be attempted by
+everyone. Exercises with a $\star$ symbol are *optional* and will be rewarded
+by extra points.
+
+:::
 
 # Mealy Machines and Variations
 
@@ -55,12 +64,14 @@ be rewarded by extra points.
 
 Is the `zip` function continuous? Where `zip(w1 # w2)` is defined inductively as follows
 
-```haskell
-zip (au # bv) = a b zip (u # v)
-zip (ε # v) = v
-zip (u # ε) = u
-zip (ε # ε) = ε
-```
+$$
+\begin{aligned}
+\zip (au \# bv) &= a b \zip (u \# v) \\
+\zip (\varepsilon \# v) &= v \\
+\zip (u \# \varepsilon) &= u \\
+\zip (\varepsilon \# \varepsilon) &= \varepsilon \\
+\end{aligned}
+$$
 
 ## Flip-Flop {.exercise .warmup}
 
@@ -78,7 +89,7 @@ Recall that the decidability of equivalence between two rational functions was
 obtained in the lecture by constructing a language of *counterexamples to
 equivalence* and proving that this language was context-free.
 
-## Windowed Transducers {.exercise .challenging}
+## $\star$ Windowed Transducers {.exercise .challenging}
 
 A Mealy machine is called *windowed* if there exists a constant $K \in \Nat$
 such that the output of the machine on a given input letter only depends on the
@@ -109,7 +120,7 @@ conversions.
 
 
 
-## Semantically Size Preserving {.exercise .challenging}
+## $\star$ Semantically Size Preserving {.exercise .challenging}
 
 Prove that the following two subclasses of rational functions are equivalent
 and provide effective conversions:
