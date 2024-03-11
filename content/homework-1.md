@@ -40,15 +40,15 @@ date: 2024-03-11
 ::: ics-todo
 # Add to your calendar 
 
-- **Due:** 2024-03-25 16:15 CET
+- **Due:** 2024-04-02 18:15 CET
 - **Organizer:** <mailto:ad.lopez@uw.edu.pl>
 - **Summary:** MIMUW Transducer Course Homework 1
 - **Url:** <https://aliaumel.github.io/transducer-exercices/homework-1.pdf>
 
 --- 
 
-This homework is due for the 25th of March, 16:15 GMT+1. It should be sent to
-<ad.lopez@uw.edu.pl> or given in person at the exercise session of the lecture.
+This homework is due for the 2nd of March, 18:15 GMT+1. It should be sent to
+<ad.lopez@uw.edu.pl>.
 Exercises are independent, and can be skipped without penalty. Failure to
 deliver the homework in due time is heavily penalized. 
 

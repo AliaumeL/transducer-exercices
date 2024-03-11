@@ -40,6 +40,18 @@ refs: |
 
 # Previously, in Transducers
 
+## Aperiodicity and Counters {.exercise}
+
+Let $L$ be a regular language. Prove the equivalence between the following
+properties.
+
+1. The minimal DFA of $L$ is *counter-free*.
+2. The syntactic monoid of $L$ is *aperiodic*.
+
+Assume that $L$ is recognised by a *counter-free* automaton (that may not be
+minimal), is $L$ *aperiodic*? What about a *non-deterministic* counter-free
+automaton?
+
 ## Canonical Bimachines {.exercise}
 
 Let us recall that the production function of a rational function $f$ can be
@@ -124,7 +136,6 @@ Show that if $f$ is recognised by a deterministic two-way transducer and $g$ is
 rational (with suitable input and output alphabets), then $g \circ f$ is
 recognised by a deterministic two-way transducer.
 [@bojanczykToolbox, Problem 135]
-
 
 
 ## Class inclusions {.exercise .challenging}
