@@ -14,6 +14,9 @@ refs: |
 <!-- These are the latex command used in this document --->
 \newcommand{\Nat}{\mathbb{N}}
 \newcommand{\Real}{\mathbb{R}}
+\newcommand{\MSO}{\mathbb{MSO}}
+\newcommand{\FO}{\mathbb{FO}}
+
 \newcommand{\mealy}[1]{\mathcal{#1}}
 \newcommand{\defined}{:=}
 \newcommand{\emptyword}{\varepsilon}
@@ -96,6 +99,30 @@ For the following models of computation, can we decide if $f$ has a fixed point?
 
 - Mealy Machines: Yes, because the collection of fixed points is a regular language.
 - Rational Transductions: Yes, by using similar techniques as for the equivalence of rational functions.
+
+# Logic 
+
+
+## Kleene Star Stability {.exercise}
+
+Are languages definable in first-order logic closed under kleene star?
+
+## Examples of aperiodic languages
+
+Write a star-free expression that defines the language $(ab)^*$.
+
+## Word representations
+
+Consider two ways of representing a finite word as a model: we either have the
+order relation $x < y$, or we have the successor relation $x = y + 1$. Show
+that for both ways, $\MSO$ gives the same expressive power. Is it true for
+$\FO$?
+
+## Monadic Colouring
+
+Consider finite words, represented using order x < y. Show that every MSO
+formula is equivalent to a formula of the form ∃Xφ(X) where φ(X) is a
+first-order formula.
 
 # Two Way Deterministic
 
