@@ -55,6 +55,45 @@ Assume that $L$ is recognised by a *counter-free* automaton (that may not be
 minimal), is $L$ *aperiodic*? What about a *non-deterministic* counter-free
 automaton?
 
+### Use the transition monoid {.hint}
+
+Prove that the transition monoid of the minimal DFA of $L$ is
+the syntactic monoid of $L$.
+
+### Non-deterministic counter-free automaton {.hint}
+
+Use the transition monoid to define what a *counter* should be.
+
+### From aperiodicity to counter-freeness {.solution}
+
+Let us assume that $A = (Q, q_0, \delta, F)$ is the minimal DFA of $L$ and that
+the syntactic monoid of $L$ is aperiodic. Using the hint, we know that
+$\delta_w^n$ is eventually constant for all $w \in \Sigma^*$. As a consequence,
+if $q \in Q$ is such that $\delta(q, w^n) = q$, then $(\delta_w)^{kn}(q) = q$
+for all $k \in \Nat$. If $k$ is large enough, then $\delta_w^{kn}
+= \delta_w^{kn+1}$, and therefore $\delta_w(q) = \delta_w (\delta_w^{kn})(q)
+= \delta_w^{kn} (q) = q$. We have proven that $A$ has no counters.
+
+### From counter-freeness to aperiodicity {.solution}
+
+Assume that the minimal DFA $A = (Q, q_0, \delta, F)$ recognising $L$ is
+counter-free. Let $w \in \Sigma^*$. We will prove that the sequence
+$\delta_w^n$ is eventually constant. Let $q \in Q$, there exists $i < j$ such
+that $\delta_w^i(q) = \delta_w^j(q)$. Let $q' \defined \delta_w^i(q)$, then
+$\delta_w^{j-i}(q') = q'$. Since $A$ is counter-free, we conclude that
+$\delta_w(q') = q'$. In particular, the sequence $\delta_w^n(q)$ is eventually
+constant. Now, because $Q$ is finite, the sequence $\delta_w^n$ is itself
+eventually constant. And because there are finitely many functions $\delta_w$
+there exists a uniform bound $N_0$ such that $\delta_w^n = \delta_w^m$ for all
+$n,m \geq N_0$ and all $w \in \Sigma^*$. 
+
+### Non-minimal counter-free automaton {.solution}
+
+If $A$ is a counter-free automaton that recognises $L$, then the minimal DFA
+recognising $L$ is also counter-free.
+
+
+
 ## Canonical Bimachines {.exercise}
 
 Let us recall that the production function of a rational function $f$ can be
@@ -140,18 +179,18 @@ Show that regular languages are definable by
 $\MSO$ formulas using a single existential monadic second order
 quantifier.
 
+### Encode the states with padding {.hint}
+
+If the automaton has $n$ states, then represent the state of the automaton for
+positions that are multiple of $n$ using a unary encoding of the state plus
+a separator. How can you then recover the intermediate transitions?
+
 ## Word representations
 
 Consider two ways of representing a finite word as a model: we either have the
 order relation $x < y$, or we have the successor relation $x = y + 1$. Show
 that for both ways, $\MSO$ gives the same expressive power. Is it true for
 $\FO$?
-
-## Monadic Colouring
-
-Consider finite words, represented using order x < y. Show that every MSO
-formula is equivalent to a formula of the form ∃Xφ(X) where φ(X) is a
-first-order formula.
 
 # Two Way Deterministic
 
