@@ -95,10 +95,33 @@ For the following models of computation, can we decide if $f$ has a fixed point?
 - Rational Transductions?
 - Two-way Deterministic Transducers with outputs?
 
-### Partial Solution {.solution}
+### What do you want to prove {.hint}
 
 - Mealy Machines: Yes, because the collection of fixed points is a regular language.
-- Rational Transductions: Yes, by using similar techniques as for the equivalence of rational functions.
+- Rational Transductions: **no**.
+
+### Solution {.solution}
+
+For Mealy Machines, the output is letter-to-letter, so if a fixed point exists,
+it must start with a transition that produces exactly the letter that is read. This means
+that it has a fixed point if and only if it has a fixed point of length $1$.
+
+For rational transductions, the problem is undecidable because it is equivalent
+to the halting problem for Turing Machines. Let $M$ be a Turing Machine,
+such that a configuration of $M$ terminates.
+
+Consider the function $s_M \colon \Sigma^* \to \Sigma^*$ that maps an encoding
+of a configuration of $M$ to the encoding of the successor configuration. Let
+$f_M \colon \Sigma^* \to \Sigma^*$ be the rational function that maps
+a sequence of configurations to the sequence of **successor** configurations, prepending
+to the result the initial configuration of $M$.
+
+A terminating run of $M$ is a fixed point of $M$. Conversely, if $f_M$ has
+a fixed point, then it must be a valid run of $M$ (successor configurations are
+correctly computed), and this run cannot be continued (otherwise it would not
+be a fixed point). Therefore, the problem of deciding whether $f_M$ has a fixed
+point is equivalent to the halting problem for $M$.
+
 
 # Logic 
 

@@ -43,7 +43,7 @@ date: 2024-03-11
 - **Due:** 2024-04-02 18:15 CET
 - **Organizer:** <mailto:ad.lopez@uw.edu.pl>
 - **Summary:** MIMUW Transducer Course Homework 1
-- **Url:** <https://www.irif.fr/~alopez/ressources/teaching/mimuw-2024/homework-1.pdf> 
+- **Url:** <https://www.irif.fr/~alopez/ressources/teaching/mimuw-2024/homework-1.pdf>
 
 --- 
 
