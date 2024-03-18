@@ -1,7 +1,7 @@
 ---
 author: Aliaume LOPEZ
 title: Transducers
-subtitle: Mealy Machines
+subtitle: Logic of Transductions
 email: ad.lopez@uw.edu.pl
 lang: en-GB
 session: 3
@@ -93,38 +93,6 @@ If $A$ is a counter-free automaton that recognises $L$, then the minimal DFA
 recognising $L$ is also counter-free.
 
 
-
-## Canonical Bimachines {.exercise}
-
-Let us recall that the production function of a rational function $f$ can be
-written $\pi_f \colon \Sigma^* \times \Sigma \times \Sigma^* \to \Gamma^*$.
-Given a rational function $f \colon \Sigma^* \to \Gamma^*$, we can define two
-congruences $\simeq_l$ and $\simeq_r$ over $\Sigma^*$ as follows:
-
-$$
-u \simeq_ l v
-\iff
-\forall x,y \in \Sigma^*,
-\forall a \in \Sigma,
-\forall w \in \Sigma^*,
-\pi_f(xuy, a, w) = \pi_f(xvy, a, w)
-$$
-
-And similarly for $\simeq_r$.
-
-1. Prove that $\simeq_l$ and $\simeq_r$ have finite index.
-2. Construct a *canonical* bimachine computing $f$.
-3. What is the complexity of the construction?
-
-## The Great Simplification {.exercise .warmup}
-
-Given a rational function $f$, is it decidable whether there exists a 
-Mealy Machine that computes $f$?
-
-### Use Canonical Bimachines {.hint}
-
-Can it be that the canonical bimachine is non-trivial?
-
 ## Fixed points {.exercise .challenging}
 
 A fixed point of a function $f$ is a value $x$ such that $f(x) = x$.
@@ -184,57 +152,3 @@ quantifier.
 If the automaton has $n$ states, then represent the state of the automaton for
 positions that are multiple of $n$ using a unary encoding of the state plus
 a separator. How can you then recover the intermediate transitions?
-
-## Word representations
-
-Consider two ways of representing a finite word as a model: we either have the
-order relation $x < y$, or we have the successor relation $x = y + 1$. Show
-that for both ways, $\MSO$ gives the same expressive power. Is it true for
-$\FO$?
-
-# Two Way Deterministic
-
-## Examples and non-examples {.exercise .warmup}
-
-For the following functions, provide the simplest model of computation
-that can express them.
-
-- The `reverse` function [@bojanczykToolbox, Problem 130]
-- The `sort` function 
-- The `cycle` function, that performs a circular permutation such, for instance
-  mapping $abcd$ to $dabc$
-- The `swap` function, that swaps the first two letters of a word
-
-## 2DFTs for Languages {.exercise .warmup}
-
-Prove that the class of languages recognised by deterministic two-way
-transducers coincides with the class of languages recognised by deterministic
-finite automata.
-
-## Forward Images? {.exercise .warmup}
-
-Let $f$ be computed by a two-way deterministic transducer with outputs, and $L$
-be a regular language. Is it true that $f(L)$ is a regular language?
-
-### The answer is no {.hint}
-
-What about $f(L) = \setof{ a^n b^n }{ n \in \Nat}$?
-
-## Expressiveness {.exercise .warmup}
-
-Prove that 2DFT are more expressive than rational functions. What about
-*sweeping* DFTs that can only change direction at the endpoints of the input?
-
-## Languages and Functions {.exercise .warmup}
-
-Show that if $f$ is recognised by a deterministic two-way transducer and $g$ is
-rational (with suitable input and output alphabets), then $g \circ f$ is
-recognised by a deterministic two-way transducer.
-[@bojanczykToolbox, Problem 135]
-
-
-## Class inclusions {.exercise .challenging}
-
-Prove that given a function $f$ computed by a two-way deterministic transducer
-with outputs, it is decidable whether $f$ is rational.
-
