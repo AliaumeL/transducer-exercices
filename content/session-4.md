@@ -97,11 +97,12 @@ $\FO$?
 
 Prove that there exists a family of languages $L_n$ that are defined by
 a formula of size $O(n)$ but such that the minimal deterministic automaton for
-$L_n$ has size $\Omega(2^n)$.
+$L_n$ has size $\Omega(2^n)$. What about the size of an NFA$?
 
 ### Good languages {.hint}
 
 Consider the language $L_n$ of words of length exactly $2^n$.
+
 
 ### The usual trick {.hint}
 
@@ -125,6 +126,26 @@ Let $q \in \Nat$ be a fixed *quantifier rank*.
 2. What about the $\FO^q$ theory?
 3. Define the map $\iota \colon \Sigma^* \to \PSet{\MSO^q}$ by
 
+### Colored Logic {.hint}
+
+Define a translation of usual formulas in a *coloured logic*, where variables
+are either guaranteed to be taken in $u$ or guaranteed to be taken in $w$. This
+can be seen as an extra type system, or a sorted logic.
+
+Prove that formulas in this typed logic are equivalent to boolean combinations
+of formulas that have a single type (i.e., monochromatic formulas), taking care
+of counting the quantifier rank of the resulting sentences.
+
+What have you proven?
+
+### Aperiodicity {.hint}
+
+To prove that the monoid is *aperiodic* in the case of $\FO^q$, it suffices to
+prove that given a first order sentence $\varphi$, and a word $w$, there exists
+$n \in \Nat$ such that $w^n \satisfies \varphi \iff w^{n+1} \satisfies
+\varphi$. We will prove the stronger statement by induction: for sentences of
+quantifier rank $q$, $w^{2^q}$ and $w^{2^q + 1}$ have the same $q$-first order
+types.
 
 # Two Way Deterministic
 
@@ -138,6 +159,22 @@ that can express them.
 - The `cycle` function, that performs a circular permutation such, for instance
   mapping $abcd$ to $dabc$
 - The `swap` function, that swaps the first two letters of a word
+
+### Proof for the reverse using Monoids {.hint}
+
+Consider a bimachine defined in terms of monoids, i.e., defined by a morphism
+$\mu \colon \Sigma^* \to M$, and a production function $\pi \colon M \times
+\Sigma \times M \to \Gamma^*$. Let $e_a$ be the unique idempotent in the image
+$\setof{\mu(a^k)}{k \geq 1}$ and $e_b$ be the unique idempotent in the image
+$\setof{\mu(b^l)}{l \geq 1}$.
+
+Consider the (generalised) outputs $\alpha \defined \pi(e_a, a^k, e_a e_b)$ and
+$\beta \defined \pi(e_a e_b, b^l, e_b)$. It is clear that
+$\mathsf{reverse}(a^{Xk} b^{Yl}) = b^{Yl} a^{Xk}$, but it is also equal to $u_0
+\alpha^X u_1 \beta^Y u_2$, where $u_0, u_1, u_2 \in \Gamma^*$. By considering
+$Y$ large enough, we conclude that $\alpha$ is $b^k$. Similarly, we conclude
+that $\beta = a^l$. However, this is absurd, since the number of $a$’s and
+$b$’s are not preserved when $X \neq Y$.
 
 ## 2DFTs for Languages {.exercise .warmup}
 
@@ -158,6 +195,16 @@ What about $f(L) = \setof{ a^n b^n }{ n \in \Nat}$?
 
 Prove that 2DFT are more expressive than rational functions. What about
 *sweeping* DFTs that can only change direction at the endpoints of the input?
+
+### Reverse {.hint}
+
+The reverse function is not rational, but can be performed using a sweeping
+2DFT.
+
+### Reverse Map {.hint}
+
+The reverse map function is not doable by a sweeping 2DFT, but can be done by a
+2DFT.
 
 ## Languages and Functions {.exercise .challenging}
 
