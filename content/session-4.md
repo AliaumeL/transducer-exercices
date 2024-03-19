@@ -4,6 +4,8 @@ title: Transducers
 subtitle: Two Way Transducers
 email: ad.lopez@uw.edu.pl
 lang: en-GB
+bibliography: 
+- static/bibtex/papers.bib
 session: 4
 date: 2024-03-18
 refs: |
@@ -72,6 +74,7 @@ And similarly for $\simeq_r$.
 3. What is the complexity of the construction?
 4. Can you refine the construction by first minimising the left congruence, and
    then the right congruence?
+
 
 This construction was used in @FIGALH2016 to prove the decidability of the
 following problem: given a rational function $f$, is it decidable whether $f$
