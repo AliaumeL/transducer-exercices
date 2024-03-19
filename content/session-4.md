@@ -17,6 +17,8 @@ refs: |
 \newcommand{\MSO}{\mathbb{MSO}}
 \newcommand{\FO}{\mathbb{FO}}
 
+\newcommand{\satisfies}{\models}
+
 \newcommand{\PSet}[1]{\mathcal{P}(#1)}
 
 \newcommand{\mealy}[1]{\mathcal{#1}}
@@ -32,6 +34,7 @@ refs: |
 \newcommand{\im}[2]{#1\left(#2\right)}
 \newcommand{\graph}{\mathsf{graph}}
 \newcommand{\topartial}{\rightharpoonup}
+\newcommand{\tosurj}{\twoheadrightarrow}
 \newcommand{\prefleq}{\mathrel{\sqsubseteq_{\mathsf{prefix}}}}
 
 \newcommand{\Res}{\mathsf{Res}}
@@ -79,9 +82,65 @@ can be computed by a *star-free* bimachine?
 Given a rational function $f$, is it decidable whether there exists a 
 Mealy Machine that computes $f$?
 
-### Use Canonical Bimachines {.hint}
+### Use Monoids Bimachines {.hint}
 
-Can it be that the canonical bimachine is non-trivial?
+Prove that a rational function $f$ that satisfies $f(\varepsilon) =
+\varepsilon$ can be transformed into a "monoid-bimachine" defined by a finite
+monoid $M$, a surjective morphism $\mu \colon \Sigma^* \tosurj M$, and a
+production map $\pi \colon M \times \Sigma \times M \to \Gamma^*$, whose
+semantics is defined as follows for all words $w \in \Sigma^*$:
+
+$$
+f(w) \defined \prod_{u a v = w} \pi(\mu(u), a, \mu(v)) \quad .
+$$
+
+The production function can be generalised
+to subwords as follows:
+
+$$
+\pi(m_l, w, m_r) \defined \prod_{uav = w} \pi(m_l \mu(u), a, \mu(v) m_r) \quad .
+$$
+
+Using this notation $f(w) = \pi(1_M, w, 1_M)$.
+
+### Decompose the problem {.hint}
+
+Can you decide if a letter-to-letter unambiguous NFA with outputs is computed
+by a Mealy Machine? Can you decide if a rational function is computed by a
+letter-to-letter unambiguous NFA with output?
+
+### What about idempotents {.hint}
+
+Let $w \in \Sigma^*$ be such that $\mu(w)^2 = \mu(w)$ ($\mu(w)$ is idempotent),
+and $(m_l, m_r) \in M^2$. What can you say about $\pi(m_l \mu(w), w,
+\mu(w)m_r)$?
+
+### Construct Idempotents {.hint}
+
+Prove using Ramsey’s theorem that for every finite monoid $M$ there exists (a
+computable) $N \in \Nat$ such that for all $w \in M^*$, one can compute $w =
+u_1 u_2 u_3$ such that $\mu(u_2)$ is *idempotent* -- $\mu(u_2)^2 = \mu(u_2)$
+--, $|u_1| \leq N$ and $|u_3| \leq N$.
+
+### Use Quantitative Pumping Arguments {.hint}
+
+Assume that $f$ is computed by a letter-to-letter unambigous NFA with outputs,
+then $|f(w)| = |w|$ for all $w \in \Sigma^*$. Prove that this necessary
+condition is also sufficient.
+
+To that end, notice that the map $X \mapsto \pi(m_l, w^X, m_r)$ is a function
+from $\Nat$ to $\Gamma^*$ that must be size preserving, and therefore that
+$|\pi(m_l\mu(w), w,\mu(w) m_r)| = |w|$. Indeed, because $\mu$ is surjective,
+there exist words $(x,y) \in \Sigma^*$ such that $\mu(x) = m_l$ and $\mu(y) =
+m_r$. Therefore, for $X \geq 3$,
+
+$$
+f(x w^X y) = \underbrace{\pi(1_M, xw, \mu(wy))}_{\alpha}
+             \pi(\mu(xw), w, \mu(wy))^{X-2}
+             \underbrace{\pi(\mu(xw), y, 1_M)}_{\beta} \quad .
+$$
+
+Use the above equation to conclude.
 
 
 # Logic
