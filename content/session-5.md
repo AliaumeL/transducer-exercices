@@ -99,3 +99,48 @@ under the context $w_1$ and $w_2$.
 ## Pumping 2DFTs {.exercise}
 
 ??
+
+# Well quasi orderings
+
+## Well-Quasi-Ordered Image {.exercise}
+
+Let $f$ be a function from $\Sigma^*$ to $\Gamma^*$. We say that $f$ generates
+a well-quasi-order whenever $f(\Sigma^*)$ is *well-quasi-ordered* for the
+factor relation. We say that $f$ generates a $k$-well-quasi-order whenever
+$f(\Sigma^*)$ endowed (freely) with $k$ distinguishing colours (unary
+predicates) is a well-quasi-order. Finally, we say that $f$ generates an
+$\infty$-well-quasi-order whenever it generates a $k$-well-quasi-order for all
+$k \in \Nat$.
+
+1. Prove that it is not decidable whether $f$ generates a well-quasi-order when
+   $f$ is computed by a 2DFT.
+2. What about a bimachine? What about a Mealy Machine?
+3. Prove that it is decidable whether $f$ generates an
+   $\infty$-well-quasi-ordering, even in the case of a 2DFT.
+
+# Commutative Functions
+
+From the thesis of Gaëtan page 124. Recall what a weigthed automata is.
+
+## Commutative Output Bimachines {.exercise}
+
+We will restrict our attention to functions $f$ from $\Sigma^*$ to $\Nat
+= \set{1}^*$. Prove that in this setting bimachines are as expressive as 2DFTs.
+Theorem 5.15 cas $k = 1$ + lin functions.
+
+## Linear Growth {.exercise}
+
+Prove that the following are equivalent in the case of $\Nat$:
+
+1. Weighted automata with linear growth.
+2. 2DFTs with unary output.
+
+What about the case of $\Rel$?
+
+## Deciding Commutativity {.exercise}
+
+Let $f$ be a function from $\Sigma^*$ to $\Gamma^*$ computed by a 2DFT.
+Is it decidable whether $f$ is commutative?
+
+
+
