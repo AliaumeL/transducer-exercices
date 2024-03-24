@@ -50,6 +50,18 @@ refs: |
 <!-- end of the custom commands -->
 
 
+# Logic
+
+## MSO Workout {.exercise}
+
+Provide MSO transductions realizing the following functions:
+
+1. `reverse`
+2. `sort`
+3. `swap-first-last`
+4. `duplicate`
+
+
 # Atomisation and Deatomisation
 
 ## Deatomisation of Bimachines {.exercise}
@@ -96,9 +108,34 @@ under the context $w_1$ and $w_2$.
    states of the automata in the bimachine.
 2. Conclude that reverse, duplicate and unzip are not computable by bimachines.
 
-## Pumping 2DFTs {.exercise}
+## Pumping Sweeping Transducers {.exercise}
 
-??
+Let $f$ be computed by a sweeping transducer. Provide an appropriate pumping
+lemma for $f$. Use this pumping argument to prove that `map-reverse` is not
+computable using a sweeping transducer.
+
+## Pumping 2DFTs {.exercise .challenging}
+
+Provide a pumping lemma for 2DFTs.
+
+## Sweeping Minimization {.exercise .challenging}
+
+We define the *sweeping number* of a sweeping transducer the maximal number of
+sweeps it performs on any input words. 
+
+1. Prove that the *sweeping number* of a sweeping transducer is finite
+2. Does there exist an algorithm that, given a transducer $T$, computes its
+   sweeping number?
+3. Describe an algorithm that, given a sweeping transducer $T$ and a number $k$
+   with the promise that $T$ can be realized by a sweeping transducer of
+   sweeping number $k$, constructs a such a transducer.
+4. Given a sweeping transducer $T$ and a number $k$, is it decidable whether
+   $T$ is realized by a sweeping transducer with sweeping number at most $k$?
+
+### Use effective continuity {.hint}
+
+Recall that if a function $f$ is computed by a 2DFT, then it is *continuous*,
+and even more: effectively continuous.
 
 # Well quasi orderings
 
