@@ -14,10 +14,14 @@ refs: |
 <!-- These are the latex command used in this document --->
 \newcommand{\Nat}{\mathbb{N}}
 \newcommand{\Real}{\mathbb{R}}
+\newcommand{\Rel}{\mathbb{Z}}
+
 \newcommand{\MSO}{\mathbb{MSO}}
 \newcommand{\FO}{\mathbb{FO}}
 
 \newcommand{\satisfies}{\models}
+
+\newcommand{\Mat}[1]{\mathcal{M}_{#1}}
 
 \newcommand{\PSet}[1]{\mathcal{P}(#1)}
 
@@ -45,6 +49,8 @@ refs: |
 \newcommand{\sort}{\mathsf{sort}}
 \newcommand{\swap}{\mathsf{swap}}
 
+\newcommand{\toinj}{\hookrightarrow}
+
 \newcommand{\Atoms}{\mathbb{A}}
 
 <!-- end of the custom commands -->
@@ -52,7 +58,7 @@ refs: |
 
 # Logic
 
-## MSO Workout {.exercise}
+## MSO Workout {.exercise .warmup}
 
 Provide MSO transductions realizing the following functions:
 
@@ -64,7 +70,7 @@ Provide MSO transductions realizing the following functions:
 
 # Atomisation and Deatomisation
 
-## Deatomisation of Bimachines {.exercise}
+## Deatomisation of Bimachines {.exercise .challenging}
 
 We define "atom bimachines" as follows.
 We say that a function $f$ is deatomisable if there exists a (usual) bimachine $A$
@@ -90,10 +96,6 @@ Prove that the following are not computable by atomic bimachines.
 3. The "unzip" function.
 
 Conclude that those cannot be performed by *bimachines* in general.
-
-## Deatomisation of Sweeping Transducers {.exercise}
-
-??
 
 # Pumping Lemmas
 
@@ -157,24 +159,33 @@ $k \in \Nat$.
 
 # Commutative Functions
 
-From the thesis of Gaëtan page 124. Recall what a weigthed automata is.
+This section is inspired by the Ph.D. thesis of @Gaetan2023, and particularly
+of its Chapter 5 called *Polyregular functions with commutative outputs* on
+page 123.
 
 ## Commutative Output Bimachines {.exercise}
 
 We will restrict our attention to functions $f$ from $\Sigma^*$ to $\Nat
 = \set{1}^*$. Prove that in this setting bimachines are as expressive as 2DFTs.
-Theorem 5.15 cas $k = 1$ + lin functions.
+This is Theorem 5.15 in the case $k = 1$ in @Gaetan2023.
 
-## Linear Growth {.exercise}
+## Linear Growth {.exercise .challenging}
 
-Prove that the following are equivalent in the case of $\Nat$:
+We recall that a *weighted automaton* $W$ is a finite (non-deterministic)
+automaton with weights in $\Real$, whose semantics is defined as $W(w)$ is the
+sum over all accepting runs of $W$ of the product of the weights along this
+path. Equivalently, a weighted automaton is defined in terms of monoids by
+a morphism $\mu \colon \Sigma^* \to \Mat{n,n}(\Real)$ and a linear map $\lambda
+\colon \Mat{n,n}(\Real) \to \Real$, such that $W(w) \defined \lambda(\mu(w))$.
+
+Prove that the following are equivalent in the case of $\Nat$-weighted automata:
 
 1. Weighted automata with linear growth.
 2. 2DFTs with unary output.
 
 What about the case of $\Rel$?
 
-## Deciding Commutativity {.exercise}
+## Deciding Commutativity {.exercise .warmup}
 
 Let $f$ be a function from $\Sigma^*$ to $\Gamma^*$ computed by a 2DFT.
 Is it decidable whether $f$ is commutative?

@@ -80,7 +80,8 @@ Here are some of the notions that will be developed during the course
 1. [Mealy Machines](./session-1.html)
 1. [Rational Functions](./session-2.html)
 1. [Logic of Transductions](./session-3.html)
-1. [Two-way automata with output](./session-4.html)
+1. [Two-way Outomata with Output](./session-4.html)
+1. [Regular Functions are Back](./session-5.html)
 
 # Homework
 
