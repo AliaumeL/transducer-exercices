@@ -112,6 +112,9 @@ under the context $w_1$ and $w_2$.
 
 ## Pumping Sweeping Transducers {.exercise}
 
+This exercise is based on the notion of *sweeping transducers*
+and their study done by @BGMP15 and @BGMP16.
+
 Let $f$ be computed by a sweeping transducer. Provide an appropriate pumping
 lemma for $f$. Use this pumping argument to prove that `map-reverse` is not
 computable using a sweeping transducer.
