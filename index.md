@@ -82,6 +82,7 @@ Here are some of the notions that will be developed during the course
 1. [Logic of Transductions](./session-3.html)
 1. [Two-way Outomata with Output](./session-4.html)
 1. [Regular Functions are Back](./session-5.html)
+1. [Even more regularity](./session-6.html)
 
 # Homework
 

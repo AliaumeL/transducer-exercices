@@ -6,6 +6,20 @@ email: ad.lopez@uw.edu.pl
 lang: en-GB
 session: 5
 date: 2024-03-18
+knowledges:
+    - synonyms:
+        - deatomisable
+        - deatomisables
+    - synonyms:
+        - atomic bimachine
+        - atomic bimachines
+    - synonyms:
+        - equivariance property
+    - synonyms:
+        - atomic code
+        - atomic codes
+        - coding of atoms
+        - atom coding function
 refs: |
    ::: {#refs}
    :::
@@ -72,30 +86,48 @@ Provide MSO transductions realizing the following functions:
 
 ## Deatomisation of Bimachines {.exercise .challenging}
 
-We define "atom bimachines" as follows.
-We say that a function $f$ is deatomisable if there exists a (usual) bimachine $A$
-such that for all *codes* $c \colon \Atoms \toinj \langle 1^* \rangle$,
-the following commutes
+Let $\Atoms$ be an infinite set, and $\mathcal{S}$ be the set of permutations
+of $\Atoms$. We define "atomic bimachines" with input alphabet $(\Sigma \cup
+\Atoms)$ and output alphabet $(\Gamma \cup \Atoms)$ via the existence of
+a finite monoid $M$ and a morphism $\mu \colon (\Sigma \cup \Atoms)^* \to M$
+such that $\mu(a) = 1_M$ for all $a \in \Atoms$, together with a production
+function $\pi \colon M \times (\Sigma \cup \Atoms) \times M \to (\Gamma \cup
+\Atoms)^*$, satisfying the following "equivariance property" (where $\sigma \in
+\mathcal{S}$ is lifted from permutations over $\Atoms$ to an action over
+$(\Gamma \cup \Atoms)^*$ and $(\Sigma \cup \Atoms)^*$ in the natural way):
 
 $$
-c \circ f = A \circ c \quad .
+\forall a \in \Atoms, \forall \sigma \in \mathcal{S},
+\pi (m, \sigma(a), n) = \sigma(\pi(m,a,n)) \quad .
+$$
+
+An "atom coding function" is a function $c \colon \Atoms \toinj \langle 1^*
+\rangle$, i.e., that maps every atom to a unique word of the form $\langle 1^k
+\rangle$ for some $k \in \Nat$. We say that a function $f \colon (\Atoms \cup
+\Sigma)^* \to (\Atoms \cup \Gamma)^*$ is "deatomisable" if there exists
+a rational function $f^\dagger \colon (\Sigma \cup \set{ \langle, \rangle,
+1})^* to (\Gamma \cup \set{ \langle, \rangle, 1})^*$ such that for all 'atomic
+codes' $c \colon \Atoms \toinj \langle 1^* \rangle$, the following commutes
+
+$$
+c \circ f = f^\dagger \circ c \quad .
 $$
 
 Prove that the following are equivalent:
 
-1. A function $f$ is deatomisable,
-2. It is realisable by an atomic bimachine.
+1. A function $f$ is 'deatomisable',
+2. It is realisable by an 'atomic bimachine'.
 
 
 ## Atomic Bimachines {.exercise}
 
-Prove that the following are not computable by atomic bimachines.
+Prove that the following are not computable by 'atomic bimachines'.
 
 1. The reverse function.
 2. The duplicate function.
 3. The "unzip" function.
 
-Conclude that those cannot be performed by *bimachines* in general.
+Conclude that those cannot be computed by rational functions.
 
 # Pumping Lemmas
 
@@ -119,9 +151,10 @@ Let $f$ be computed by a sweeping transducer. Provide an appropriate pumping
 lemma for $f$. Use this pumping argument to prove that `map-reverse` is not
 computable using a sweeping transducer.
 
-## Pumping 2DFTs {.exercise .challenging}
+## Pumping for sweeping 2DFTs {.exercise .challenging}
 
-Provide a pumping lemma for 2DFTs.
+Provide a pumping lemma for sweeping 2DFTs. Conclude that `map-reverse` is not
+computable using a sweeping transducer.
 
 ## Sweeping Minimization {.exercise .challenging}
 
@@ -154,44 +187,8 @@ predicates) is a well-quasi-order. Finally, we say that $f$ generates an
 $\infty$-well-quasi-order whenever it generates a $k$-well-quasi-order for all
 $k \in \Nat$.
 
-1. Prove that it is not decidable whether $f$ generates a well-quasi-order when
-   $f$ is computed by a 2DFT.
+1. Is it decidable whether the image of $f$ is a well-quasi-ordering when $f$
+   is computedb y a 2DFT?
 2. What about a bimachine? What about a Mealy Machine?
 3. Prove that it is decidable whether $f$ generates an
-   $\infty$-well-quasi-ordering, even in the case of a 2DFT.
-
-# Commutative Functions
-
-This section is inspired by the Ph.D. thesis of @Gaetan2023, and particularly
-of its Chapter 5 called *Polyregular functions with commutative outputs* on
-page 123.
-
-## Commutative Output Bimachines {.exercise}
-
-We will restrict our attention to functions $f$ from $\Sigma^*$ to $\Nat
-= \set{1}^*$. Prove that in this setting bimachines are as expressive as 2DFTs.
-This is Theorem 5.15 in the case $k = 1$ in @Gaetan2023.
-
-## Linear Growth {.exercise .challenging}
-
-We recall that a *weighted automaton* $W$ is a finite (non-deterministic)
-automaton with weights in $\Real$, whose semantics is defined as $W(w)$ is the
-sum over all accepting runs of $W$ of the product of the weights along this
-path. Equivalently, a weighted automaton is defined in terms of monoids by
-a morphism $\mu \colon \Sigma^* \to \Mat{n,n}(\Real)$ and a linear map $\lambda
-\colon \Mat{n,n}(\Real) \to \Real$, such that $W(w) \defined \lambda(\mu(w))$.
-
-Prove that the following are equivalent in the case of $\Nat$-weighted automata:
-
-1. Weighted automata with linear growth.
-2. 2DFTs with unary output.
-
-What about the case of $\Rel$?
-
-## Deciding Commutativity {.exercise .warmup}
-
-Let $f$ be a function from $\Sigma^*$ to $\Gamma^*$ computed by a 2DFT.
-Is it decidable whether $f$ is commutative?
-
-
-
+   $\infty$-well-quasi-ordering.
