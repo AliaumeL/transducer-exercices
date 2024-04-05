@@ -53,7 +53,7 @@ refs: |
 \newcommand{\prefleq}{\mathrel{\sqsubseteq_{\mathsf{prefix}}}}
 
 \newcommand{\card}[1]{\left| #1 \right|}
-\newcommand{\count}[1]{\# #1}
+\newcommand{\countval}[1]{\# #1}
 
 \newcommand{\Res}{\mathsf{Res}}
 \newcommand{\resi}[2]{{#2}^{-1}{#1}}
@@ -106,7 +106,7 @@ a morphism $\mu \colon \Sigma^* \to \Mat{n,n}(\Real)$ and a linear map $\lambda
 We define "counting formulas" as a generalisation of the correspondence between
 $\MSO$ and regular languages to the case of 'rational series'. A counting
 formula is a formula $\varphi \in \MSO$ with first-order and second-order free
-variables, whose semantics is given by $\count{\varphi}(w) \defined
+variables, whose semantics is given by $\countval{\varphi}(w) \defined
 \card{\setof{\nu \text{ valuation }}{w, \nu \models \varphi(w)}}$.
 
 Prove that the following are equivalent:
