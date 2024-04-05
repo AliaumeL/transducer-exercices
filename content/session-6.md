@@ -65,6 +65,18 @@ refs: |
 
 \newcommand{\toinj}{\hookrightarrow}
 
+# Streaming String Transducers
+
+## Two-way Streaming String Transducers {.exercise .warmup}
+
+We define the notion of "two way streaming string transducer" as a streaming
+string transducer with registers, where the head can move in both directions.
+Let $f$ be a function from $\Sigma^*$ to $\Gamma^*$. Prove that the following
+are equivalent:
+
+1. $f$ is computed by a 'streaming string transducer'.
+2. $f$ is computed by a 'two-way streaming string transducer'.
+
 
 # Commutativity
 

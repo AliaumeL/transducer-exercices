@@ -288,4 +288,5 @@ word to produce the input.
 ## Class inclusions {.exercise .challenging}
 
 Prove that given a function $f$ computed by a two-way deterministic transducer
-with outputs, it is decidable whether $f$ is rational.
+with outputs, it is decidable whether $f$ is rational. This is an extremely
+hard exercise.
