@@ -128,29 +128,4 @@ Prove that the following are equivalent:
 
 What happens if you restrict formulas to be in $\FO$?
 
-## Recursive Invisible Pebbles {.exercise .challenging}
-
-We define a "recursive invisible pebble" transducer as follows: it is
-a collection of 2DFTs over the same input alphabet $\Sigma$ and the same output
-alphabet $\Gamma$, where the transitions are defined as usual, except that some
-transitions can perform a *recursive call* to another 2DFT in the family. This
-recursive call is launched *over the whole input word*, with a distinguished
-position where the head was placed before the call. Once this computation
-terminates, the control goes back to the calling transducer, and its run
-continues. 
-
-Prove that the class of functions computed by 'recursive invisible pebble'
-transducers with unary output alphabets is the same as the class of functions
-computed by 'rational series'.
-
-
-
-## Linear Growth {.exercise .challenging}
-
-Prove that the following are equivalent in the case of $\Nat$-weighted automata:
-
-1. Weighted automata with linear growth.
-2. 2DFTs with unary output.
-
-What about the case of $\Rel$?
 
