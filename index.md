@@ -83,6 +83,7 @@ Here are some of the notions that will be developed during the course
 1. [Two-way Outomata with Output](./session-4.html)
 1. [Regular Functions are Back](./session-5.html)
 1. [Even more regularity](./session-6.html)
+1. [Combinators](./session-7.html)
 
 # Homework
 
