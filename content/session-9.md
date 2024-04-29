@@ -90,20 +90,46 @@ w[i]w[j]$.
 1. Prove that it is definable by an atomic pebble transducer.
 2. Prove that it is not definable by an atomic $2$-pebble transducer.
 
+### Number of outputs {.hint}
+
+Remark that the nested transducer has a bound on the size of its ouptut.
+Indeed, for any fixed $i$, if the output is too large, one letter repeats
+(because of the shape of the output) a lot, which means that the head goes a
+lot of time to some position, and if it is higher than the number of states,
+the automata loops. As a consequence, the output is at most linear.
+
 ## Composition of pebbles ? {.exercise}
 
 Prove that $k$-pebble transducers are not closed under composition.
 
+### Size issues {.hint}
+
+Just compose square twice.
 
 ## I was blind all along {.exercise}
 
-We define *blind* models as models where the pebbles (resp. the variables in a
-for transducer) cannot be read except for the last one.
+We define *blind* models as models where the pebble cannot be read except for
+the last one. In the pebble model, the machine starts in the last position of
+the head of the caller and returns to this position when it pops.
 
-1. Prove that blind pebble transducer are strictly less expressive than
-   pebble transducers.
-2. Prove that blind pebble transducers are not closed under composition.
-3. Prove similar results in the case of for-transducers.
+1. Prove that the list of suffixes can be produced by a *blind* pebble transducer.
+2. Prove that the composition of blind pebble transducers can express squaring.
+3. Prove that blind pebble transducer are strictly less expressive than
+   pebble transducers, because they cannot express squaring.
+4. Conclude that blind pebble transducers are not closed under composition.
+
+
+### Squaring by composition {.hint}
+
+Let $f$ be the function that lists suffixes. We can post-compose $f$ to
+underline the first letter of every suffix. Then, we can post-compose this
+function to prepend to any underlined letter, all the underlined letters that
+come before it in the reverse order. Finally, we can use a map reverse
+operation to put everything in the correct ordering.
+
+### Squaring is not blind {.hint}
+
+**TODO!!**
 
 # Composition of functions
 
@@ -133,6 +159,16 @@ can be realised by an *unnested* for-transducer.
 
 Prove the equivalence between for-transducers and for-transducer with string
 variables having a "single-use" property.
+
+**TODO: what about the for loops? even with single use it is probalematic**
+
+```python
+for i in w:
+    for j in u:
+        v = v aa
+    u = v
+print(u)
+```
 
 # Compression
 
