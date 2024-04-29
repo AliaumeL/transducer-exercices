@@ -54,4 +54,39 @@ refs: |
 
 \newcommand{\toinj}{\hookrightarrow}
 
-TBA.
+# Coding
+
+## Using For-Transducers {.exercise}
+
+Code the following functions 
+
+- [ ] $w \mapsto w w$
+- [ ] $w \mapsto w_{\text{odd}} w_{\text{even}}$
+- [ ] $wa \mapsto aw$
+- [ ] $(ab)^n \mapsto a^n b^n
+- [ ] $x w y \mapsto (xy)^{|w|}$
+- [ ] $\mathbf{1}_{L}$ where $L$ is a regular language
+- [ ] $k$-nested map-reverse
+- [ ] $w \mapsto \prod_{i,j \text{ lex}} w_i w_j$
+
+Describe the number of nested loops used.
+
+## First order ! {.exercise}
+
+Let $L$ be a first-order definable language. White a *monotone* for-program
+that computes $\mathbf{1}_{L}$, i.e., a for-program where the only possible
+assignment of variables is $x := \top$.
+
+## Polyblind {.exercise}
+
+We define polyblind for-transducers are those where
+only the innermost variable loop can be tested against.
+
+1. Prove that those programs do not compose.
+2. Prove that the squaring function (without underscores) is polyblind.
+3. Prove that the squaring function (with underscores) is not polyblind.
+4. Prove that the function that maps $i$ to $\sum_{j \leq i} j$ is polyblind.
+5. Prove that the function that maps $i$ to $\sum_{j \leq i} j$ can be realised
+   by a *monotone* for-program.
+6. Can the function $i \mapsto \sum_{j \leq i} j$ be realised by a *blind*
+   **and** *monotone* for-program?
