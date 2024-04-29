@@ -56,22 +56,130 @@ refs: |
 
 # Lambda-calculus
 
-- [ ] Prove that square (without underscores) is definable
-  in the lambda calculus
-- [ ] Write lambda-terms for the following functions:
-  - [ ] `lowercase`
-  - [ ] `expandtabs`
-  - [ ] `sort`
-  - [ ] `swap`
+## Basic Training {.exercise}
+
+Write lambda-terms for the following functions:
+
+- [ ] `lowercase`
+- [ ] `expandtabs`
+- [ ] `sort`
+- [ ] `swap`
+
+## How to duplicate {.exercise}
+
+Prove that square (without underscores) is definable in the lambda calculus.
+
+## Subject Reduction {.exercise}
+
+Prove that (context) beta reduction and eta expansion preserve typing using the
+classical *subject reduction technique*.
+
+## What is the expressive power of the lambda-calculus? {.exercise}
+
+Prove that the lambda-calculus using linear regular functions without squaring
+is strictly less expressive than the same lambda-calculus with squaring.
+What are the kind of functions computed?
 
 # Pebble transducers
 
-- [ ] blind pebbles vs pebbles
-- [ ] blind pebbles vs "last pebbles" (cf. gaetan)
-- [ ] atomic pebble two pebble transducers cannot compute the product
+## Squaring for atoms {.exercise}
 
-# For transducers with string variables
+Let $f$ be the function that maps $w$ to the string $\prod_{i,j \text{ lex}}
+w[i]w[j]$.
 
-Prove the equivalence between for-transducers and for-transducer
-with string variables having a "single-use" property.
+1. Prove that it is definable by an atomic pebble transducer.
+2. Prove that it is not definable by an atomic $2$-pebble transducer.
+
+## Composition of pebbles ? {.exercise}
+
+Prove that $k$-pebble transducers are not closed under composition.
+
+
+## I was blind all along {.exercise}
+
+We define *blind* models as models where the pebbles (resp. the variables in a
+for transducer) cannot be read except for the last one.
+
+1. Prove that blind pebble transducer are strictly less expressive than
+   pebble transducers.
+2. Prove that blind pebble transducers are not closed under composition.
+3. Prove similar results in the case of for-transducers.
+
+# Composition of functions
+
+## Replacing map reverse? {.exercise}
+
+What happens if one replaces the combinator `map-reverse`
+by `square-map-reverse` in the definition of polyregular functions?
+
+## Weaker squaring {.exercise}
+
+What happens if we replace `square` by `square-without-underlines`
+in the definition of poylregular functions?
+
+# For Transducers 
+
+## Bounded output {.exercise}
+
+Prove that it is decidable whether a for-transducer has bounded
+output.
+
+## Decidability of unnested {.exercise}
+
+Give an algorithm that decides if a for-transducer $f$
+can be realised by an *unnested* for-transducer.
+
+## For transducers with string variables {.exercise}
+
+Prove the equivalence between for-transducers and for-transducer with string
+variables having a "single-use" property.
+
+# Compression
+
+A *straight line program* is a sequence of instructions of the form $x_i := u$
+where $u$ is a finite string, or $x_i := x_j x_k$ with $i > j,k$. The value of
+a straight line program is the value of the last variable.
+
+## Straight line program evaluation {.exercise}
+
+Let $e$ be the evaluation function, from straight line programs to strings.
+Is $e$ a polyregular function?
+
+## Straight-line homomorphic programs {.exercise}
+
+A function $f$ is *straight-line homomorphic* if there exists a *polynomial
+time algorithm* $P$ such that for all straight line program $X$, $f(e(X)) =
+e(P(X))$, where $e$ is the expansion function.
+
+1. Prove that rational functions are straight-line homomorphic.
+2. Prove that regular functions are straight-line homomorphic.
+3. Prove that the *squaring* function is not straight-line homomorphic.
+
+# Self-reduction? {.exercise}
+
+## Evalutation of polyregular functions {.exercise}
+
+Let $P_{k,d}$ be the collection of for-programs with nesting at most $k$, and
+using at most $d$ distinct boolean variables. Prove that the evaluation
+function $e \colon P_{k,d} \times \Sigma^* \to \Gamma^*$ is polyregular. What
+is the increase in the number of loops? Of pebbles?
+
+# Reductions modulo polyregular functions
+
+A *polyregular reduction* of a problem $A$ into a problem $B$ is a polyregular
+function $f$ that maps instances of $A$ into instances of $B$, and such that $x
+\in A$  if and only if $f(x) \in B$. 
+
+## A canonical P-complete language {.exercise}
+
+Let $A$ be the language of strings $(M,w,n)$ such that $M$ is the code of a
+non-deterministic turing machine, and $M(w)$ accepts in time at most $n$, where
+$n$ is written in unary.
+
+1. Prove that the language $A$ is $NP$-complete with respect to polyregular
+   reductions.
+2. Prove that the SAT problem is $NP$-complete with respect to polyregular
+   reductions.
+3. Prove that the 3SAT problem is $NP$-complete with respect to polyregular
+   reductions.
 
