@@ -76,6 +76,16 @@ Let $f_1$ and $f_2$ be two polyregular functions from $\Sigma^*$ to $\Gamma^*$.
 Is it decidable whether $\im{f_1}{\Sigma^*} \cap \im{f_2}{\Sigma^*}
 = \emptyset$?
 
+## Image of linear regular {.exercise}
+
+Let $f$ be a *linear regular* function from $\Sigma^*$ to $\Gamma^*$. We define
+$\mathsf{growth}_f(n)$ to be the maximum among all words $w \in \Sigma^{\leq
+n}$ of the length of $f(w)$.
+Prove that one of the following holds:
+
+1. The function $\growth_f$ is *bounded*.
+2. There exists a linear function $g$ such that $\growth_f \geq g$.
+
 ## For Transducers With Strings {.exercise}
 
 We extend the definition of for-transducer to allow *string* variables that can

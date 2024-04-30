@@ -157,27 +157,6 @@ can be realised by an *unnested* for-transducer.
 Prove the equivalence between for-transducers and for-transducer with string
 variables having a "single-use" property, that cannot be iterated over.
 
-# Compression
-
-A *straight line program* is a sequence of instructions of the form $x_i := u$
-where $u$ is a finite string, or $x_i := x_j x_k$ with $i > j,k$. The value of
-a straight line program is the value of the last variable.
-
-## Straight line program evaluation {.exercise}
-
-Let $e$ be the evaluation function, from straight line programs to strings.
-Is $e$ a polyregular function?
-
-## Straight-line homomorphic programs {.exercise}
-
-A function $f$ is *straight-line homomorphic* if there exists a *polynomial
-time algorithm* $P$ such that for all straight line program $X$, $f(e(X)) =
-e(P(X))$, where $e$ is the expansion function.
-
-1. Prove that rational functions are straight-line homomorphic.
-2. Prove that regular functions are straight-line homomorphic.
-3. Prove that the *squaring* function is not straight-line homomorphic.
-
 # Self-reduction? {.exercise}
 
 ## Evalutation of polyregular functions {.exercise}
@@ -205,4 +184,5 @@ $n$ is written in unary.
    reductions.
 3. Prove that the 3SAT problem is $NP$-complete with respect to polyregular
    reductions.
+
 
