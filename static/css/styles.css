@@ -247,3 +247,13 @@ footer a svg {
 footer a svg path {
     fill: var(--muted-color);
 }
+
+
+
+
+/* TABLES */
+
+article section table thead  {
+    background-color: var(--code-bg);
+    color: var(--font-color);
+}

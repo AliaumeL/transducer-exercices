@@ -105,9 +105,6 @@ unambiguous NFAs  with letter-to-letter output.
 3. Is it decidable whether an unambiguous NFA with letter-to-letter output is
    windowed?
 
-
-
-
 # Semantic properties
 
 ## Semantically Functional {.exercise .warmup}
@@ -117,7 +114,6 @@ conversions.
 
 1. unambiguous NFA with output (i.e. rational functions)
 2. NFA with output which are functional (i.e., for every input, there is exactly one output, which might arise from different runs)
-
 
 
 ## $\star$ Semantically Size Preserving {.exercise .challenging}

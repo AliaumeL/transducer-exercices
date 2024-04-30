@@ -57,23 +57,18 @@ na Uniwersytecie Warszawskim w 2024 roku.
 
 # Upcoming {#a-venir}
 
-- [Two-way automata with output]{data-lang-en="Two-way automata with output"
-                                data-lang-fr="Automates à deux sens avec sortie"
-                                data-lang-pl="Automaty dwukierunkowe z wyjściem"}
+📢
+[A GLOBAL BOUNTY HUNT](./hall-of-fame.html) has been launched!
+📢
 
 # Welcome to the transducer course
 
-Here are some of the notions that will be developed during the course
+In this course, you will learn about *Mealy Machines*, *Automata with outputs*,
+*Regular Functions*, and *Polyregular functions*.
 
-- Mealy Machines
-- Unambiguous nondeterministic automata with output
-- Mealy machines with regular lookahead
-- Two-way automata with output
-- The Krohn-Rhodes theorem and its variations
-- Streaming stream transducers
-- MSO transductions
-- List manipulating functions
-- Polyregular functions
+Many open problems, with varying difficulty are available in the **global
+bounty hunt** program [here](./hall-of-fame.html).
+
 
 # Exercise Sessions
 
@@ -90,3 +85,4 @@ Here are some of the notions that will be developed during the course
 # Homework
 
 1. [First Homework](./homework-1.html)
+1. [Second Homework](./homework-2.html)
