@@ -115,7 +115,7 @@ the head of the caller and returns to this position when it pops.
 1. Prove that the list of suffixes can be produced by a *blind* pebble transducer.
 2. Prove that the composition of blind pebble transducers can express squaring.
 3. Prove that blind pebble transducer are strictly less expressive than
-   pebble transducers, because they cannot express squaring.
+   pebble transducers, because they cannot express squaring (this is quite difficult).
 4. Conclude that blind pebble transducers are not closed under composition.
 
 
@@ -127,9 +127,6 @@ function to prepend to any underlined letter, all the underlined letters that
 come before it in the reverse order. Finally, we can use a map reverse
 operation to put everything in the correct ordering.
 
-### Squaring is not blind {.hint}
-
-**TODO!!**
 
 # Composition of functions
 
@@ -158,17 +155,7 @@ can be realised by an *unnested* for-transducer.
 ## For transducers with string variables {.exercise}
 
 Prove the equivalence between for-transducers and for-transducer with string
-variables having a "single-use" property.
-
-**TODO: what about the for loops? even with single use it is probalematic**
-
-```python
-for i in w:
-    for j in u:
-        v = v aa
-    u = v
-print(u)
-```
+variables having a "single-use" property, that cannot be iterated over.
 
 # Compression
 
