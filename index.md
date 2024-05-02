@@ -84,5 +84,5 @@ bounty hunt** program [here](./hall-of-fame.html).
 
 # Homework
 
-1. [First Homework](./homework-1.html)
+1. [First Homework](./homework-1.html) [and a solution](./static/resources/homework-1-correction.pdf).
 1. [Second Homework](./homework-2.html)
