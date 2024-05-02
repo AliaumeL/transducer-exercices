@@ -51,9 +51,16 @@ This homework is due for the 3nd of June, 18:15 GMT+1. It should be sent to
 <ad.lopez@uw.edu.pl>. Exercises are independent, and can be skipped without
 penalty. Failure to deliver the homework in due time is heavily penalized. 
 
-Exercises without a $\star$ symbol are *mandatory* and should be attempted by
-everyone. Exercises with a $\star$ symbol are *optional* and will be rewarded
-by extra points.
+Please submit your homework in PDF format, and make sure to include your name
+and student identifier in the document. Every exercise should be present in
+your copy, if you fail to solve an exercise, please write "I couldn't solve
+this exercise" and move on to the next one. 
+
+The answers should be written in English. Please keep the answers concise and
+precise. Please separate statements from proofs in your answers, and provide a
+proof (even a short one) for every statement made. Handwaving proofs are not
+accepted. Proofs by intimidation are not accepted. Proofs by obfuscation are
+not accepted.
 
 :::
 
