@@ -36,15 +36,11 @@ PANDOC_TEX_OPTS= --lua-filter filters/remove_exercices.lua \
 				 --bibliography=static/bibtex/papers.bib \
 				 --biblatex \
 		         --number-sections \
-				  --metadata=git-revision:$(shell git rev-parse HEAD) \
-				  --metadata=git-repository:$(shell git remote get-url origin) \
+				 --metadata=git-revision:$(shell git rev-parse HEAD) \
+				 --metadata=git-repository:$(shell git remote get-url origin) \
 		         --template=templates/exercice.tex \
 				 --metadata-file=metadata.yaml \
 		         -t latex
-
-PANDOC_ICAL_OPTS= --metadata=current-time-utc:$(shell date +"%Y%m%dT%H%M%ST") \
-				  --metadata-file=metadata.yaml
-
 
 static/logo/apple-touch-icon.png: static/logo/logo.svg
 	inkscape --export-background-opacity=0 \
