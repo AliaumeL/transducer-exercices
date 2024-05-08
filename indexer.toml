@@ -2,6 +2,17 @@
 base_directory = "content"
 url_prefix = "https://aliaumel.github.io/transducer-exercises"
 files = [
+    {path = "hall-of-fame.md", url = "hall-of-fame.html", title = "Hall of Fame"},
+    {path = "homework-1.md", url = "homework-1.html", title = "Homework 1: Mealy Machines"},
+    {path = "homework-2.md", url = "homework-2.html", title = "Homework 2: Polyregular Functions"},
     {path = "session-1.md", url = "session-1.html", title = "Exercise Session 1: Mealy Machines"},
     {path = "session-2.md", url = "session-2.html", title = "Exercise Session 2: Rational Transductions"},
+    {path = "session-3.md", url = "session-3.html", title = "Exercise Session 3: Logic of Transductions"},
+    {path = "session-4.md", url = "session-4.html", title = "Exercise Session 4: Two-way Automata with Output"},
+    {path = "session-5.md", url = "session-5.html", title = "Exercise Session 5: Regular Functions are Back"},
+    {path = "session-6.md", url = "session-6.html", title = "Exercise Session 6: Even more regularity"},
+    {path = "session-7.md", url = "session-7.html", title = "Exercise Session 7: Combinators"},
+    {path = "session-8.md", url = "session-8.html", title = "Exercise Session 8: Polyregular Functions"},
+    {path = "session-9.md", url = "session-9.html", title = "Exercise Session 9: Lambda Calculus and Pebble Transducers"},
+    {path = "session-10.md", url = "session-10.html", title = "Exercise Session 10: Back to regularity"},
 ]
