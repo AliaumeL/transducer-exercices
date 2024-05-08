@@ -140,3 +140,15 @@ watch:
 
 clean:
 	latexmk -C *.pdf
+	rm -f *.aux
+	rm -f *.log
+	rm -f *.bbl
+	rm -f *.blg
+	rm -f *.fls
+	rm -f *.fdb_latexmk
+	rm -f *.out
+	rm -f *.bcf
+	rm -f *.run.xml
+	rm -f *.synctex.gz
+
+

@@ -63,7 +63,7 @@ Code the following functions
 - [ ] $w \mapsto w w$
 - [ ] $w \mapsto w_{\text{odd}} w_{\text{even}}$
 - [ ] $wa \mapsto aw$
-- [ ] $(ab)^n \mapsto a^n b^n
+- [ ] $(ab)^n \mapsto a^n b^n$
 - [ ] $x w y \mapsto (xy)^{|w|}$
 - [ ] $\mathbf{1}_{L}$ where $L$ is a regular language
 - [ ] $k$-nested map-reverse
