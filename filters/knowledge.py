@@ -83,7 +83,9 @@ def run_knowledge(elem, doc, state):
             return pf.Span(*elem.content,
                             identifier=kl_resolve,
                             classes=["kl-intro"])
-    elif isinstance(elem, pf.Quoted) and elem.quote_type == "SingleQuote":
+    elif ((isinstance(elem, pf.Quoted) and elem.quote_type == "SingleQuote")
+          or
+          (isinstance(elem, pf.Span) and "kref" in elem.classes)):
         if doc.format == "latex":
             return [pf.RawInline("\\kl{", format="latex"),
                     *elem.content,
