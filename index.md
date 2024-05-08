@@ -61,6 +61,11 @@ na Uniwersytecie Warszawskim w 2024 roku.
 [A GLOBAL BOUNTY HUNT](./hall-of-fame.html) has been launched!
 📢
 
+- 🏆 Antoni Puch: congratulations for solving
+  [Windowed Transducers](#windowed-transducers)
+- 🏆 Antoni Puch: congratulations for solving
+  [One Size Fits All](#one-size-fits-all)
+
 # Welcome to the transducer course
 
 In this course, you will learn about *Mealy Machines*, *Automata with outputs*,
@@ -81,6 +86,7 @@ bounty hunt** program [here](./hall-of-fame.html).
 1. [Combinators](./session-7.html)
 1. [Polyregular Functions](./session-8.html)
 1. [Lambda Calculus and Pebble Transducers](./session-9.html)
+1. [Back to regularity](./session-10.html)
 
 # Homework
 

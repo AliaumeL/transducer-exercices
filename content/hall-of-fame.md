@@ -83,8 +83,8 @@ bounty yet, it is indicated with an *empty nest* 🪹.
 | [Nesting Birds](#nesting-birds) | 🌟🌟🌟 | 🪹 |
 | [Bounded Output](#bounded-output) | 🌟🌟 | 🪹 |
 | [Forward Loops Cannot Go Backwards](#forward-loops-cannot-go-backwards) | 🌟 | 🪹 |
-| [Windowed Transducers](#windowed-transducers) | 🌟 | 🪹 |
-| [One Size Fits All](#one-size-fits-all) | 🌟 | 🪹 |
+| [Windowed Transducers](#windowed-transducers) | 🌟 | Antoni Puch |
+| [One Size Fits All](#one-size-fits-all) | 🌟 | Antoni Puch |
 
 
 # Bounties

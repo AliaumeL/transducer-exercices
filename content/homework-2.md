@@ -35,6 +35,8 @@ date: 2024-04-30
 \newcommand{\lowercaseExample}{\mathsf{lowercase}}
 \newcommand{\expandtabs}{\mathsf{expandtabs}}
 \newcommand{\sort}{\mathsf{sort}}
+
+\newcommand{\growth}{\mathsf{growth}}
 \newcommand{\swap}{\mathsf{swap}}
 
 ::: ics-todo
