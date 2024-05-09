@@ -87,8 +87,8 @@ that for all $w \in A^*$ with $|w| \geq N$, there exist $v_0, v_1 \in A^*$, $u
 \beta_n \in B^+$ such that $w = v_0 u v_1$ and 
 
 $$
-f(v_0 u^{X + 1} v_1) = \alpha_0 \beta_1 X
-\alpha_1 \dots \beta_n X \alpha_n \quad  \text{for all} X \geq 0
+f(v_0 u^{X + 1} v_1) = \alpha_0 \beta_1^X
+\alpha_1 \dots \beta_n^X \alpha_n  \quad ,\quad  \text{for all } X \geq 0
 \quad .
 $$
 
@@ -227,6 +227,35 @@ $y_{k,q_2,r,\text{in}}$ to simulate the transition of the SST on $x_k$.
 This new straight-line program is constructed in polynomial time.
 
 # Cheat-Sheet 
+
+## Regular functions {.def}
+
+A function $f: A^* \to B^*$ is called a "regular function" if there exists
+a two-way deterministic finite automaton with outputs (2DFT) that computes $f$.
+Such an automaton has a finite set of states $Q$ with a distinguished initial
+state $q_0$, a transition function function over an extended input alphabet
+$\Sigma = A \cup \set{ \vdash , \dashv }$ to delimit the endpoints of the input
+word. The transition function has the following type $\delta \colon \Sigma
+\times Q \to Q \times \set{ \leftarrow, \downarrow, \rightarrow,  \uparrow }$.
+That is, it can read a letter, change state, move left $\leftarrow$, right
+$\rightarrow$, stay in place $\downarrow$, or exit the computation $\uparrow$.
+
+The output of the automaton is guided by a production function $\lambda \colon
+Q \times \Sigma \to B^*$. That is, for every state and current letter, the
+automaton can produce some word in $B^*$.
+
+A "run of a 2DFT" is a sequence of configurations $(q_i, p_i)$ where $q_i$ is
+the ith state of the computation, and $p_i$ is the ith position of the head
+over an extended input word $\vdash w \dashv$. The run starts in the initial
+state $q_0$, and the initial position $p_0 = 0$ (so on the letter $\vdash$).
+The unique run is defined inductively as one expects using the transition
+function $\delta$. Note that a 'regular function' should guarantee that the run
+does not go *out of bounds* nor *loops forever*.
+
+The production of a run $\rho$ of a 2DFT is the word obtained by concatenating
+the outputs produced by each transition.
+
+
 
 ## The prefixes function {.def}
 
