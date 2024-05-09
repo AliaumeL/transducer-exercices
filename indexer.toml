@@ -1,6 +1,6 @@
 [input]
 base_directory = "content"
-url_prefix = "https://aliaumel.github.io/transducer-exercises"
+url_prefix = "https://aliaumel.github.io/transducer-exercices/"
 files = [
     {path = "hall-of-fame.md", url = "hall-of-fame.html", title = "Hall of Fame"},
     {path = "homework-1.md", url = "homework-1.html", title = "Homework 1: Mealy Machines"},
