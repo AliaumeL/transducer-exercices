@@ -59,9 +59,11 @@ knowledges:
 # The Bounty Board Rules ⚔️
 
 The Bounty Board is a place where you can find tasks to complete. Each task is
-associated with a reward. The rewards are given in terms of points at the end
+associated with a reward. The rewards for each problem are given in terms of points at the end
 of the year, with the following formula: $$ \text{points} = 1 / \text{number of
-bounty hunters} $$. Some bounties have a limited date of completion, and some
+bounty hunters} \quad .$$
+
+Some bounties have a limited date of completion, and some
 are open until the end of the year.
 
 To collect a bounty, you need to send to `ad.lopez@uw.edu.pl` a complete
@@ -71,18 +73,23 @@ will be added to the list of bounty hunters for this task.
 # The Bounty Board 🏆
 
 The board contains columns **Task**, **Difficulty**, and **Bounty Hunters**.
-The difficulty is rated from 🌟 to 🌟🌟🌟🌟🌟, if no-one has collected the
-bounty yet, it is indicated with an *empty nest* 🪹.
+The difficulty is rated from 🌟 to 🌟🌟🌟, if no-one has collected the
+bounty yet, it is indicated with an *empty nest* 🪹. The list of bounty hunters
+that collected the bounty is given in the last column.
+
+For some problems the difficulty is unknown, they look doable but we haven't
+really tried to solve them yet. They could be easy or hard.
 
 
 | Task  |   Difficulty  |   Bounty Hunters  |
 |:--------------|--------------:|------------------:|
-| [Be There Or Be Very Weak Square](#be-there-or-be-very-weak-square) | 🌟🌟🌟🌟 | 🪹 |
-| [Minimising growth](#minimising-growth) | 🌟🌟🌟🌟 | 🪹 |
+| [Be There Or Be Very Weak Square](#be-there-or-be-very-weak-square) | Unknown  | 🪹 |
+| [Forward Loops Cannot Go Backwards](#forward-loops-cannot-go-backwards) | Unknown | 🪹 |
+| [Minimising growth](#minimising-growth) | Unknown | 🪹 |
+|--| -- | -- |
 | [Deatomisation of Bimachines](#deatomisation-of-bimachines) | 🌟🌟🌟 | 🪹 |
 | [Nesting Birds](#nesting-birds) | 🌟🌟🌟 | 🪹 |
 | [Bounded Output](#bounded-output) | 🌟🌟 | 🪹 |
-| [Forward Loops Cannot Go Backwards](#forward-loops-cannot-go-backwards) | 🌟 | 🪹 |
 | [Windowed Transducers](#windowed-transducers) | 🌟 | Antoni Puch |
 | [One Size Fits All](#one-size-fits-all) | 🌟 | Antoni Puch |
 
@@ -91,10 +98,8 @@ bounty yet, it is indicated with an *empty nest* 🪹.
 
 ## Bounded Output {.exercise}
 
-Let $f : \Sigma^* \to \Gamma^*$ be a polyregular function. We say that $f$ has
-bounded output if there exists a constant $N$ such that for all words $w \in
-\Sigma^*$, $|f(w)| \leq N$. Give an algorithm that decides if a polyregular
-function has bounded output.
+Give an algorithm that decides if a polyregular function has finitely many
+distinct outputs.
 
 ## Forward Loops Cannot Go Backwards {.exercise}
 
