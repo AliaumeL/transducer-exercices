@@ -77,6 +77,44 @@ refs: |
 
 \newcommand{\toinj}{\hookrightarrow}
 
+# First Order Logic
+
+## Some Examples {.exercise}
+
+Provide first-order transductions
+that represent the following functions:
+
+1. The function that maps a word $w$ to its reverse.
+2. The function that maps a word
+   $ab^na$ to $(ab)^n (ba)^n$, 
+   $ba^nb$ to $(ba)^n (ab)^n$,
+   and $w$ to $w$ otherwise.
+3. The function that sorts the letter in a word.
+
+## Some Non-Examples {.exercise}
+
+Prove that the following functions are not representable by first-order
+transductions:
+
+1. The function that maps $w$ to $a$ if $w$ is of odd length
+   and $b$ otherwise.
+2. The function that maps $w$ to $w^2$ if $w$ is of even length
+   and $w^3$ otherwise.
+3. Given a non-trivial group $(G, \cdot)$, the function that maps
+   a word $w$ to its image in $G$.
+
+# Lambda Terms
+
+## Extra Functions {.exercise}
+
+Prove that the lambda-calculus becomes strictly more
+expressive when adding the following functions:
+
+1. The trace operator $\mathsf{trace} \colon (A \times B \to A \times B) \to (B
+   \to 1 + B)$ that computes the trace of a function.
+2. The fold operator $\mathsf{fold} \colon (Q \times \Sigma \to Q) \to Q \times
+   \Sigma^* \to Q$.
+
 # Blind again
 
 ## Pumping lemma for regular functions {.exercise}
