@@ -7,6 +7,8 @@ lang: en-GB
 session: 10
 date: 2024-05-34
 knowledges:
+    - synonyms:
+        - regular function
 refs: |
    ::: {#refs}
    :::
