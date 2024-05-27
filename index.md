@@ -87,6 +87,7 @@ bounty hunt** program [here](./hall-of-fame.html).
 1. [Polyregular Functions](./session-8.html)
 1. [Lambda Calculus and Pebble Transducers](./session-9.html)
 1. [Back to regularity](./session-10.html)
+1. [Monoids, finally](./session-11.html)
 
 # Homework
 
