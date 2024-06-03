@@ -13,6 +13,19 @@ other ideas they are welcome:
 3. Add new exercises.
 4. Improve the generation of the website and pdf files.
 
+## Improving website and pdf generation
+
+The website and pdf files are generated using `pandoc` and
+`make`, using custom pandoc filters written in python. The pdf
+generation is then delegated to `xelatex`. 
+
+As a consequence, the project requires a lot of dependencies
+to function properly, and the generation is relatively slow
+(especially for pdfs).
+
+If you have any idea on how to improve the generation process,
+please open an issue or submit a pull request.
+
 ## Writing Exercises
 
 The repository is organized in the following way: for each exercise session

@@ -42,7 +42,14 @@
 
 % Font configuration
 \usepackage{fontspec}
-\setmainfont{Dosis}
+\setmainfont{Dosis}[
+    Path={static/fonts/Dosis/static/},
+    Extension=.ttf,
+    UprightFont=*-Regular,
+    BoldFont=*-Bold,
+    ItalicFont=*-ExtraLight,
+    BoldItalicFont=*-SemiBold
+]
 
 
 % Enviroments

@@ -79,11 +79,35 @@ The following packages are required for the makefile to run smoothly:
 - panflute
 - dateparser (python package)
 - icalendar (python package)
-- a texlive installation
-- the dosis font
+- a texlive installation (with the knowledge package)
 - entr
 - zip
 - gnutar
+- stork
+
+## Dockerised version
+
+To ease the development process, and to simplify the continuous integration and
+deployment a docker image is provided. The latest image is available
+on the Github Container Registry, and can be pulled using the following command:
+
+```bash
+docker pull ghcr.io/aliaumel/transducer-exercices:latest
+```
+
+If you prefer to build the image locally, it suffices to run the following command,
+expected to take a few minutes:
+
+```bash
+docker build -t transducer-exercices .
+```
+
+Then, to compile exercises using the docker image, you can run the following
+
+```bash
+docker run -v $(pwd):/transducer-exercices transducer-exercices make website
+```
+
 
 # How to contribute
 
