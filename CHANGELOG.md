@@ -1,18 +1,12 @@
 # CHANGELOG
 
-## Features
+## v0.0.12
 
-- nix shell environment
-- pdf export
-- HTML static site 
-- knowledge emulation
-- exercise difficulty 
-- partial translations
+- added `content/session-12.md`
+- updated the variables of the `Makefile` to include the git description (tag)
+- created a `Dockerfile` with the necessary dependencies to build the project
+- decomposed the workflows into smaller ones with continuous integrations and github pages
 
-## Content
+## v0.0.11
 
-- main page 
-- session 1: mealy machines 
-- session 2: rational functions
-- homework ideas
-
+- added `content/session-12.md`

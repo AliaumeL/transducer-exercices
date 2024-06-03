@@ -3,32 +3,29 @@ name: Produce Pdf Folder
 on:
   push:
     tags:
-      - '*'
-  workflow_dispatch: 
+      - "*"
+  workflow_dispatch:
 
 jobs:
-  build_release:
-    name: build_release
+  build-assets:
+    uses: ./.github/workflows/continuous-integration.yml
+  build-release:
+    name: build-release
     runs-on: ubuntu-latest
     permissions: write-all
     steps:
-      - name: checkout
-        uses: actions/checkout@v4
+      - name: Get Artifacts (tar)
+        uses: actions/download-artifact@v4
         with:
-          fetch-depth: 0
-      - name: Install Nix
-        uses: cachix/install-nix-action@v25
+          name: exercices-pdf.tar.gz
+      - name: Get Artifacts (zip)
+        uses: actions/download-artifact@v4
         with:
-          nix_path: nixpkgs=channel:nixos-unstable
-      - uses: DeterminateSystems/magic-nix-cache-action@v2
-      - name: Build pdfs.tar.gz
-        run: nix-shell --run "make pdfs.tar.gz"
-      - name: Build pdfs.zip
-        run: nix-shell --run "make pdfs.zip"
+          name: exercices-pdf.zip
       - name: Create the release with artifacts
         uses: softprops/action-gh-release@v1
         with:
           files: |
-            pdfs.tar.gz 
-            pdfs.zip
+            exercises-pdf.tar.gz 
+            exercises-pdf.zip
           body_path: CHANGELOG.md

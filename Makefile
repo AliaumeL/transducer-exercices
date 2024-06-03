@@ -143,7 +143,7 @@ watch:
 	find . -name "*.md" | entr -s "make website && echo reload" | websocat -s 8080
 
 clean:
-	latexmk -C *.pdf
+	latexmk -C *.pdf || true
 	rm -f *.aux
 	rm -f *.log
 	rm -f *.bbl
@@ -154,5 +154,6 @@ clean:
 	rm -f *.bcf
 	rm -f *.run.xml
 	rm -f *.synctex.gz
-
+	rm -f *.diagnose
+	rm -f *.kaux
 
