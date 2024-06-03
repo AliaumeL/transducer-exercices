@@ -14,6 +14,10 @@ BUILD_ENV=templates/exercice.tex \
 		  static/css/styles.css \
 		  static/css/styles-index.css 
 
+REVISION=$(shell git rev-parse HEAD)
+ORIGIN=$(shell git remote get-url origin)
+VERSION=$(shell git describe --tags --always --dirty | sed 's/^\(v[0-9]*\.[0-9]*\.[0-9]*\)-.*/\1/')
+
 PANDOC_HTML_OPTS= --lua-filter filters/remove_exercices.lua \
 				  -F filters/exercice_split.py \
 				  -F filters/knowledge.py \
@@ -23,8 +27,9 @@ PANDOC_HTML_OPTS= --lua-filter filters/remove_exercices.lua \
 				  --citeproc \
 				  -t html5 \
 				  --metadata=live-reload:$(PANDOC_LIVE_RELOAD) \
-				  --metadata=git-revision:$(shell git rev-parse HEAD) \
-				  --metadata=git-repository:$(shell git remote get-url origin) \
+				  --metadata=git-revision:$(REVISION) \
+				  --metadata=git-repository:$(ORIGIN) \
+				  --metadata=git-describe:$(VERSION) \
 				  --section-divs \
 				  --template=templates/website.html \
 				  --metadata-file=metadata.yaml 
@@ -36,8 +41,9 @@ PANDOC_TEX_OPTS= --lua-filter filters/remove_exercices.lua \
 				 --bibliography=static/bibtex/papers.bib \
 				 --biblatex \
 		         --number-sections \
-				 --metadata=git-revision:$(shell git rev-parse HEAD) \
-				 --metadata=git-repository:$(shell git remote get-url origin) \
+				 --metadata=git-revision:$(REVISION) \
+				 --metadata=git-repository:$(ORIGIN) \
+				 --metadata=git-describe:$(VERSION) \
 		         --template=templates/exercice.tex \
 				 --metadata-file=metadata.yaml \
 		         -t latex
@@ -73,8 +79,9 @@ static/logo/logo.png: static/logo/logo.svg
 site/rss/%.xml: content/%.md metadata.yaml $(BUILD_ENV)
 	mkdir -p site/rss
 	pandoc --template=templates/rss-item-template.xml \
-		   --metadata=git-revision:$(shell git rev-parse HEAD) \
-		   --metadata=git-repository:$(shell git remote get-url origin) \
+		   --metadata=git-revision:$(REVISION) \
+		   --metadata=git-repository:$(ORIGIN) \
+		   --metadata=git-describe:$(VERSION) \
 		   --metadata-file=metadata.yaml \
 		   --metadata=filename:"$(basename $(notdir $@))" \
 		   -t html \
@@ -84,8 +91,9 @@ site/rss/%.xml: content/%.md metadata.yaml $(BUILD_ENV)
 site/rss.xml: $(patsubst content/%.md,site/rss/%.xml,$(wildcard content/*.md)) metadata.yaml rss.md $(BUILD_ENV)
 	mkdir -p site
 	pandoc --template=templates/rss-template.xml \
-		   --metadata=git-revision:$(shell git rev-parse HEAD) \
-		   --metadata=git-repository:$(shell git remote get-url origin) \
+		   --metadata=git-revision:$(REVISION) \
+		   --metadata=git-repository:$(ORIGIN) \
+		   --metadata=git-describe:$(VERSION) \
 		   --metadata=lastBuildDate:"$(shell date -R)" \
 		   --metadata-file=metadata.yaml \
 		   -F filters/rss_feed.py \

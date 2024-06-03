@@ -4,17 +4,18 @@ title: Transducers
 subtitle: Monoids (finally)
 email: ad.lopez@uw.edu.pl
 lang: en-GB
-session: 10
-date: 2024-05-34
+session: 11
+date: 2024-05-03
 knowledges:
-    - synonyms:
-        - regular function
+  - synonyms:
+      - regular function
 refs: |
-   ::: {#refs}
-   :::
+  ::: {#refs}
+  :::
 ---
 
 <!-- These are the latex command used in this document --->
+
 \newcommand{\Nat}{\mathbb{N}}
 \newcommand{\Real}{\mathbb{R}}
 \newcommand{\Rel}{\mathbb{Z}}
@@ -24,7 +25,7 @@ refs: |
 
 \newcommand{\satisfies}{\models}
 
-\newcommand{\Mat}[1]{\mathcal{M}_{#1}}
+\newcommand{\Mat}[1]{\mathcal{M}\_{#1}}
 
 \newcommand{\PSet}[1]{\mathcal{P}(#1)}
 
@@ -42,7 +43,7 @@ refs: |
 \newcommand{\graph}{\mathsf{graph}}
 \newcommand{\topartial}{\rightharpoonup}
 \newcommand{\tosurj}{\twoheadrightarrow}
-\newcommand{\prefleq}{\mathrel{\sqsubseteq_{\mathsf{prefix}}}}
+\newcommand{\prefleq}{\mathrel{\sqsubseteq\_{\mathsf{prefix}}}}
 
 \newcommand{\card}[1]{\left| #1 \right|}
 \newcommand{\countval}[1]{\# #1}
@@ -55,7 +56,6 @@ refs: |
 \newcommand{\sort}{\mathsf{sort}}
 \newcommand{\swap}{\mathsf{swap}}
 
-
 \newcommand{\cbs}[2]{\mathsf{cbs}(#1,#2)}
 
 \newcommand{\prefixes}{\mathsf{prefixes}}
@@ -63,8 +63,6 @@ refs: |
 \newcommand{\map}{\mathsf{map}}
 
 \newcommand{\toinj}{\hookrightarrow}
-
-
 
 # Monoids and MSO
 
@@ -75,18 +73,18 @@ a morphism $\mu \colon A^* \to M$ and a subset $P \subseteq M$ such that $L
 = \mu^{-1}(P)$.
 
 1. Prove that a language is regular if and only if it is recognized by a finite
-monoid.
+   monoid.
 2. Use the above result to conclude that regular languages are closed under
-the following operations:
+   the following operations:
    - union,
    - intersection,
    - complement,
    - reversal,
    - concatenation
 3. Prove that the class of regular languages is closed under
-radicals $\sqrt{L} \defined \setof{ w \in A^* }{ ww \in L }$.
-4. Prove that the class of regular language is closed under 
-Kleene star.
+   radicals $\sqrt{L} \defined \setof{ w \in A^* }{ ww \in L }$.
+4. Prove that the class of regular language is closed under
+   Kleene star.
 
 ## From MSO to Monoids {.exercise}
 
@@ -109,7 +107,6 @@ $w[x:y]$ evaluates to $m$.
 
 If the monoid is aperiodic, can you write this formula in $\FO$?
 
-
 # Factorisation Forests
 
 ## Baby Factorisation Forest {.exercise}
@@ -120,16 +117,16 @@ for every $w \in M^*$ with $|w| \geq N$, there exist $v_0, v_1 \in M^*$, and $u
 
 ## First-order Factorisation Forests {.exercise}
 
-Let $M$ be a finite *aperiodic* monoid. Prove that there exists a constant $N$
+Let $M$ be a finite _aperiodic_ monoid. Prove that there exists a constant $N$
 such that for every $w \in M^*$, one can build a factorisation of $w$ of depth
-at most $N$, where idempotent products are replaced by *constant* products.
+at most $N$, where idempotent products are replaced by _constant_ products.
 
 ## Pumping lemma for regular functions {.exercise}
 
 Let $f$ be a [regular function]{.kref}. Prove that there exists $N \geq 0$ such
 that for all $w \in A^*$ with $|w| \geq N$, there exist $v_0, v_1 \in A^*$, $u
 \in A^+$, $n \geq 0$, $\alpha_0, \dots, \alpha_n \in B^*$, $\beta_1, \dots,
-\beta_n \in B^+$ such that $w = v_0 u v_1$ and 
+\beta_n \in B^+$ such that $w = v_0 u v_1$ and
 
 $$
 f(v_0 u^{X + 1} v_1) = \alpha_0 \beta_1^X
