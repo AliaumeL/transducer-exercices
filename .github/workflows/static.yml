@@ -22,21 +22,26 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  build-assets:
-    uses: ./.github/workflows/continuous-integration.yml
-  # Single deploy job since we're just deploying
   deploy:
     name: Deploy the static website to github pages
     runs-on: ubuntu-latest
-    needs: build-assets
+    container:
+      image: ghcr.io/aliaumel/transducer-exercices:main
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Get Artifacts
-        uses: actions/download-artifact@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Builds the static website
+        run: |
+          git config --global --add safe.directory /__w/transducer-exercices/transducer-exercices
+          make static-website.tar.gz
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
         with:
-          name: static-website
+          name: static-website.tar.gz
+          path: static-website.tar.gz
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
@@ -44,7 +49,7 @@ jobs:
         with:
           # Upload the "site" folder
           name: static-website
-          path: static-website
+          path: ./site
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4

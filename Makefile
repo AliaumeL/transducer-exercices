@@ -120,6 +120,9 @@ website: $(LOGOS) $(patsubst content/%.md,site/%.html,$(wildcard content/*.md)) 
 	mkdir -p site/static
 	cp -r static/* site/static/
 
+static-website.tar.gz: website
+	tar -czf $@ site
+
 pdfs: $(patsubst content/%.md,latex/%.pdf,$(wildcard content/*.md))
 	cp *.pdf latex/
 
