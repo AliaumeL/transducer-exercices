@@ -40,11 +40,11 @@ COPY --from=builder /bin/bin/stork /bin/stork
 # using the same version as the
 # biblatex package in the texlive distribution
 RUN tlmgr update --self
-RUN tlmgr update     \
+RUN tlmgr install     \
           knowledge  \
           currfile   \
-          biber      \
           tikz-cd    
+RUN tlmgr update biber biblatex
 
 # we add to pandoc/latex
 # the following binary packages
