@@ -119,6 +119,8 @@ refs: |
 
 \newcommand{\toinj}{\hookrightarrow}
 
+
+
 # Deciding Growth of Unary Output
 
 The goal of this longer exercise is to prove the following statement relating
@@ -160,7 +162,7 @@ where $f \otimes g$ is defined by $(f \otimes g)(w) \defined \sum_{uv = w} f(u)
 Prove that for all $n \in \Nat$,
 we have $\ZPoly[n+1] = \Span(\setof{ \ind{L} \otimes f }{ f \in \ZPoly[n] })$.
 
-## Polyregular Functions and Matrices
+## Polyregular Functions and Matrices {.exercise}
 
 Let $f$ be a 'Z-rational series' defined by a minimal representation $(I, \mu, F)$.
 Let $w \in \Sigma^*$ and $\lambda \in \Spec(\mu(w))$. There exist
@@ -170,22 +172,23 @@ words $u_1, v_1, \dots, u_n, v_n \in \Sigma^*$ such that
 $$
 \lambda^X
 =
-\sum_{i,j = 1}^n \alpha_{i,i} f(v_i w^X u_j) \quad \forall X \geq 0 \quad .
+\sum_{i,j = 1}^n \alpha_{i,j} f(v_i w^X u_j) \quad \forall X \geq 0 \quad .
 $$
 
-To prove the statement, you can use the fact that in a minimal representation
-and therefore that $\Span[\Rat](\setof{ \mu(w)F }{ u \in \Sigma^*} )
-= \Rat^n$, and $\Span[\Rat](\setof{ I\mu(w) }{ u \in \Sigma^* })
-= \Rat^n$.
+To prove the statement, you can use the fact that in a minimal representation,
+and therefore that  $\Span[\Rat](\setof{ \mu(w)F }{ u \in \Sigma^*})$ equals
+$\Rat^n$. Similarly, for a minimal representation, $\Span[\Rat](\setof{ I\mu(w)
+}{ u \in \Sigma^* })$ equals $\Rat^n$.
 
-## Ultimately polynomial functions
+## Ultimately polynomial functions {.exercise}
 
 Let $f$ be a function from $\Sigma^*$ to $\Rel$.
 Prove that the following are equivalent:
 
-2. $f$ is a 'Z-rational series' that is 'ultimately N-polynomial'
+1. $f$ is a 'Z-rational series' that has polynomial growth,
+2. $f$ is a 'Z-rational series' that is 'ultimately N-polynomial',
 3. $f$ is a 'Z-rational series' with eigenvalues in $\mathbb{U} \cup \set{0}$,
-4. $f$ is a 'Z-rational series' with eigenvalues in $B(0,1)$
+4. $f$ is a 'Z-rational series' with eigenvalues in $B(0,1)$.
 
 Where "ultimately N-polynomial" means that for all pumping patterns, there
 exists a polynomial $P$ such that 
@@ -197,7 +200,13 @@ f( \alpha_0 w_1^{NX_1} \alpha_1 w_2^{NX_2}
 are large enough} \quad .
 $$
 
-## Growth of Unary Output
+You may also use the following corollary of [@BERE10, Corollary  2.6 page 159] stating
+
+> Let $f$ be a 'Z-rational series' of growth rate $O(n^d)$. Then $f$
+> belongs to span of the products of at most $q + 1$ characteristic series of
+> rational languages.
+
+## Growth of Unary Output {.exercise}
 
 Let $f$ be an 'N-polyregular function'.
 Prove the following equivalences:
@@ -219,7 +228,7 @@ function $g$ from $\Sigma^*$ to trees of bounded depth such that $f(w)
 = h \circ g(w)$ where $h$ counts the number of patterns of certain shapes in
 the tree.
 
-## Growth when negative values are allowed
+## Growth when negative values are allowed {.exercise}
 
 Let $f$ be a 'Z-polyregular function'.
 Prove the following equivalences:
@@ -292,7 +301,8 @@ e(P(X))$, where $e$ is the expansion function.
 1. Prove that $\prefixes$ is not straight-line homomorphic.
 2. Prove that [regular functions]{.kref} are straight-line homomorphic.
 
-### Solution {.solution}
+### Proof of the first implication {.solution}
+
 
 It is clear that $\prefixes$ is not straight-line homomorphic because
 $\prefixes(a^n)$ cannot be compressed in less than $n$ instructions, while
@@ -300,28 +310,44 @@ $a^n$ can be compressed in $O(\log(n))$ instructions. If $\prefixes$ were
 straight-line homomorphic, then the compression of $\prefixes(a^n)$ would be
 doable in $O(P(\log(n)))$ instructions.
 
----
+### Sketch of the second implication using Monoids {.solution}
 
 For the second part. Let $f$ be computed by a copyless SST with states $Q$,
-registers $\set{1, \dots, n}$, and output function $F$.
-We construct our program $P$ as follows.
+registers $\set{1, \dots, n}$, and output function $F$. The sketch of the proof
+is as follows: we construct the transition monoid of the SST, and prove that we
+can encode it inside a straight line program.
 
-For every states $q_1, q_2 \in Q$, for every variable $x_i$ in the straight
-line program for the input word, for every register $r \in \set{1, \dots, n}$,
-we create two variables $y_{i,q_1,r,\text{in}}$ and $y_{i,q_2,r,\text{out}}$.
-These are meant to encode the transitions of the SST on the word $x_i$ if it
-were to start in state $q_1$, and end up in state $q_2$, with initial values of
-the registers being $y_{i,q_1,r,\text{in}}$, and with the final values of the
-registers (after reading $x_i$) stored in $y_{i,q_2,r,\text{out}}$.
+To a word $w$ we associate the function from $Q \times (\Gamma^*)^n \to
+Q \times (\Gamma^*)^n$ that maps a state $q$ and a tuple of registers $r$ to
+the state $q'$ and the tuple of registers $r'$ that the SST would be in after
+reading $w$ starting in state $q$ and with registers $r$. Note that this monoid
+is finitely generated, but is not finite, because of the unbounded
+values in the registers.
 
-Now, it is easy to write the straight line program that uses these variables to
-simulate the SST on the input word. For a single letter $x_i \defined a$, this
-is just a transition of the SST. For a concatenation $x_i \defined x_j x_k$, we
-use the intermediate variables $y_{j,q_1,r,\text{out}}$ to simulate the
-transition of the SST on $x_j$, and then use the intermediate variables
-$y_{k,q_2,r,\text{in}}$ to simulate the transition of the SST on $x_k$.
+However, the program is *copyless*, meaning that the value in a register is
+a function of the form $r_i' \leftarrow \alpha_0 r_{j_0} \alpha_1 r_{j_1}
+\dots$ where the $\alpha$'s are constants in $\Gamma^*$, and the indices $j_k$
+are distinct. In particular, since we can only use each register once, we have
+at most $n+1$ words $\alpha_0, \dots, \alpha_n$ in the update function.
+
+Now, we will encode the transition of a word $w$ in a straight line program by
+using variables $y_{i,q,r}$ that encode the $i$th word $\alpha$ in the update
+function of the register $r$ after reading $w$ if starting in state $q$.
+These can be composed to simulate the transition of the SST on the input word.
 
 This new straight-line program is constructed in polynomial time.
+
+### Proof of the second implication using Krohn–Rhodes decompositions {.solution}
+
+Remark that functions that can be efficiently evaluated over compressed strings
+are closed under composition. Therefore, it is enough to prove that the
+basic functions in a Krohn–Rhodes decomposition can be evaluated efficiently.
+
+It is clear that any homomorphism can be efficiently evaluated. For mealy
+machines, it is very simple, as one can encode the transition monoid inside the
+decomposition. For map-duplicate and map-reverse, a simple straight-line
+program can be constructed.
+
 
 # Cheat-Sheet
 
